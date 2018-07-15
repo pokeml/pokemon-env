@@ -1,2 +1,2 @@
 # pokemon-battle-ai
-An artificial intelligence for playing Pokémon battles
+An artificial intelligence that plays Pokémon
