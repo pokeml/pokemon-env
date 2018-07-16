@@ -5,14 +5,12 @@
 
 'use strict';
 
+const Battle = require('../state-tracking/battle')
 const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
 
-/**
- * @param {number[]} array
- */
-function randomElem(array) {
-	return array[Math.floor(Math.random() * array.length)];
-}
+const utils = require('../../utils/utils');
+const randomElem = utils.randomElem;
+const splitFirst = utils.splitFirst;
 
 class TemplatePlayerAI extends BattleStreams.BattlePlayer {
     /**
@@ -20,12 +18,14 @@ class TemplatePlayerAI extends BattleStreams.BattlePlayer {
 	 */
 	constructor(playerStream, debug = false) {
 		super(playerStream, debug);
+        this.battle = new Battle(null, null);
 	}
 
 	/**
      * @param {AnyObject} request
 	 */
 	receiveRequest(request) {
+        this.battle.play();
         if (!request.wait) {
             this.choose(`default`);
         }
@@ -35,7 +35,23 @@ class TemplatePlayerAI extends BattleStreams.BattlePlayer {
      * @param {string} line
      */
     receiveLine(line) {
-		super.receiveLine(line);
+        // console.log(this.log);
+        console.log(line);
+        // this.battle.run(line);
+        if (this.debug) console.log(line);
+		if (line.charAt(0) !== '|') return;
+		const [cmd, rest] = splitFirst(line.slice(1), '|');
+		if (cmd === 'request') {
+            // wait until we received more battle information until we act
+            // TODO: implement properly
+            setTimeout(() => {this.receiveRequest(JSON.parse(rest));}, 10);
+            return;
+		}
+		if (cmd === 'error') {
+			throw new Error(rest);
+		}
+        this.battle.activityQueue.push(line);
+		this.log.push(line);
     }
 }
 
