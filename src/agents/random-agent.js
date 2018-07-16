@@ -6,12 +6,8 @@
 
 const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
 
-/**
- * @param {number[]} array
- */
-function randomElem(array) {
-	return array[Math.floor(Math.random() * array.length)];
-}
+const utils = require('../../utils/utils');
+const randomElem = utils.randomElem;
 
 class RandomPlayerAI extends BattleStreams.BattlePlayer {
 	/**
