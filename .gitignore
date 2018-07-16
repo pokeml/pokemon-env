@@ -3,4 +3,6 @@ tsconfig.json
 package.json
 package-lock.json
 
+src/state-tracking-ts/
+
 .DS_Store
