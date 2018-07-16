@@ -5,7 +5,7 @@
 
 'use strict';
 
-const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
+const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
 
 /**
  * @param {number[]} array
@@ -15,6 +15,13 @@ function randomElem(array) {
 }
 
 class TemplatePlayerAI extends BattleStreams.BattlePlayer {
+    /**
+	 * @param {ObjectReadWriteStream} playerStream
+	 */
+	constructor(playerStream, debug = false) {
+		super(playerStream, debug);
+	}
+
 	/**
      * @param {AnyObject} request
 	 */
@@ -28,7 +35,6 @@ class TemplatePlayerAI extends BattleStreams.BattlePlayer {
      * @param {string} line
      */
     receiveLine(line) {
-        console.log(line);
 		super.receiveLine(line);
     }
 }

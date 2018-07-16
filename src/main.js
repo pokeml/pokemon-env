@@ -4,13 +4,13 @@
 
 'use strict';
 
-const BattleStreams = require('./Pokemon-Showdown/sim/battle-stream');
-const Dex = require('./Pokemon-Showdown/sim/dex');
+const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
+const Dex = require('../Pokemon-Showdown/sim/dex');
 const RandomPlayerAI = require('./agents/random-agent.js')
 const SimplePlayerAI = require('./agents/simple-agent.js')
 const TemplatePlayerAI = require('./agents/template-agent.js')
 
-const teams = require('./data/teams')
+const teams = require('../data/teams')
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
 
@@ -26,7 +26,7 @@ const p2spec = {
 	team: teams['gen7ou'][1],
 };
 
-const p1 = new TemplatePlayerAI(streams.p1);
+const p1 = new TemplatePlayerAI(streams.p1, true);
 const p2 = new RandomPlayerAI(streams.p2);
 
 // (async () => {
