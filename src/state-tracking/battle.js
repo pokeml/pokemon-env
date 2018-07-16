@@ -86,23 +86,6 @@ class Pokemon {
     isActive() {
         return this.side.active.includes(this);
     }
-    getHPColor() {
-        if (this.hpcolor)
-            return this.hpcolor;
-        let ratio = this.hp / this.maxhp;
-        if (ratio > 0.5)
-            return 'g';
-        if (ratio > 0.2)
-            return 'y';
-        return 'r';
-    }
-    getHPColorClass() {
-        switch (this.getHPColor()) {
-            case 'y': return ' hpbar-yellow';
-            case 'r': return ' hpbar-red';
-        }
-        return '';
-    }
     getPixelRange(pixels, color) {
         let epsilon = 0.5 / 714;
         if (pixels === 0)
@@ -839,7 +822,6 @@ class Side {
         }
         this.active[slot] = pokemon;
         pokemon.slot = slot;
-        pokemon.sprite.animSummon(pokemon, slot, true);
         // not sure if we want a different callback
         if (this.battle.dragCallback)
             this.battle.dragCallback(this.battle, this);
@@ -1113,8 +1095,6 @@ class Battle {
         this.sides[1] = this.yourSide;
         this.sides[0].n = 0;
         this.sides[1].n = 1;
-        this.sides[0].updateSprites();
-        this.sides[1].updateSprites();
     }
     //
     // activities
