@@ -8,25 +8,25 @@ const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
 const Dex = require('../Pokemon-Showdown/sim/dex');
 const RandomPlayerAI = require('./agents/random-agent')
 const SimplePlayerAI = require('./agents/simple-agent')
-const TemplatePlayerAI = require('./agents/template-agent')
+const BasePlayerAI = require('./agents/base-agent')
 
 const teams = require('../data/teams')
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
 
 const spec = {
-	formatid: "gen7customgame",
+	formatid: "gen7ou" // "gen7customgame"
 };
 const p1spec = {
 	name: "Bot 1",
-	team: Dex.packTeam(Dex.generateTeam('gen7randombattle')),
+	team: teams['gen7ou'][0] // Dex.packTeam(Dex.generateTeam('gen7randombattle'))
 };
 const p2spec = {
 	name: "Bot 2",
-	team: Dex.packTeam(Dex.generateTeam('gen7randombattle')),
+	team: teams['gen7ou'][1] // Dex.packTeam(Dex.generateTeam('gen7randombattle'))
 };
 
-const p1 = new TemplatePlayerAI(streams.p1);
+const p1 = new BasePlayerAI(streams.p1, true);
 const p2 = new RandomPlayerAI(streams.p2);
 
 // (async () => {
