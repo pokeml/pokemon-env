@@ -919,7 +919,7 @@ var Playback;
     Playback[Playback["Seeking"] = 5] = "Seeking";
 })(Playback || (Playback = {}));
 class Battle {
-    constructor($frame, $logFrame, id = '') {
+    constructor(id = '') {
         this.sidesSwitched = false;
         // activity queue
         this.activityQueue = [];
