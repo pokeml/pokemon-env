@@ -923,7 +923,6 @@ class Battle {
         this.sidesSwitched = false;
         // activity queue
         this.activityQueue = [];
-        this.preemptActivityQueue = [];
         this.minorQueue = [];
         this.activityStep = 0;
         this.fastForward = 0;
@@ -4113,11 +4112,6 @@ class Battle {
             this.activityQueue.push(command);
         }
     }
-    instantAdd(command) {
-        this.run(command, true);
-        this.preemptActivityQueue.push(command);
-        this.add(command);
-    }
     runMajor(args, kwargs, preempt) {
         switch (args[0]) {
             case 'start': {
@@ -4507,10 +4501,6 @@ class Battle {
         }
     }
     run(str, preempt) {
-        if (this.preemptActivityQueue.length && str === this.preemptActivityQueue[0]) {
-            this.preemptActivityQueue.shift();
-            return;
-        }
         if (!str)
             return;
         if (str.charAt(0) !== '|' || str.substr(0, 2) === '||') {
