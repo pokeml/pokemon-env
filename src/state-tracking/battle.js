@@ -939,7 +939,6 @@ class Battle {
         this.endCallback = null;
         this.customCallback = null;
         this.errorCallback = null;
-        this.mute = false;
         this.messageFadeTime = 300;
         this.messageShownTime = 1;
         this.turnsSinceMoved = 0;
@@ -4679,9 +4678,6 @@ class Battle {
             }
         } */
         this.playbackState = Playback.Ready;
-    }
-    setMute(mute) {
-        BattleSound.setMute(mute);
     }
 }
 
