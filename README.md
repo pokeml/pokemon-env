@@ -1,5 +1,5 @@
 # Pokémon Battle AI
-This project is an attempt to build a strong Pokémon AI.
+This project is an attempt to build a strong Pokémon AI. Check out our [wiki](https://github.com/pokeml/pokemon-battle-ai/wiki) for more info.
 
 ## Getting Started
 
