@@ -39,11 +39,9 @@ class Agent {
      * @param {string} chunk
      */
     _receive(chunk) {
-        if (this.debug) console.log('>>>'.gray);
 		for (const line of chunk.split('\n')) {
 			this._receiveLine(line);
 		}
-        if (this.debug) console.log('<<<'.gray);
         if (this._receivedRequest && this._receivedBattleUpdate) {
             this._receivedBattleUpdate = false;
             this._receivedRequest = false;
@@ -51,7 +49,7 @@ class Agent {
             const actionSpace = this._getActionSpace();
             const action = this.act(this._battle, actionSpace);
             if (!actionSpace.includes(action)) {
-                throw new Error('invalid action');
+                throw new Error(`invalid action: ${action}`);
             }
             this._choose(action);
         }
@@ -142,10 +140,10 @@ class Agent {
      * Select an action.
      *
      * @param {Battle} battle
-     * @param {string[]} actions
+     * @param {string[]} actionSpace
      * @return {string} action
      */
-    act(battle, actions) {
+    act(battle, actionSpace) {
         throw new Error('must be overridden by subclass');
     }
 }
