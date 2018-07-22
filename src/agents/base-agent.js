@@ -1,91 +1,153 @@
 /**
- * An agent with basic state tracking. Intended to serve as a basis for
- * developing smart agents.
+ * The base class for all battle agents. Currently only for single battle formats.
+ * Based on https://github.com/Zarel/Pokemon-Showdown/blob/master/sim/battle-stream.js#L221.
  */
 
 'use strict';
 
 const colors = require('colors');
+const Battle = require('../state-tracking/battle');
+const splitFirst = require('../../utils/utils').splitFirst;
 
-const Battle = require('../state-tracking/battle')
-const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
+const battleUpdateCommands = new Set(['move', 'switch', 'teampreview']); // TODO: add more commands
 
-const utils = require('../../utils/utils');
-const splitFirst = utils.splitFirst;
-
-class BasePlayerAI extends BattleStreams.BattlePlayer {
-    /**
+class Agent {
+	/**
 	 * @param {ObjectReadWriteStream} playerStream
 	 */
 	constructor(playerStream, debug = false) {
-		super(playerStream, debug);
-        this.battle = new Battle();
+		this._stream = playerStream;
+        this._currentRequest = null;
+        this._receivedBattleUpdate = false;
+        this._receivedRequest = false;
+        this._battle = new Battle();
+
+        this.log = /** @type {string[]} */ ([]);
+		this.debug = debug;
+
+		this._listen();
 	}
 
-	/**
-     * Choose an action given a request.
-     *
-     * @param {AnyObject} request
-	 */
-	receiveRequest(request) {
-        this.battle.play();
-        if (!request.wait) {
-            if (this.debug)
-                this.displayBattleState();
-            this.choose(`default`);
+	async _listen() {
+		let chunk;
+		while ((chunk = await this._stream.read())) {
+			this._receive(chunk);
+		}
+	}
+
+    /**
+     * @param {string} chunk
+     */
+    _receive(chunk) {
+        if (this.debug) console.log('>>>'.gray);
+		for (const line of chunk.split('\n')) {
+			this._receiveLine(line);
+		}
+        if (this.debug) console.log('<<<'.gray);
+        if (this._receivedRequest && this._receivedBattleUpdate) {
+            this._receivedBattleUpdate = this._receivedRequest = false;
+            if (this._currentRequest.wait) return;
+            const actionSpace = this._getActionSpace();
+            const action = this.act(this._battle, actionSpace, this._currentRequest);
+            if (!actionSpace.includes(action)) {
+                throw new Error('invalid action');
+            }
+            this._choose(action);
         }
 	}
 
     /**
-     * Receive an observation.
-     *
-     * @param {string} line
-     */
-    receiveLine(line) {
-        if (this.debug) console.log(`${line}`.gray);
+	 * @param {string} line
+	 */
+	_receiveLine(line) {
+		if (this.debug) console.log(`${line}`.gray);
 		if (line.charAt(0) !== '|') return;
 		const [cmd, rest] = splitFirst(line.slice(1), '|');
+        if (battleUpdateCommands.has(cmd)) {
+            this._receivedBattleUpdate = true;
+        }
 		if (cmd === 'request') {
-            // wait until we received more battle information until we act
-            // TODO: implement properly with callbacks
-            setTimeout(() => {this.receiveRequest(JSON.parse(rest));}, 50);
-		}
-		else if (cmd === 'error') {
-			throw new Error(rest);
-		}
-        this.battle.activityQueue.push(line);
+            this._receivedRequest = true;
+            this._currentRequest = JSON.parse(rest);
+            return;
+		} else if (cmd === 'error') {
+            throw new Error(rest);
+        }
+        this._battle.activityQueue.push(line);
 		this.log.push(line);
-    }
+	}
 
     /**
-     * Display a brief summary of the current battle state in the console.
+     * Return a list of all possible actions. Works only for single battles.
+     * TODO: adapt for double and triple battles
      */
-    displayBattleState() {
-        // Battle info
-        console.log(`Turn ${this.battle.turn}`);
-        if (this.battle.weather)
-            console.log(`Weather: ${this.battle.weather}`);
-        if (this.battle.pseudoWeather && this.battle.pseudoWeather.length)
-            console.log(`Pseudo weather: ${this.battle.pseudoWeather}`);
-        console.log('---');
-        // Own side info
-        if (this.battle.mySide.sideCondition)
-            console.log(this.battle.mySide.sideCondition);
-        this.battle.mySide.pokemon.map(poke => {
-            console.log(poke.name + ' ' + poke.hp + '/' + poke.maxhp +
-                (poke.status ? (' ' + poke.status) : '') +
-                (poke.isActive() ? ' active' : ''));
-        });
-        console.log('---');
-        // Opponent side info
-        if (this.battle.yourSide.sideCondition)
-            console.log(this.battle.yourSide.sideCondition);
-        this.battle.yourSide.pokemon.map(poke => {
-            console.log(poke.name + ' ' + poke.hp + '/' + poke.maxhp +
-                (poke.status ? (' ' + poke.status) : '') +
-                (poke.isActive() ? ' active' : ''));
-        });
+    _getActionSpace() {
+        const request = this._currentRequest;
+        if (request.forceSwitch) {
+			const pokemon = request.side.pokemon;
+            const switches = [1, 2, 3, 4, 5, 6].filter(i => (
+                // not active
+                !pokemon[i - 1].active &&
+                // not fainted
+                !pokemon[i - 1].condition.endsWith(' fnt')
+            ));
+            return switches.map(i => `switch ${i}`);
+		} else if (request.active) {
+            const active = request.active[0];
+            const pokemon = request.side.pokemon;
+            let actionSpace = [];
+            // moves
+            const moves = [1, 2, 3, 4].slice(0, active.moves.length).filter(i => (
+                // not disabled
+                !active.moves[i - 1].disabled
+            ));
+            actionSpace.push(...moves.map(i => `move ${i}`));
+            // moves + mega evo
+            if (active.canMegaEvo) {
+                actionSpace.push(...moves.map(i => `move ${i} mega`));
+            }
+            // zmoves
+            if (active.canZMove) {
+                const zmoves = [1, 2, 3, 4].slice(0, active.canZMove.length).filter(i =>
+                    active.canZMove[i - 1]
+                );
+                actionSpace.push(...zmoves.map(i => `move ${i} zmove`));
+            }
+            // switches
+            const switches = [1, 2, 3, 4, 5, 6].filter(i => (
+                // not active
+                !pokemon[i - 1].active &&
+                // not fainted
+                !pokemon[i - 1].condition.endsWith(' fnt')
+            ));
+            actionSpace.push(...switches.map(i => `switch ${i}`));
+            return actionSpace;
+		} else if (request.wait) {
+            return [];
+        }
+        return ['default'];
+    }
+
+	/**
+	 * Write a choice to the stream.
+     *
+	 * @param {string} choice
+	 */
+	_choose(choice) {
+		this._stream.write(choice);
+	}
+
+    /**
+     * Select an action.
+     *
+     * @param {Battle} battle
+     * @param {string[]} actions
+     * @param {AnyObject} info
+     * @return {string} action
+     */
+    act(battle, actions, info) {
+        throw new Error('must be overridden by subclass');
     }
 }
 
-module.exports = BasePlayerAI;
+module.exports = Agent;
