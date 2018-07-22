@@ -5,25 +5,26 @@
 'use strict';
 
 const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
-const Dex = require('../Pokemon-Showdown/sim/dex');
 const RandomAgent = require('./agents/random-agent');
 const teams = require('../data/teams');
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
 
 const spec = {
-	formatid: "gen7ou" // "gen7customgame"
+    formatid: 'gen7ou',
 };
 const p1spec = {
-	name: "Bot 1",
-	team: teams['gen7ou'][0] // Dex.packTeam(Dex.generateTeam('gen7randombattle'))
+    name: 'Bot 1',
+    team: teams['gen7ou'][0],
 };
 const p2spec = {
-	name: "Bot 2",
-	team: teams['gen7ou'][1] // Dex.packTeam(Dex.generateTeam('gen7randombattle'))
+    name: 'Bot 2',
+    team: teams['gen7ou'][1],
 };
 
+// eslint-disable-next-line no-unused-vars
 const p1 = new RandomAgent(streams.p1, true);
+// eslint-disable-next-line no-unused-vars
 const p2 = new RandomAgent(streams.p2);
 
 // (async () => {

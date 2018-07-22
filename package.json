@@ -17,7 +17,10 @@
     "url": "https://github.com/pokeml/pokemon-battle-ai/issues"
   },
   "homepage": "https://github.com/pokeml/pokemon-battle-ai#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-config-google": "^0.9.1"
+  },
   "dependencies": {
     "colors": "^1.3.0",
     "underscore": "^1.9.1"

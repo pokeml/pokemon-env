@@ -1,14 +1,21 @@
+'use strict';
+
+const BattleAgent = require('./base-agent');
+const _ = require('underscore');
+
 /**
  * An agent that chooses actions uniformly at random.
  */
-
-'use strict';
-
-const BattleAgent = require('./base-agent')
-const _ = require('underscore');
-
 class RandomAgent extends BattleAgent {
-	act(battle, actions, info) {
+    /**
+     * Choose an action.
+     *
+     * @param {AnyObject} battle
+     * @param {string[]} actions
+     * @param {AnyObject} info
+     * @return {string}
+     */
+    act(battle, actions, info) {
         return _.sample(actions);
     }
 }
