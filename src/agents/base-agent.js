@@ -52,7 +52,7 @@ class Agent {
             // act
             if (this._currentRequest.wait) return;
             const actionSpace = this._getActionSpace();
-            const action = this.act(this._battle, actionSpace);
+            const action = this.act(this._battle, actionSpace, this._currentRequest);
             if (!actionSpace.includes(action)) {
                 throw new Error(`invalid action: ${action}`);
             }
@@ -126,7 +126,24 @@ class Agent {
             ));
             actionSpace.push(...switches.map(i => `switch ${i}`));
             return actionSpace;
-		} else if (request.wait) {
+		} else if (request.teamPreview) {
+            // TODO: formats where max team size is limited
+            let actionSpace = [];
+            const teamSize = request.side.pokemon.length;
+            if (teamSize > 6) {
+                throw new Error(`team size > 6: ${teamSize}`);
+            }
+            for (let i = 1; i <= teamSize; i++) {
+                let team = [];
+                for (let j = 1; j <= teamSize; j++) {
+                    if (j == 1) team.push(i);
+                    else if (j == i) team.push(1);
+                    else team.push(j);
+                }
+                actionSpace.push(`team ${team.join('')}`);
+            }
+            return actionSpace;
+        } else if (request.wait) {
             return [];
         }
         return ['default'];
@@ -145,10 +162,11 @@ class Agent {
      * Select an action.
      *
      * @param {Battle} battle
-     * @param {string[]} actionSpace
+     * @param {string[]} actions
+     * @param {AnyObject} info
      * @return {string} action
      */
-    act(battle, actionSpace) {
+    act(battle, actions, info) {
         throw new Error('must be overridden by subclass');
     }
 }
