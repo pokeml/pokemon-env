@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Pokemon Showdown Dex Data
  *
@@ -17,89 +17,89 @@
 const BattleNatures = {
     Adamant: {
         plus: 'atk',
-        minus: 'spa'
+        minus: 'spa',
     },
     Bashful: {},
     Bold: {
         plus: 'def',
-        minus: 'atk'
+        minus: 'atk',
     },
     Brave: {
         plus: 'atk',
-        minus: 'spe'
+        minus: 'spe',
     },
     Calm: {
         plus: 'spd',
-        minus: 'atk'
+        minus: 'atk',
     },
     Careful: {
         plus: 'spd',
-        minus: 'spa'
+        minus: 'spa',
     },
     Docile: {},
     Gentle: {
         plus: 'spd',
-        minus: 'def'
+        minus: 'def',
     },
     Hardy: {},
     Hasty: {
         plus: 'spe',
-        minus: 'def'
+        minus: 'def',
     },
     Impish: {
         plus: 'def',
-        minus: 'spa'
+        minus: 'spa',
     },
     Jolly: {
         plus: 'spe',
-        minus: 'spa'
+        minus: 'spa',
     },
     Lax: {
         plus: 'def',
-        minus: 'spd'
+        minus: 'spd',
     },
     Lonely: {
         plus: 'atk',
-        minus: 'def'
+        minus: 'def',
     },
     Mild: {
         plus: 'spa',
-        minus: 'def'
+        minus: 'def',
     },
     Modest: {
         plus: 'spa',
-        minus: 'atk'
+        minus: 'atk',
     },
     Naive: {
         plus: 'spe',
-        minus: 'spd'
+        minus: 'spd',
     },
     Naughty: {
         plus: 'atk',
-        minus: 'spd'
+        minus: 'spd',
     },
     Quiet: {
         plus: 'spa',
-        minus: 'spe'
+        minus: 'spe',
     },
     Quirky: {},
     Rash: {
         plus: 'spa',
-        minus: 'spd'
+        minus: 'spd',
     },
     Relaxed: {
         plus: 'def',
-        minus: 'spe'
+        minus: 'spe',
     },
     Sassy: {
         plus: 'spd',
-        minus: 'spe'
+        minus: 'spe',
     },
     Serious: {},
     Timid: {
         plus: 'spe',
-        minus: 'atk'
-    }
+        minus: 'atk',
+    },
 };
 const BattleStatIDs = {
     HP: 'hp',
@@ -120,7 +120,7 @@ const BattleStatIDs = {
     spd: 'spd',
     Spe: 'spe',
     Spd: 'spe',
-    spe: 'spe'
+    spe: 'spe',
 };
 const BattlePOStatNames = {
     hp: 'HP',
@@ -128,7 +128,7 @@ const BattlePOStatNames = {
     def: 'Def',
     spa: 'SAtk',
     spd: 'SDef',
-    spe: 'Spd'
+    spe: 'Spd',
 };
 const BattleStatNames = {
     hp: 'HP',
@@ -136,10 +136,11 @@ const BattleStatNames = {
     def: 'Def',
     spa: 'SpA',
     spd: 'SpD',
-    spe: 'Spe'
+    spe: 'Spe',
 };
 const BattleStats = {
-    atk: 'Attack', def: 'Defense', spa: 'Special Attack', spd: 'Special Defense', spe: 'Speed', accuracy: 'accuracy', evasion: 'evasiveness', spc: 'Special'
+    atk: 'Attack', def: 'Defense', spa: 'Special Attack', spd: 'Special Defense', spe: 'Speed',
+    accuracy: 'accuracy', evasion: 'evasiveness', spc: 'Special',
 };
 const baseSpeciesChart = [
     'pikachu',
@@ -192,8 +193,10 @@ const baseSpeciesChart = [
     'kommoo',
     // mega evolutions
     'charizard',
-    'mewtwo'
+    'mewtwo',
     // others are hardcoded by ending with 'mega'
 ];
 
-module.exports = {BattleNatures, BattleStatIDs, BattlePOStatNames, BattleStatNames, BattleStats, baseSpeciesChart}
+module.exports = {
+    BattleNatures, BattleStatIDs, BattlePOStatNames, BattleStatNames, BattleStats, baseSpeciesChart,
+};
