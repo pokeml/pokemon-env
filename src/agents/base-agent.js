@@ -45,7 +45,8 @@ class Agent {
 		}
         if (this.debug) console.log('<<<'.gray);
         if (this._receivedRequest && this._receivedBattleUpdate) {
-            this._receivedBattleUpdate = this._receivedRequest = false;
+            this._receivedBattleUpdate = false;
+            this._receivedRequest = false;
             if (this._currentRequest.wait) return;
             const actionSpace = this._getActionSpace();
             const action = this.act(this._battle, actionSpace);
