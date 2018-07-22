@@ -8,7 +8,7 @@ const BattleAgent = require('./base-agent')
 const _ = require('underscore');
 
 class RandomAgent extends BattleAgent {
-	act(battle, actions, request) {
+	act(battle, actions) {
         return _.sample(actions);
     }
 }

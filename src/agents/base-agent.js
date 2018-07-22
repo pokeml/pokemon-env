@@ -48,7 +48,7 @@ class Agent {
             this._receivedBattleUpdate = this._receivedRequest = false;
             if (this._currentRequest.wait) return;
             const actionSpace = this._getActionSpace();
-            const action = this.act(this._battle, actionSpace, this._currentRequest);
+            const action = this.act(this._battle, actionSpace);
             if (!actionSpace.includes(action)) {
                 throw new Error('invalid action');
             }
@@ -142,10 +142,9 @@ class Agent {
      *
      * @param {Battle} battle
      * @param {string[]} actions
-     * @param {AnyObject} info
      * @return {string} action
      */
-    act(battle, actions, info) {
+    act(battle, actions) {
         throw new Error('must be overridden by subclass');
     }
 }
