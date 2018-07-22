@@ -1,4 +1,2 @@
-node_modules/
-Pokemon-Showdown/
-src/state-tracking
-src/state-tracking-ts
+src/state-tracking/
+src/state-tracking-ts/
