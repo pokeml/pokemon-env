@@ -9,7 +9,8 @@ const colors = require('colors');
 const Battle = require('../state-tracking/battle');
 const splitFirst = require('../../utils/utils').splitFirst;
 
-const battleUpdateCommands = new Set(['move', 'switch', 'teampreview']); // TODO: add more commands
+// TODO: add more commands for edge cases
+const battleUpdateCommands = new Set(['turn', 'move', 'switch', 'cant', 'teampreview', '-damage']);
 
 class Agent {
 	/**
@@ -43,8 +44,12 @@ class Agent {
 			this._receiveLine(line);
 		}
         if (this._receivedRequest && this._receivedBattleUpdate) {
+            // update battle state
+            this._battle.play();
+            // reset update flags
             this._receivedBattleUpdate = false;
             this._receivedRequest = false;
+            // act
             if (this._currentRequest.wait) return;
             const actionSpace = this._getActionSpace();
             const action = this.act(this._battle, actionSpace);
