@@ -1,11 +1,4 @@
 /**
- * @param {number[]} array
- */
-exports.randomElem = function (array) {
-	return array[Math.floor(Math.random() * array.length)];
-}
-
-/**
  * Like string.split(delimiter), but only recognizes the first `limit`
  * delimiters (default 1).
  *
