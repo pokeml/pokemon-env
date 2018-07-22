@@ -13,7 +13,7 @@
  * @param {number} [limit]
  * @return {string[]}
  */
-exports.splitFirst = function(str, delimiter, limit = 1) {
+function splitFirst(str, delimiter, limit = 1) {
     let splitStr = /** @type {string[]} */ ([]);
     while (splitStr.length < limit) {
         let delimiterIndex = str.indexOf(delimiter);
@@ -28,3 +28,5 @@ exports.splitFirst = function(str, delimiter, limit = 1) {
     splitStr.push(str);
     return splitStr;
 };
+
+module.exports = {splitFirst};
