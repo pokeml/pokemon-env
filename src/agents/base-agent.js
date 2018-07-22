@@ -17,7 +17,7 @@ const battleUpdateCommands = new Set(['turn', 'move', 'switch', 'cant', 'teampre
  */
 class Agent {
     /**
-	 * @param {ObjectReadWriteStream} playerStream
+     * @param {ObjectReadWriteStream} playerStream
      * @param {boolean} debug
      */
     constructor(playerStream, debug = false) {
@@ -68,8 +68,8 @@ class Agent {
     }
 
     /**
-	 * @param {string} line
-	 */
+     * @param {string} line
+     */
     _receiveLine(line) {
         if (this.debug) console.log(`${line}`.gray);
         if (line.charAt(0) !== '|') return;
@@ -159,10 +159,10 @@ class Agent {
     }
 
     /**
-	 * Write a choice to the stream.
+     * Write a choice to the stream.
      *
-	 * @param {string} choice
-	 */
+     * @param {string} choice
+     */
     _choose(choice) {
         this._stream.write(choice);
     }
