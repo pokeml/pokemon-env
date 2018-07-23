@@ -1,3 +1,4 @@
 node_modules/
 Pokemon-Showdown/
 src/state-tracking-ts
+src/state-tracking/battle.js
