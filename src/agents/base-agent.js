@@ -4,8 +4,7 @@
 
 'use strict';
 
-// eslint-disable-next-line no-unused-vars
-const colors = require('colors');
+require('colors');
 const Battle = require('../state-tracking/battle');
 const splitFirst = require('../../utils/utils').splitFirst;
 
@@ -126,14 +125,16 @@ class Agent {
                 );
                 actionSpace.push(...zmoves.map((i) => `move ${i} zmove`));
             }
-            // switches
-            const switches = [1, 2, 3, 4, 5, 6].filter((i) => (
-                // not active
-                !pokemon[i - 1].active &&
-                // not fainted
-                !pokemon[i - 1].condition.endsWith(' fnt')
-            ));
-            actionSpace.push(...switches.map((i) => `switch ${i}`));
+            if (!active.trapped) {
+                // switches
+                const switches = [1, 2, 3, 4, 5, 6].filter((i) => (
+                    // not active
+                    !pokemon[i - 1].active &&
+                    // not fainted
+                    !pokemon[i - 1].condition.endsWith(' fnt')
+                ));
+                actionSpace.push(...switches.map((i) => `switch ${i}`));
+            }
             return actionSpace;
         } else if (request.teamPreview) {
             // TODO: formats where max team size is limited
@@ -172,7 +173,7 @@ class Agent {
      *
      * @param {Battle} battle
      * @param {string[]} actions
-     * @param {AnyObject} info
+     * @param {Request} info
      */
     act(battle, actions, info) {
         throw new Error('must be overridden by subclass');
