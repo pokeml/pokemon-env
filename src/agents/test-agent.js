@@ -10,19 +10,56 @@ class TestAgent extends BattleAgent {
     /**
      * Choose an action.
      *
-     * @param {AnyObject} battle
+     * @param {Battle} battle
      * @param {string[]} actions
-     * @param {AnyObject} info
+     * @param {Request} info
      * @return {string}
      */
     act(battle, actions, info) {
         if (this.debug) {
-            console.log(`turn: ${battle.turn}`);
+            this.displayBattleState(battle);
             console.log(`action space: ${actions.join(', ')}`);
         }
         const action = _.sample(actions);
         if (this.debug) console.log(`>> ${action}`);
         return action;
+    }
+
+    /**
+     * Print a summary of the battle state to the console.
+     *
+     * @param {Battle} battle
+     */
+    displayBattleState(battle) {
+        console.log(`Turn: ${battle.turn}`);
+        if (battle.weather) {
+            console.log(`Weather: ${battle.weather}`);
+        }
+        console.log('-- My side --');
+        this.displaySide(battle.mySide);
+        console.log('-- Opponent\'s side --');
+        this.displaySide(battle.yourSide);
+        console.log();
+    }
+
+    /**
+     * Print a summary of a player's side to the console.
+     *
+     * @param {Side} side
+     */
+    displaySide(side) {
+        if (side.sideConditions['stealthrock']) {
+            console.log('Stealth Rock');
+        }
+        if (side.sideConditions['spikes']) {
+            console.log(`Spikes: ${side.sideConditions['spikes'][1]}`);
+        }
+        for (const pokemon of side.pokemon) {
+            const hp = ' ' + pokemon.hp + '/' + pokemon.maxhp;
+            const active = pokemon.isActive() ? ' active' : '';
+            const fainted = pokemon.fainted ? ' fnt' : '';
+            console.log(`${pokemon.species}${hp}${active}${fainted}`);
+        }
     }
 }
 
