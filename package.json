@@ -4,7 +4,8 @@
   "description": "An artificial intelligence that plays Pokémon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,10 @@
   },
   "dependencies": {
     "colors": "^1.3.0",
+    "jest": "^23.4.2",
     "underscore": "^1.9.1"
+  },
+  "jest": {
+    "testURL": "http://localhost"
   }
 }
