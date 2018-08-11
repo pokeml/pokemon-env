@@ -98,6 +98,8 @@ class Agent {
         if (request.forceSwitch) {
             const pokemon = request.side.pokemon;
             const switches = [1, 2, 3, 4, 5, 6].filter((i) => (
+                // exists
+                pokemon[i - 1] &&
                 // not active
                 !pokemon[i - 1].active &&
                 // not fainted
@@ -128,6 +130,8 @@ class Agent {
             if (!active.trapped) {
                 // switches
                 const switches = [1, 2, 3, 4, 5, 6].filter((i) => (
+                    // exists
+                    pokemon[i - 1] &&
                     // not active
                     !pokemon[i - 1].active &&
                     // not fainted
