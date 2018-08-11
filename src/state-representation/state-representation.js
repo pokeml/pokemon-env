@@ -50,7 +50,7 @@ const abilityMapping = {
     'unburden': 46,
     'wonderguard': 47,
 };
-const boostableStatNames = ["atk", "def", "spa", "spd", "spe"];
+const boostableStatNames = ['atk', 'def', 'spa', 'spd', 'spe'];
 const types = Object.keys(typechart.BattleTypeChart);
 const numberOfTypes = types.length;
 
@@ -81,10 +81,10 @@ function encodePokemon(pokemon) {
  */
 function encodeMoves(pokemon) {
     let encodedMoves = [];
-    pokemon.moves.forEach(function (move) {
+    pokemon.moves.forEach(function(move) {
         encodedMoves = encodedMoves.concat(encodeMove(move));
     });
-    pokemon.moves
+    pokemon.moves;
 }
 
 /**
@@ -137,7 +137,7 @@ function encodeAllStats(pokemon) {
  */
 function encodeBoostableStats(pokemon, unboosted, unmodified) {
     let encodedStats = [];
-    boostableStatNames.forEach(function (statName) {
+    boostableStatNames.forEach(function(statName) {
         encodedStats.push(apokemon.getStat(statName, unboosted, unmodified));
     });
     return encodedStats;
