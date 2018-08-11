@@ -4,4 +4,28 @@
         "ssi": ["landorustherian", "tapubulu"],
         "nsi": ["greninjaash", "greninja"]
     },
+
+    "tapukoko": {
+        "gsi": ["chansey", "quagsire"],
+        "ssi": ["magearna"],
+        "nsi": ["heatran"]
+    },
+
+    "slowbro": {
+        "gsi": ["chansey", "quagsire", "magearna"],
+        "ssi": ["tapukoko"],
+        "nsi": ["keldeo"]
+    },
+
+    "keldeo": {
+        "gsi": ["slowbro", "magearna"],
+        "ssi": ["keldeo"],
+        "nsi": ["tapukoko"]
+    },
+
+    "chansey": {
+        "gsi": ["chansey", "keldeo", "landorustherian"],
+        "ssi": ["slowbro"],
+        "nsi": ["tapukoko"]
+    }
 }
