@@ -27,3 +27,8 @@ node scripts/run-offline-sim.js
 ```
 
 from the project's root directory.
+
+
+### Contributing
+
+Check out our [projects page](https://github.com/pokeml/pokemon-battle-ai/projects) for getting ideas how you can contribute. Click on the different projects to see the tasks that still need to be done
