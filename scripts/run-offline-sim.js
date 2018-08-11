@@ -5,7 +5,8 @@
 'use strict';
 
 const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
-const RandomAgent = require('./agents/random-agent');
+const RandomAgent = require('../src/agents/random-agent');
+const TestAgent = require('../src/agents/test-agent');
 const teams = require('../data/teams');
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
@@ -15,15 +16,15 @@ const spec = {
 };
 const p1spec = {
     name: 'Bot 1',
-    team: teams['gen7ou'][0],
+    team: teams['gen7ou'][2],
 };
 const p2spec = {
     name: 'Bot 2',
-    team: teams['gen7ou'][1],
+    team: teams['gen7ou'][2],
 };
 
 // eslint-disable-next-line no-unused-vars
-const p1 = new RandomAgent(streams.p1, true);
+const p1 = new TestAgent(streams.p1, true);
 // eslint-disable-next-line no-unused-vars
 const p2 = new RandomAgent(streams.p2);
 
