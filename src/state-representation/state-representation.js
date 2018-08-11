@@ -84,7 +84,7 @@ function encodeMoves(pokemon) {
     pokemon.moves.forEach(function(move) {
         encodedMoves = encodedMoves.concat(encodeMove(move));
     });
-    pokemon.moves;
+    return encodedMoves;
 }
 
 /**
@@ -165,6 +165,7 @@ function createOneHotEncoding(position, length) {
 module.exports = {
     encodeBattle,
     encodePokemon,
+    encodeMoves,
     encodeAllStats,
     encodeBoostableStats,
     encodeMove,
