@@ -5,8 +5,8 @@
 'use strict';
 
 const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
-const RandomAgent = require('./agents/random-agent');
-const TestAgent = require('./agents/test-agent');
+const RandomAgent = require('../src/agents/random-agent');
+const TestAgent = require('../src/agents/test-agent');
 const teams = require('../data/teams');
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
