@@ -4,7 +4,7 @@ This project is an attempt to build a strong Pokémon AI. Check out our [wiki](h
 ## Getting Started
 
 ### Installing
-To clone this project and Pokemon Showdown as submodule, run
+To clone this project and Pokemon Showdown as a submodule, simply run
 
 ```bash
 git clone --recurse-submodules https://github.com/pokeml/pokemon-battle-ai.git
