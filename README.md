@@ -1,6 +1,6 @@
-# Pokémon Battle AI
-
 [![Build Status](https://travis-ci.com/pokeml/pokemon-battle-ai.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-battle-ai)
+
+# Pokémon Battle AI
 
 This project is an attempt to build a strong Pokémon AI. Check out our [wiki](https://github.com/pokeml/pokemon-battle-ai/wiki) for more info.
 
