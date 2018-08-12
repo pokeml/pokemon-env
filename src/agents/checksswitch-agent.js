@@ -14,7 +14,6 @@ class ChecksSwitchAgent extends BattleAgent {
      */
     constructor(playerStream, debug) {
         super(playerStream, debug);
-        this._firstTurn = true;
     }
 
     /**
@@ -28,7 +27,7 @@ class ChecksSwitchAgent extends BattleAgent {
     act(battle, actions, info) {
         // determine player and opponent
         const player = info.side.id;
-        let opponent = '';
+        let opponent;
 
         if (player === 'p1') {
             opponent = 'p2';
@@ -89,11 +88,10 @@ class ChecksSwitchAgent extends BattleAgent {
         console.log(`>> ${player}: My active ${myActiveMon} is ${typeOfCheck} to my opponent's active ${oppActiveMon}`);
 
         let action;
-        // if it's the first turn, choose lead and return
+        // if it's the first turn (team preview), choose lead and return
         // console.log(`>> ${player}: ${this._firstTurn}`);
-        if (this._firstTurn == true) {
+        if (info.teamPreview) {
             // TODO: choose lead here
-            this._firstTurn = false;
             action = _.sample(actions);
             // console.log(`>> ${player}: ${action}`);
             return action;
