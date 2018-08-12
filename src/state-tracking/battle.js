@@ -19,6 +19,8 @@ const Tools = require('./battle-dex');
 const BattleDexData = require('./battle-dex-data');
 const BattleStats = BattleDexData.BattleStats;
 
+const toId = require('../../utils/utils').toId;
+
 class Pokemon {
     constructor(data, side) {
         this.name = '';
@@ -623,14 +625,6 @@ class Side {
             this.name = (name || '');
         }
         this.id = toId(this.name);
-        if (spriteid) {
-            this.spriteid = spriteid;
-        } else {
-            this.rollTrainerSprites();
-            if (this.foe && this.spriteid === this.foe.spriteid) {
-                this.rollTrainerSprites();
-            }
-        }
         if (this.battle.stagnateCallback) {
             this.battle.stagnateCallback(this.battle);
         }
