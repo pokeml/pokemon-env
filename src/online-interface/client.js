@@ -258,10 +258,77 @@ class Client {
     }
 
     /**
+     * @param {string} team
+     */
+    useTeam(team) {
+        this.send('/useteam ' + team);
+    }
+
+    /**
      * @param {string} tier
      */
     searchBattle(tier) {
         this.send('/search ' + tier);
+    }
+
+    /**
+     * @param {string} username
+     * @param {string} tier
+     */
+    challengeUser(username, tier) {
+        this.send('/challenge ' + username + ', ' + tier);
+    }
+
+    /**
+     * @param {string} user
+     */
+    acceptChallenge(user) {
+        this.send('/accept ' + user);
+    }
+
+    /**
+     * @param {string} roomId
+     */
+    setHiddenRoom(roomId) {
+        this.send('/hiddenroom', roomId);
+    }
+
+    /**
+     * @param {string} roomId
+     */
+    turnTimerOn(roomId) {
+        this.send('/timer on', roomId);
+    }
+
+    /**
+     * @param {string} roomId
+     */
+    turnTimerOff(roomId) {
+        this.send('/timer off', roomId);
+    }
+
+    /**
+     * @param {string} choices
+     * @param {string} roomId
+     */
+    choose(choices, roomId) {
+        this.send('/choose ' + choices, roomId);
+    }
+
+    /**
+     * @param {string} roomId
+     */
+    forfeitBattle(roomId) {
+        if (!roomId) return;
+        this.send('/forfeit', roomId);
+    }
+
+    /**
+     * @param {string} roomId
+     */
+    saveReplay(roomId) {
+        if (!roomId) return;
+        this.send('/savereplay', roomId);
     }
 }
 
