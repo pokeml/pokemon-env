@@ -1,6 +1,6 @@
 {
   "name": "pokemon-battle-ai",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "An artificial intelligence that plays Pokémon",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pokeml/pokemon-battle-ai/issues"
   },
