@@ -33,7 +33,7 @@ class ChecksSwitchAgent extends BattleAgent {
         let myMons = info.side.pokemon;
         for (const pokemon of myMons) {
             if (pokemon.active == true) {
-                myActiveMon = pokemon.ident.slice(4);
+                myActiveMon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
             }
         }
         // console.log(myActiveMon);
@@ -43,16 +43,16 @@ class ChecksSwitchAgent extends BattleAgent {
         // if p1, go into Bot 2's pokemon list to search for the active pokemon
         if (player === 'p1') {
             if (battle.sides[1].active[0]) {
-                oppActiveMon = battle.sides[1].active[0].species;
+                oppActiveMon = battle.sides[1].active[0].species.toLowerCase().replace(/\s/g, '');
             } else {
-                oppActiveMon = 'Missingno';
+                oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');
             }
         } else {
             if (battle.sides[0].active[0]) {
-                oppActiveMon = battle.sides[0].active[0].species;
+                oppActiveMon = battle.sides[0].active[0].species.toLowerCase().replace(/\s/g, '');
             } else {
-                oppActiveMon = 'Missingno';
+                oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');
             }
         }
@@ -60,6 +60,10 @@ class ChecksSwitchAgent extends BattleAgent {
         console.log(`My active: ${myActiveMon}, opponent's active: ${oppActiveMon}`);
 
         // find out from the checks graph how well you deal with it
+
+        // find the opposing active pokemon on the graph
+        console.log(checks[`${oppActiveMon}`]);
+
 
         // try to find a pokemon on your team that does better against the current opposing pokemon. if the current pokemon is already the best choice, attack. if there is a pokemon that does better against the current opposing pokemon, switch to it
 
