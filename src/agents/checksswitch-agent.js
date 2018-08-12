@@ -9,6 +9,15 @@ const checks = require('../../data/checks.json');
  */
 class ChecksSwitchAgent extends BattleAgent {
     /**
+     * @param {ObjectReadWriteStream} playerStream
+     * @param {boolean} debug
+     */
+    constructor(playerStream, debug) {
+        super(playerStream, debug);
+        this._firstTurn = true;
+    }
+
+    /**
      * Choose an action.
      *
      * @param {AnyObject} battle
@@ -76,33 +85,56 @@ class ChecksSwitchAgent extends BattleAgent {
                 typeOfCheck = '--';
             }
         }
-        console.log(`>> I'm ${player}, my opponent is ${opponent}.`);
-        console.log(`>> My active ${myActiveMon} is ${typeOfCheck} to my opponent's active ${oppActiveMon}`);
+        // console.log(`>> ${player}: I'm ${player}, my opponent is ${opponent}.`);
+        console.log(`>> ${player}: My active ${myActiveMon} is ${typeOfCheck} to my opponent's active ${oppActiveMon}`);
+
+        let action;
+        // if it's the first turn, choose lead and return
+        // console.log(`>> ${player}: ${this._firstTurn}`);
+        if (this._firstTurn == true) {
+            // TODO: choose lead here
+            this._firstTurn = false;
+            action = _.sample(actions);
+            // console.log(`>> ${player}: ${action}`);
+            return action;
+        }
 
         // try to find a pokemon on your team that does better against the current opposing pokemon. if the current pokemon is already the best choice, attack. if there is a pokemon that does better against the current opposing pokemon, switch to it
         // console.log(actions);
-        const action = _.sample(actions);
 
+        // random action if below fails
+        action = _.sample(actions);
+
+        let stayInAction;
         switch (typeOfCheck) {
         case 'gsi':
-            console.log('>> Stay in.');
+            console.log(`>> ${player}: Stay in.`);
+            // stay in, remove all switch options from actions
+            let pattern = /move/;
+            stayInAction = actions.filter((str) => pattern.test(str));
+            // make sure there is at least one "move x" in actions
+            if (stayInAction.length > 0) {
+                // console.log(`>> ${player}: ${stayInAction}`);
+                // TODO: chose optimal move
+                action = _.sample(stayInAction);
+            }
+            // TODO: elaborate situation in which switching is only move, and use a stratgy
             break;
         case 'ssi':
-            console.log('>> Search gsi.');
+            console.log(`>> ${player}: Search gsi.`);
             // if gsi empty, stay in
             break;
         case 'nsi':
-            console.log('>> Search gsi/ssi.');
+            console.log(`>> ${player}: Search gsi/ssi.`);
             // if gsi/ssi empty, stay in
             break;
         case '--':
-            console.log('>> Search gsi/ssi/nsi, if empty switch based on typeResistance ');
+            console.log(`>> ${player}: Search gsi/ssi/nsi, if empty switch based on typeResistance`);
             // do random action for now here
             break;
         default:
-            console.log('Unexpected typeOfCheck');
+            console.log('>> ${player}: Unexpected typeOfCheck');
         }
-
         return action;
     }
 }
