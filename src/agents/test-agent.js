@@ -18,10 +18,10 @@ class TestAgent extends BattleAgent {
     act(battle, actions, info) {
         if (this.debug) {
             this.displayBattleState(battle);
-            console.log(`action space: ${actions.join(', ')}`);
+            console.log(`action space: ${actions.map((a) => a.choice).join(', ')}`);
         }
         const action = _.sample(actions);
-        if (this.debug) console.log(`>> ${action}`);
+        if (this.debug) console.log(`>> ${action.choice}`);
         return action;
     }
 
