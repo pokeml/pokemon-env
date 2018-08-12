@@ -5,3 +5,7 @@ const config = require('../config/config');
 
 const client = new Client(config);
 client.connect();
+
+setTimeout(function() {
+    client.searchBattle('gen7randombattle');
+}, 2000);

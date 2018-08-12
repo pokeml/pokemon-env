@@ -1,5 +1,6 @@
 'use strict';
 
+require('colors');
 const websocket = require('websocket');
 
 /**
@@ -193,7 +194,7 @@ class Client {
 	 * @param {string} chunk
 	 */
     receive(chunk) {
-        console.log(chunk);
+        console.log(chunk.gray);
     }
 
     /**
@@ -201,6 +202,13 @@ class Client {
      */
     sendAssertion(assertion) {
         this.send('/trn ' + this.username + ',0,' + assertion);
+    }
+
+    /**
+     * @param {string} tier
+     */
+    searchBattle(tier) {
+        this.send('/search ' + tier);
     }
 }
 
