@@ -1,7 +1,13 @@
 'use strict';
 
 require('colors');
+const https = require('https');
+const url = require('url');
 const websocket = require('websocket');
+const utils = require('../../utils/utils');
+
+const splitFirst = utils.splitFirst;
+const toId = utils.toId;
 
 /**
  * @typedef {Object} ClientOptions
@@ -21,7 +27,7 @@ class Client {
      * @param {ClientOptions} options
      * @param {function} connectCallback
      */
-    constructor(options, connectCallback = null) {
+    constructor(options, connectCallback = () => {}) {
         console.log('-----------------------------');
         console.log('  Pokemon Showdown Bot v0.1  ');
         console.log('-----------------------------');
@@ -199,7 +205,49 @@ class Client {
 	 * @param {string} chunk
 	 */
     receive(chunk) {
-        console.log(chunk.gray);
+        const lines = chunk.split('\\n');
+        let roomId = '';
+        if (lines.length !== 0 && lines[0].startsWith('>')) {
+            roomId = lines[0].slice(1);
+        }
+        for (const line of lines) {
+            this.receiveLine(line, roomId);
+        }
+    }
+
+    /**
+     * Parse a line of text received from the server.
+     *
+	 * @param {string} line
+     * @param {string} roomId
+	 */
+    receiveLine(line, roomId) {
+        if (line.length <= 1) return;
+        console.log('<< %s'.gray, line);
+        if (line.charAt(0) !== '|') return;
+        const [cmd, rest] = splitFirst(line.slice(1), '|');
+        switch (cmd) {
+        case 'challstr':
+            const [challId, challStr] = rest.split('|');
+            this.login(challId, challStr);
+            break;
+        case 'init':
+            break;
+        case 'win':
+            if (!(roomId in this.battleInfo)) break;
+            const winner = rest;
+            const outcome = winner === this.username ? 'win' : 'loss';
+            console.log(`Outcome: ${outcome}`);
+            delete this.battleInfo[roomId];
+            break;
+        case 'tie':
+            if (!(roomId in this.battleInfo)) break;
+            console.log('Outcome: tie');
+            delete this.battleInfo[roomId];
+            break;
+        case 'error':
+            throw new Error(rest);
+        }
     }
 
     /**
