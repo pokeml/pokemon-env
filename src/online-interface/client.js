@@ -6,6 +6,9 @@ const url = require('url');
 const websocket = require('websocket');
 const utils = require('../../utils/utils');
 
+const ObjectReadWriteStream = require('../../Pokemon-Showdown/lib/streams').ObjectReadWriteStream;
+const TestAgent = require('../agents/test-agent.js');
+
 const splitFirst = utils.splitFirst;
 const toId = utils.toId;
 
@@ -78,6 +81,8 @@ class Client {
                     return false;
                 }
                 let messageString = message.utf8Data.slice(3, message.utf8Data.length - 2);
+                // unescape regex
+                messageString = messageString.replace(/\\n/g, '\n').replace(/\\"/g, '"');
                 this.receive(messageString);
             });
         });
@@ -189,7 +194,7 @@ class Client {
             message = [message.toString()];
         }
         roomId = roomId || '';
-        console.log('>> %s'.green, message);
+        if (this.debug) console.log('>> %s'.green, message);
         this.connection.send(JSON.stringify(roomId + '|' + message));
     }
 
@@ -199,13 +204,16 @@ class Client {
 	 * @param {string} chunk
 	 */
     receive(chunk) {
-        const lines = chunk.split('\\n');
+        const lines = chunk.split('\n');
         let roomId = '';
         if (lines.length !== 0 && lines[0].startsWith('>')) {
             roomId = lines[0].slice(1);
         }
         for (const line of lines) {
             this.receiveLine(line, roomId);
+        }
+        if (this.battles[roomId] && this.battles[roomId].agent) {
+            this.battles[roomId].agent._receive(chunk);
         }
     }
 
@@ -217,7 +225,7 @@ class Client {
 	 */
     receiveLine(line, roomId) {
         if (line.length <= 1) return;
-        console.log('<< %s'.gray, line);
+        if (this.debug) console.log('<< %s'.gray, line);
         if (line.charAt(0) !== '|') return;
         const [cmd, rest] = splitFirst(line.slice(1), '|');
         switch (cmd) {
@@ -227,7 +235,13 @@ class Client {
             break;
         case 'init':
             if (rest === 'battle' && !(roomId in this.battles)) {
-                this.battles[roomId] = {};
+                let write = (data) => this.choose(data, roomId);
+                let stream = new ObjectReadWriteStream({write});
+                let agent = new TestAgent(stream, true);
+                this.battles[roomId] = {
+                    'stream': stream,
+                    'agent': agent,
+                };
             }
             break;
         case 'win':
