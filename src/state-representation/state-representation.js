@@ -1,3 +1,4 @@
+const typechart = require('../../Pokemon-Showdown/data/typechart');
 const abilityCount = 48;
 const abilityMapping = {
     'angerpoint': 0,
@@ -49,7 +50,9 @@ const abilityMapping = {
     'unburden': 46,
     'wonderguard': 47,
 };
-const boostableStatNames = ["atk", "def", "spa", "spd", "spe"];
+const boostableStatNames = ['atk', 'def', 'spa', 'spd', 'spe'];
+const types = Object.keys(typechart.BattleTypeChart);
+const numberOfTypes = types.length;
 
 /**
  * Encode the observable battle state into an array of floats that can be used as a state
@@ -76,6 +79,48 @@ function encodePokemon(pokemon) {
  * @param {Pokemon} pokemon
  * @return {number[]}
  */
+function encodeMoves(pokemon) {
+    let encodedMoves = [];
+    pokemon.moves.forEach(function(move) {
+        encodedMoves = encodedMoves.concat(encodeMove(move));
+    });
+    return encodedMoves;
+}
+
+/**
+ * @param {Move} move
+ * @return {number[]}
+ */
+function encodeMove(move) {
+    let encodedMove = [];
+    encodedMove.push(move.basePower, encodeAccuracy(move.accuracy));
+    return encodedMove.concat(encodeType(move.type));
+}
+
+/**
+ * @param {boolean | number} accuracy
+ * @return {number[]}
+ */
+function encodeAccuracy(accuracy) {
+    if (accuracy === true) {
+        return 1000;
+    } else {
+        return accuracy;
+    }
+}
+
+/**
+ * @param {string} type
+ * @return {number[]}
+ */
+function encodeType(type) {
+    return createOneHotEncoding(types.indexOf(type), numberOfTypes);
+}
+
+/**
+ * @param {Pokemon} pokemon
+ * @return {number[]}
+ */
 function encodeAllStats(pokemon) {
     let encodedStats = [];
     return encodedStats.push(pokemon.maxhp)
@@ -92,7 +137,7 @@ function encodeAllStats(pokemon) {
  */
 function encodeBoostableStats(pokemon, unboosted, unmodified) {
     let encodedStats = [];
-    boostableStatNames.forEach(function (statName) {
+    boostableStatNames.forEach(function(statName) {
         encodedStats.push(apokemon.getStat(statName, unboosted, unmodified));
     });
     return encodedStats;
@@ -120,8 +165,10 @@ function createOneHotEncoding(position, length) {
 module.exports = {
     encodeBattle,
     encodePokemon,
+    encodeMoves,
     encodeAllStats,
     encodeBoostableStats,
+    encodeMove,
     encodeAbility,
     createOneHotEncoding,
 };
