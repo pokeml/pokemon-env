@@ -1,4 +1,8 @@
 {
-    "username": "",
-    "password": ""
+    "debug": true,
+    "actionUrl": "https://play.pokemonshowdown.com/~~showdown/action.php",
+    "serverUrl": "ws://sim.psim.us:8000/showdown/",
+    "username": "polarisalpha",
+    "password": "notabot",
+    "avatar": 0
 }
