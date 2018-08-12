@@ -121,17 +121,17 @@ class Agent {
                 // not disabled
                 !active.moves[i - 1].disabled
             ));
-            actionSpace.push(...moves.map((i) => new MoveAction(i, false, false)));
+            actionSpace.push(...moves.map((i) => new MoveAction(i)));
             // moves + mega evo
             if (active.canMegaEvo) {
-                actionSpace.push(...moves.map((i) => new MoveAction(i, true, false)));
+                actionSpace.push(...moves.map((i) => new MoveAction(i, {'mega': true})));
             }
             // zmoves
             if (active.canZMove) {
                 const zmoves = [1, 2, 3, 4].slice(0, active.canZMove.length).filter((i) =>
                     active.canZMove[i - 1]
                 );
-                actionSpace.push(...zmoves.map((i) => new MoveAction(i, false, true)));
+                actionSpace.push(...zmoves.map((i) => new MoveAction(i, {'zmove': true})));
             }
             if (!active.trapped) {
                 // switches

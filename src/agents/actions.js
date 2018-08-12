@@ -15,27 +15,34 @@ class Action {
 }
 
 /**
+ * @typedef {Object} MoveActionOptions
+ * @property {boolean?} mega
+ * @property {boolean?} zmove
+ */
+
+/**
  * An action object representing a move, i.e. an attack.
  */
 class MoveAction extends Action {
     /**
      * @param {int} moveNum
-     * @param {boolean} mega
-     * @param {boolean} zmove
+     * @param {MoveActionOptions} options
      */
-    constructor(moveNum, mega, zmove) {
+    constructor(moveNum, options) {
+        options = options | {};
+
         let choice = `move ${moveNum}`;
-        if (mega) {
+        if (options.mega) {
             choice += ' mega';
-        } else if (zmove) {
+        } else if (options.zmove) {
             choice += ' zmove';
         }
 
         super('move', choice);
 
         this.moveNum = moveNum;
-        this.mega = mega | false;
-        this.zmove = zmove | false;
+        this.mega = options.mega | false;
+        this.zmove = options.zmove | false;
     }
 }
 
