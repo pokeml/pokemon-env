@@ -30,9 +30,9 @@ class Client {
      * @param {ClientOptions} options
      */
     constructor(options) {
-        console.log('-----------------------------');
-        console.log('  Pokemon Showdown Bot v0.1  ');
-        console.log('-----------------------------');
+        console.log('-------------------------------');
+        console.log('  Pokemon Showdown Bot v0.0.1  ');
+        console.log('-------------------------------');
 
         /** @type {boolean} */
         this.debug = options.debug | false;

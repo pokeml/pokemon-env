@@ -5,7 +5,12 @@
 
 require('colors');
 const Battle = require('../state-tracking/battle');
+const actions = require('./actions');
 const splitFirst = require('../../utils/utils').splitFirst;
+
+const MoveAction = actions.MoveAction;
+const SwitchAction = actions.SwitchAction;
+const TeamAction = actions.TeamAction;
 
 // TODO: add more commands for edge cases
 const battleUpdateCommands = new Set(['turn', 'move', 'switch', 'cant', 'teampreview', '-damage']);
@@ -61,7 +66,7 @@ class Agent {
             if (!actionSpace.includes(action)) {
                 throw new Error(`invalid action: ${action}`);
             }
-            this._choose(action);
+            this._choose(action.choice);
         }
     }
 
@@ -106,7 +111,7 @@ class Agent {
                 // not fainted
                 !pokemon[i - 1].condition.endsWith(' fnt')
             ));
-            return switches.map((i) => `switch ${i}`);
+            return switches.map((i) => new SwitchAction(i));
         } else if (request.active) {
             const active = request.active[0];
             const pokemon = request.side.pokemon;
@@ -116,17 +121,17 @@ class Agent {
                 // not disabled
                 !active.moves[i - 1].disabled
             ));
-            actionSpace.push(...moves.map((i) => `move ${i}`));
+            actionSpace.push(...moves.map((i) => new MoveAction(i)));
             // moves + mega evo
             if (active.canMegaEvo) {
-                actionSpace.push(...moves.map((i) => `move ${i} mega`));
+                actionSpace.push(...moves.map((i) => new MoveAction(i, {'mega': true})));
             }
             // zmoves
             if (active.canZMove) {
                 const zmoves = [1, 2, 3, 4].slice(0, active.canZMove.length).filter((i) =>
                     active.canZMove[i - 1]
                 );
-                actionSpace.push(...zmoves.map((i) => `move ${i} zmove`));
+                actionSpace.push(...zmoves.map((i) => new MoveAction(i, {'zmove': true})));
             }
             if (!active.trapped) {
                 // switches
@@ -138,7 +143,7 @@ class Agent {
                     // not fainted
                     !pokemon[i - 1].condition.endsWith(' fnt')
                 ));
-                actionSpace.push(...switches.map((i) => `switch ${i}`));
+                actionSpace.push(...switches.map((i) => new SwitchAction(i)));
             }
             return actionSpace;
         } else if (request.teamPreview) {
@@ -155,7 +160,7 @@ class Agent {
                     else if (j == i) team.push(1);
                     else team.push(j);
                 }
-                actionSpace.push(`team ${team.join('')}`);
+                actionSpace.push(new TeamAction(team.join('')));
             }
             return actionSpace;
         } else if (request.wait) {
@@ -177,7 +182,7 @@ class Agent {
      * Choose an action.
      *
      * @param {Battle} battle
-     * @param {string[]} actions
+     * @param {Action[]} actions
      * @param {Request} info
      */
     act(battle, actions, info) {
