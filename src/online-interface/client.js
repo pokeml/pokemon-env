@@ -19,8 +19,9 @@ const websocket = require('websocket');
 class Client {
     /**
      * @param {ClientOptions} options
+     * @param {function} connectCallback
      */
-    constructor(options) {
+    constructor(options, connectCallback = null) {
         console.log('-----------------------------');
         console.log('  Pokemon Showdown Bot v0.1  ');
         console.log('-----------------------------');
@@ -37,6 +38,8 @@ class Client {
         this.password = options.password;
         /** @type {number} */
         this.avatar = options.avatar | 0;
+        /** @type {function} */
+        this.connectCallback = connectCallback;
 
         this.connection = null;
         this.ws = null;
@@ -75,6 +78,8 @@ class Client {
                 let messageString = message.utf8Data.slice(3, message.utf8Data.length - 2);
                 this.receive(messageString);
             });
+
+            this.connectCallback();
         });
 
         const chars = 'abcdefghijklmnopqrstuvwxyz0123456789_';
