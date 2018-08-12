@@ -25,9 +25,8 @@ const toId = utils.toId;
 class Client {
     /**
      * @param {ClientOptions} options
-     * @param {function} connectCallback
      */
-    constructor(options, connectCallback = () => {}) {
+    constructor(options) {
         console.log('-----------------------------');
         console.log('  Pokemon Showdown Bot v0.1  ');
         console.log('-----------------------------');
@@ -44,13 +43,10 @@ class Client {
         this.password = options.password;
         /** @type {number} */
         this.avatar = options.avatar | 0;
-        /** @type {function} */
-        this.connectCallback = connectCallback;
 
         this.connection = null;
         this.ws = null;
 
-        /** @type {Pokemon[]} */
         this.battles = {};
     }
 
@@ -84,8 +80,6 @@ class Client {
                 let messageString = message.utf8Data.slice(3, message.utf8Data.length - 2);
                 this.receive(messageString);
             });
-
-            this.connectCallback();
         });
 
         const chars = 'abcdefghijklmnopqrstuvwxyz0123456789_';
@@ -232,18 +226,21 @@ class Client {
             this.login(challId, challStr);
             break;
         case 'init':
+            if (rest === 'battle' && !(roomId in this.battles)) {
+                this.battles[roomId] = {};
+            }
             break;
         case 'win':
-            if (!(roomId in this.battleInfo)) break;
+            if (!(roomId in this.battles)) break;
             const winner = rest;
             const outcome = winner === this.username ? 'win' : 'loss';
             console.log(`Outcome: ${outcome}`);
-            delete this.battleInfo[roomId];
+            delete this.battles[roomId];
             break;
         case 'tie':
-            if (!(roomId in this.battleInfo)) break;
+            if (!(roomId in this.battles)) break;
             console.log('Outcome: tie');
-            delete this.battleInfo[roomId];
+            delete this.battles[roomId];
             break;
         case 'error':
             throw new Error(rest);
