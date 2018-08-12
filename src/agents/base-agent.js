@@ -182,7 +182,7 @@ class Agent {
      * Choose an action.
      *
      * @param {Battle} battle
-     * @param {AnyObject[]} actions
+     * @param {Action[]} actions
      * @param {Request} info
      */
     act(battle, actions, info) {
