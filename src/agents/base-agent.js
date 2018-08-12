@@ -1,8 +1,7 @@
+'use strict';
 /**
  * Based on https://github.com/Zarel/Pokemon-Showdown/blob/master/sim/battle-stream.js#L221.
  */
-
-'use strict';
 
 require('colors');
 const Battle = require('../state-tracking/battle');

@@ -1,8 +1,7 @@
+'use strict';
 /**
  * Simulates a Pokémon battle between two bots.
  */
-
-'use strict';
 
 const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
 const RandomAgent = require('../src/agents/random-agent');
