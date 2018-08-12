@@ -3,9 +3,12 @@
 const Client = require('../src/online-interface/client');
 const config = require('../config/config');
 
-const client = new Client(config);
-client.connect();
-
-setTimeout(function() {
+/**
+ * Execute actions after connecting to server.
+ */
+function connectCallback() {
     client.searchBattle('gen7randombattle');
-}, 2000);
+}
+
+const client = new Client(config, connectCallback);
+client.connect();
