@@ -26,7 +26,6 @@ class ChecksSwitchAgent extends BattleAgent {
         } else {
             opponent = 'p1';
         }
-        console.log(`Players: ${player}, ${opponent}`);
 
         // get my active mon
         let myActiveMon;
@@ -57,19 +56,53 @@ class ChecksSwitchAgent extends BattleAgent {
             }
         }
         // console.log(oppActiveMon);
-        console.log(`My active: ${myActiveMon}, opponent's active: ${oppActiveMon}`);
 
         // find out from the checks graph how well you deal with it
 
-        // find the opposing active pokemon on the graph
-        console.log(checks[`${oppActiveMon}`]);
+        // find the opposing active pokemon on the graph and store its checks and counters
+        let oppMonChecks = checks[`${oppActiveMon}`];
 
+        // search in lists for the own active pokemon
+        let typeOfCheck;
+        if (oppMonChecks) {
+            if (oppMonChecks.gsi.indexOf(`${myActiveMon}`) > -1) {
+                typeOfCheck = 'gsi';
+            } else if (oppMonChecks.ssi.indexOf(`${myActiveMon}`) > -1) {
+                typeOfCheck = 'ssi';
+            } else if (oppMonChecks.nsi.indexOf(`${myActiveMon}`) > -1) {
+                typeOfCheck = 'nsi';
+            } else {
+                // not available in list, not switching probably a bad choice
+                typeOfCheck = '--';
+            }
+        }
+        console.log(`>> I'm ${player}, my opponent is ${opponent}.`);
+        console.log(`>> My active ${myActiveMon} is ${typeOfCheck} to my opponent's active ${oppActiveMon}`);
 
         // try to find a pokemon on your team that does better against the current opposing pokemon. if the current pokemon is already the best choice, attack. if there is a pokemon that does better against the current opposing pokemon, switch to it
-
+        // console.log(actions);
         const action = _.sample(actions);
-        // console.log(`>>CS Agent: ${action}`);
-        // console.log(checks['keldeo']);
+
+        switch (typeOfCheck) {
+        case 'gsi':
+            console.log('>> Stay in.');
+            break;
+        case 'ssi':
+            console.log('>> Search gsi.');
+            // if gsi empty, stay in
+            break;
+        case 'nsi':
+            console.log('>> Search gsi/ssi.');
+            // if gsi/ssi empty, stay in
+            break;
+        case '--':
+            console.log('>> Search gsi/ssi/nsi, if empty switch based on typeResistance ');
+            // do random action for now here
+            break;
+        default:
+            console.log('Unexpected typeOfCheck');
+        }
+
         return action;
     }
 }
