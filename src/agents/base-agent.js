@@ -1,8 +1,7 @@
+'use strict';
 /**
  * Based on https://github.com/Zarel/Pokemon-Showdown/blob/master/sim/battle-stream.js#L221.
  */
-
-'use strict';
 
 require('colors');
 const Battle = require('../state-tracking/battle');
@@ -77,8 +76,10 @@ class Agent {
             this._receivedBattleUpdate = true;
         }
         if (cmd === 'request') {
-            this._receivedRequest = true;
-            this._currentRequest = JSON.parse(rest);
+            if (rest.length !== 0) {
+                this._receivedRequest = true;
+                this._currentRequest = JSON.parse(rest);
+            }
             return;
         } else if (cmd === 'error') {
             throw new Error(rest);
