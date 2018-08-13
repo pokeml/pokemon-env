@@ -3,6 +3,11 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/checks.json');
+const actions = require('./actions');
+
+const MoveAction = actions.MoveAction;
+const SwitchAction = actions.SwitchAction;
+// const TeamAction = actions.TeamAction;
 
 /**
  * An agent that chooses actions based on checks.json
@@ -89,34 +94,42 @@ class ChecksSwitchAgent extends BattleAgent {
 
         let action;
         // if it's the first turn (team preview), choose lead and return
-        // console.log(`>> ${player}: ${this._firstTurn}`);
         if (info.teamPreview) {
             // TODO: choose lead here
             action = _.sample(actions);
-            // console.log(`>> ${player}: ${action}`);
             return action;
         }
 
         // try to find a pokemon on your team that does better against the current opposing pokemon. if the current pokemon is already the best choice, attack. if there is a pokemon that does better against the current opposing pokemon, switch to it
-        // console.log(actions);
 
         // random action if below fails
         action = _.sample(actions);
-
-        let stayInAction;
+        // console.log(actions);
+        let stayInActions;
         switch (typeOfCheck) {
         case 'gsi':
             console.log(`>> ${player}: Stay in.`);
             // stay in, remove all switch options from actions
-            let pattern = /move/;
-            stayInAction = actions.filter((str) => pattern.test(str));
-            // make sure there is at least one "move x" in actions
-            if (stayInAction.length > 0) {
-                // console.log(`>> ${player}: ${stayInAction}`);
-                // TODO: chose optimal move
-                action = _.sample(stayInAction);
+            // check if moveactions available
+            let moveIsPossible = false;
+            for (const acts of actions) {
+                if (acts instanceof MoveAction) {
+                    moveIsPossible = true;
+                    break;
+                }
             }
-            // TODO: elaborate situation in which switching is only move, and use a stratgy
+            if (moveIsPossible) {
+                // console.log(actions);
+                // console.log(`>> ${player}: ${stayInActions}`);
+                // TODO: chose optimal move
+                stayInActions = actions.filter((e) => (e instanceof SwitchAction) != true);
+                // console.log(stayInActions);
+                action = _.sample(stayInActions);
+            } else {
+                // TODO: elaborate situation in which switching is only move, and use a stratgy
+                action = _.sample(actions);
+            }
+
             break;
         case 'ssi':
             console.log(`>> ${player}: Search gsi.`);
