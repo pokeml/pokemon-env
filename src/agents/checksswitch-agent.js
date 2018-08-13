@@ -32,13 +32,13 @@ class ChecksSwitchAgent extends BattleAgent {
     act(battle, actions, info) {
         // determine player and opponent
         const player = info.side.id;
-        let opponent;
-
-        if (player === 'p1') {
-            opponent = 'p2';
-        } else {
-            opponent = 'p1';
-        }
+        // let opponent;
+        //
+        // if (player === 'p1') {
+        //     opponent = 'p2';
+        // } else {
+        //     opponent = 'p1';
+        // }
 
         // get my active mon
         let myActiveMon;
@@ -90,7 +90,8 @@ class ChecksSwitchAgent extends BattleAgent {
             }
         }
         // console.log(`>> ${player}: I'm ${player}, my opponent is ${opponent}.`);
-        console.log(`>> ${player}: My active ${myActiveMon} is ${typeOfCheck} to my opponent's active ${oppActiveMon}`);
+        console.log(`>> ${player}: My active ${myActiveMon} is ${typeOfCheck}`);
+        console.log(`>> ${player}: to my opponent's active ${oppActiveMon}`);
 
         let action;
         // if it's the first turn (team preview), choose lead and return
@@ -100,7 +101,9 @@ class ChecksSwitchAgent extends BattleAgent {
             return action;
         }
 
-        // try to find a pokemon on your team that does better against the current opposing pokemon. if the current pokemon is already the best choice, attack. if there is a pokemon that does better against the current opposing pokemon, switch to it
+        // try to find a pokemon on your team that does better against the current opposing pokemon.
+        // if the current pokemon is already the best choice, attack.
+        // if there is a pokemon that does better against the current opposing pokemon, switch to it
 
         // random action if below fails
         action = _.sample(actions);
@@ -140,7 +143,7 @@ class ChecksSwitchAgent extends BattleAgent {
             // if gsi/ssi empty, stay in
             break;
         case '--':
-            console.log(`>> ${player}: Search gsi/ssi/nsi, if empty switch based on typeResistance`);
+            console.log(`>> ${player}: Search gsi/ssi/nsi, or typeResistance`);
             // do random action for now here
             break;
         default:
