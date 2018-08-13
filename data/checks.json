@@ -25,7 +25,7 @@
 
     "chansey": {
         "gsi": ["chansey", "keldeo", "landorustherian"],
-        "ssi": ["slowbro"],
-        "nsi": ["tapukoko"]
+        "ssi": ["tapukoko"],
+        "nsi": ["tapulele"]
     }
 }
