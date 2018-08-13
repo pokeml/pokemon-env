@@ -28,9 +28,7 @@ class MoveAction extends Action {
      * @param {int} moveNum
      * @param {MoveActionOptions} options
      */
-    constructor(moveNum, options) {
-        options = options | {};
-
+    constructor(moveNum, options = {}) {
         let choice = `move ${moveNum}`;
         if (options.mega) {
             choice += ' mega';

@@ -4226,50 +4226,6 @@ class Battle {
             this.rated = true;
             break;
         }
-        case ':': {
-            break;
-        }
-        case 'chat':
-        case 'c':
-        case 'c:': {
-            let pipeIndex = args[1].indexOf('|');
-            if (args[0] === 'c:') {
-                args[1] = args[1].slice(pipeIndex + 1);
-                pipeIndex = args[1].indexOf('|');
-            }
-            let name = args[1].slice(0, pipeIndex);
-            let rank = name.charAt(0);
-            if (this.ignoreSpects && (rank === ' ' || rank === '+')) {
-                break;
-            }
-            if (this.ignoreOpponent && (rank === '\u2605' || rank === '\u2606') && toUserid(name) !== app.user.get('userid')) {
-                break;
-            }
-            let message = args[1].slice(pipeIndex + 1);
-            let isHighlighted = app && app.rooms && app.rooms[this.roomid].getHighlight(message);
-            let parsedMessage = Tools.parseChatMessage(message, name, '', isHighlighted);
-            if (!Array.isArray(parsedMessage)) {
-                parsedMessage = [parsedMessage];
-            }
-            break;
-        }
-        case 'chatmsg': {
-            break;
-        }
-        case 'chatmsg-raw':
-        case 'raw':
-        case 'html': {
-            break;
-        }
-        case 'error': {
-            break;
-        }
-        case 'pm': {
-            break;
-        }
-        case 'askreg': {
-            break;
-        }
         case 'inactive': {
             if (!this.kickingInactive) {
                 this.kickingInactive = true;
@@ -4287,12 +4243,6 @@ class Battle {
                 // sentence
                 this.kickingInactive = parseInt(args[1].slice(9), 10) || true;
                 return;
-            } else if (args[1].slice(-14) === ' seconds left.') {
-                let hasIndex = args[1].indexOf(' has ');
-                let userid = (app && app.user && app.user.get('userid'));
-                if (toId(args[1].slice(0, hasIndex)) === userid) {
-                    this.kickingInactive = parseInt(args[1].slice(hasIndex + 5), 10) || true;
-                }
             }
             break;
         }
@@ -4301,49 +4251,6 @@ class Battle {
             break;
         }
         case 'timer': {
-            break;
-        }
-        case 'join':
-        case 'j': {
-            if (this.roomid) {
-                let room = app.rooms[this.roomid];
-                let user = args[1];
-                let userid = toUserid(user);
-                if (/^[a-z0-9]/i.test(user)) {
-                    user = ' ' + user;
-                }
-                if (!room.users[userid]) {
-                    room.userCount.users++;
-                }
-                room.users[userid] = user;
-                room.userList.add(userid);
-                room.userList.updateUserCount();
-                room.userList.updateNoUsersOnline();
-            }
-            break;
-        }
-        case 'leave':
-        case 'l': {
-            if (this.roomid) {
-                let room = app.rooms[this.roomid];
-                let user = args[1];
-                let userid = toUserid(user);
-                if (room.users[userid]) {
-                    room.userCount.users--;
-                }
-                delete room.users[userid];
-                room.userList.remove(userid);
-                room.userList.updateUserCount();
-                room.userList.updateNoUsersOnline();
-            }
-            break;
-        }
-        case 'J':
-        case 'L':
-        case 'N':
-        case 'n':
-        case 'spectator':
-        case 'spectatorleave': {
             break;
         }
         case 'player': {
