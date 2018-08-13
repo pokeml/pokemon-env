@@ -3,10 +3,10 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/checks.json');
-const actions = require('./actions');
+// const actions = require('./actions');
 
-const MoveAction = actions.MoveAction;
-const SwitchAction = actions.SwitchAction;
+// const MoveAction = actions.MoveAction;
+// const SwitchAction = actions.SwitchAction;
 // const TeamAction = actions.TeamAction;
 
 /**
@@ -116,7 +116,7 @@ class ChecksSwitchAgent extends BattleAgent {
             // check if moveactions available
             let moveIsPossible = false;
             for (const acts of actions) {
-                if (acts instanceof MoveAction) {
+                if (acts.type === 'action') {
                     moveIsPossible = true;
                     break;
                 }
@@ -125,7 +125,7 @@ class ChecksSwitchAgent extends BattleAgent {
                 // console.log(actions);
                 // console.log(`>> ${player}: ${stayInActions}`);
                 // TODO: chose optimal move
-                stayInActions = actions.filter((e) => (e instanceof SwitchAction) != true);
+                stayInActions = actions.filter((e) => (e.type === 'switch'));
                 // console.log(stayInActions);
                 action = _.sample(stayInActions);
             } else {
