@@ -3,10 +3,10 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/checks.json');
-// const actions = require('./actions');
+const actions = require('./actions');
 
 // const MoveAction = actions.MoveAction;
-// const SwitchAction = actions.SwitchAction;
+const SwitchAction = actions.SwitchAction;
 // const TeamAction = actions.TeamAction;
 
 /**
@@ -111,30 +111,30 @@ class ChecksSwitchAgent extends BattleAgent {
         let stayInActions;
         switch (typeOfCheck) {
         case 'gsi':
+            // in this case the goal is to not switch
             console.log(`>> ${player}: Stay in.`);
             // stay in, remove all switch options from actions
             // check if moveactions available
             let moveIsPossible = false;
             for (const acts of actions) {
-                if (acts.type === 'action') {
+                if (acts.type === 'move') {
                     moveIsPossible = true;
                     break;
                 }
             }
             if (moveIsPossible) {
-                // console.log(actions);
-                // console.log(`>> ${player}: ${stayInActions}`);
-                stayInActions = actions.filter((e) => (e.type === 'switch'));
-                // console.log(stayInActions);
+                // only keep MoveActions
+                stayInActions = actions.filter((e) => (e.type === 'move'));
                 // TODO: 1v1
                 action = _.sample(stayInActions);
             } else {
                 // TODO: elaborate situation in which switching is only move, and use a stratgy
-                action = _.sample(actions);
+                // action = _.sample(actions);
             }
 
             break;
         case 'ssi':
+            // in this case the goal is to switch into a gsi
             console.log(`>> ${player}: Search gsi`);
             // check if switch action is possible
             let switchIsPossible = false;
@@ -144,18 +144,31 @@ class ChecksSwitchAgent extends BattleAgent {
                     break;
                 }
             }
+
             if (switchIsPossible) {
+                console.log(`>> ${player}: Switching is possible`);
                 // if we are in this case, we already know our active pokemon is not gsi
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    // TODO: set action
+                    console.log(`>> ${player}: Only one option to switch`);
+                    break;
+                }
+
+                // keeps current pokemon during iterating our teamlist
                 let currentPokemon;
+                // whether we have a gsi in the team
                 let gsiExists = false;
-                // the gsi pokemon's index and name (to which we should switch)
+                // the gsi pokemon's index in oppActiveMon's gsi list
                 let gsiIndex;
+                // pokemon name (to which we should switch)
                 let gsiName;
-                // check if gsi to the opponent's active exists in own team
+                // index of the pokemon we should switch to (in own pokemon list)
+                let gsiIndexInTeam = 0;
+                // check if we have gsi to the opponent's active pokemon in own team
                 for (const pokemon of info.side.pokemon) {
                     // we want to switch, so skip the own active pokemon
                     if (!pokemon.active) {
-                        // get list of own pokemon, and store the first pokemon
                         currentPokemon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
                         // check if currentPokemon appears in oppActiveMon's gsi list
                         if (oppMonChecks) {
@@ -168,17 +181,33 @@ class ChecksSwitchAgent extends BattleAgent {
                             }
                         }
                     }
+                    gsiIndexInTeam++;
                 }
                 if (gsiExists) {
                     console.log(`>> ${player}: Found gsi, switch to ${gsiName}`);
-                    // reset values
-                    gsiIndex = -1;
-                    gsiExists = false;
+                    // do the switch to gsi
+                    // console.log(`Action: ${action}`);
+                    // action = new SwitchAction(gsiIndexInTeam);
                 } else {
                     console.log(`>> ${player}: No gsi found, stay in`);
-                    stayInActions = actions.filter((e) => (e.type === 'switch'));
-                    // TODO: 1v1
-                    action = _.sample(stayInActions);
+                    // make sure a MoveAction is possible, else switch anyway
+                    let moveIsPossible = false;
+                    for (const acts of actions) {
+                        if (acts.type === 'move') {
+                            moveIsPossible = true;
+                            break;
+                        }
+                    }
+                    if (moveIsPossible) {
+                        console.log(`>> ${player}: Move is possible, stay in`);
+                        stayInActions = actions.filter((e) => (e.type === 'move'));
+                        // console.log(stayInActions);
+                        // TODO: 1v1
+                        action = _.sample(stayInActions);
+                    } else {
+                        // switch anyway
+                        console.log(`>> ${player}: Move is not possible, switch`);
+                    }
                 }
             } else {
                 // switching is not a valid choice
