@@ -3,10 +3,10 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/checks.json');
-const actions = require('./actions');
+// const actions = require('./actions');
 
 // const MoveAction = actions.MoveAction;
-const SwitchAction = actions.SwitchAction;
+// const SwitchAction = actions.SwitchAction;
 // const TeamAction = actions.TeamAction;
 
 /**
@@ -30,7 +30,9 @@ class ChecksSwitchAgent extends BattleAgent {
      * @return {string}
      */
     act(battle, actions, info) {
+        // TODO: if opponent chose uturn/voltswitch/etc. skip computing
         // determine player and opponent
+        // console.log(actions);
         const player = info.side.id;
         // let opponent;
         //
@@ -187,7 +189,15 @@ class ChecksSwitchAgent extends BattleAgent {
                     console.log(`>> ${player}: Found gsi, switch to ${gsiName}`);
                     // do the switch to gsi
                     // console.log(`Action: ${action}`);
-                    // action = new SwitchAction(gsiIndexInTeam);
+                    // search for correct switch action in actions object
+                    for (const act of actions) {
+                        if ((act.type === 'switch') && (act.pokeNum == (gsiIndexInTeam + 1))) {
+                            action = act;
+                            console.log(`>> ${player}: Switchaction index ${gsiIndexInTeam+1}`);
+                            break;
+                        }
+                    }
+                    // action = new SwitchAction(gsiIndexInTeam+1);
                 } else {
                     console.log(`>> ${player}: No gsi found, stay in`);
                     // make sure a MoveAction is possible, else switch anyway
@@ -224,7 +234,7 @@ class ChecksSwitchAgent extends BattleAgent {
             // do random action for now here
             break;
         default:
-            console.log('>> ${player}: Unexpected typeOfCheck');
+            console.log(`>> ${player}: Unexpected typeOfCheck`);
         }
         return action;
     }
