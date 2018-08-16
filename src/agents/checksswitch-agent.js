@@ -117,13 +117,8 @@ class ChecksSwitchAgent extends BattleAgent {
             console.log(`>> ${player}: Stay in.`);
             // stay in, remove all switch options from actions
             // check if moveactions available
-            let moveIsPossible = false;
-            for (const acts of actions) {
-                if (acts.type === 'move') {
-                    moveIsPossible = true;
-                    break;
-                }
-            }
+            let moveIsPossible = this._actionTypePossible(actions, 'move');
+
             if (moveIsPossible) {
                 // only keep MoveActions
                 stayInActions = actions.filter((e) => (e.type === 'move'));
@@ -139,13 +134,7 @@ class ChecksSwitchAgent extends BattleAgent {
             // in this case the goal is to switch into a gsi
             console.log(`>> ${player}: Search gsi`);
             // check if switch action is possible
-            let switchIsPossible = false;
-            for (const acts of actions) {
-                if (acts.type === 'switch') {
-                    switchIsPossible = true;
-                    break;
-                }
-            }
+            let switchIsPossible = this._actionTypePossible(actions, 'switch');
 
             if (switchIsPossible) {
                 console.log(`>> ${player}: Switching is possible`);
@@ -157,34 +146,17 @@ class ChecksSwitchAgent extends BattleAgent {
                     break;
                 }
 
-                // keeps current pokemon during iterating our teamlist
-                let currentPokemon;
-                // whether we have a gsi in the team
-                let gsiExists = false;
-                // the gsi pokemon's index in oppActiveMon's gsi list
-                let gsiIndex;
-                // pokemon name (to which we should switch)
-                let gsiName;
-                // index of the pokemon we should switch to (in own pokemon list)
-                let gsiIndexInTeam = 0;
                 // check if we have gsi to the opponent's active pokemon in own team
-                for (const pokemon of info.side.pokemon) {
-                    // we want to switch, so skip the own active pokemon
-                    if (!pokemon.active) {
-                        currentPokemon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
-                        // check if currentPokemon appears in oppActiveMon's gsi list
-                        if (oppMonChecks) {
-                            gsiIndex = oppMonChecks.gsi.indexOf(`${currentPokemon}`);
-                            if (gsiIndex > -1) {
-                                gsiExists = true;
-                                gsiName = oppMonChecks.gsi[gsiIndex];
-                                // found gsi, exit loop
-                                break;
-                            }
-                        }
-                    }
-                    gsiIndexInTeam++;
-                }
+                // returns [gsiExists, gsiName, gsiIndexInTeam]
+                let gsiData = this._inXsi(info, oppMonChecks.gsi);
+                // console.log(gsiData);
+                // whether we have a gsi in the team
+                let gsiExists = gsiData[0];
+                // pokemon name (to which we should switch)
+                let gsiName = gsiData[1];
+                // index of the pokemon we should switch to (in own pokemon list)
+                let gsiIndexInTeam = gsiData[2];
+
                 if (gsiExists) {
                     console.log(`>> ${player}: Found gsi, switch to ${gsiName}`);
                     // do the switch to gsi
@@ -227,7 +199,9 @@ class ChecksSwitchAgent extends BattleAgent {
             break;
         case 'nsi':
             console.log(`>> ${player}: Search gsi/ssi`);
-            // if gsi/ssi empty, stay in
+            // in this case the goal is to search gsi first and then ssi
+            // if both not available, stay in
+
             break;
         case '--':
             console.log(`>> ${player}: Search gsi/ssi/nsi, or typeResistance`);
@@ -237,6 +211,64 @@ class ChecksSwitchAgent extends BattleAgent {
             console.log(`>> ${player}: Unexpected typeOfCheck`);
         }
         return action;
+    }
+
+
+    /**
+     * return whether the action specified in actionType is present in the actions object
+     *
+     * @param {actions} actions
+     * @param {string} actionType
+     * @return {bool}
+     */
+    _actionTypePossible(actions, actionType) {
+        let actionPossible = false;
+        for (const acts of actions) {
+            if (acts.type === actionType) {
+                actionPossible = true;
+                break;
+            }
+        }
+        return actionPossible;
+    }
+
+    /**
+     * returns xsi (gsi or ssi or nsi) data
+     *
+     * @param {info} info
+     * @param {string[]} oppMonChecks //.xsi, array which should be searched
+     * @return {[]}
+     */
+    _inXsi(info, oppMonChecks) {
+        // keeps current pokemon during iterating our teamlist
+        let currentPokemon;
+        // whether we have a xsi in the team
+        let xsiExists = false;
+        // the xsi pokemon's index in oppActiveMon's xsi list
+        let xsiIndex;
+        // pokemon name (to which we should switch)
+        let xsiName;
+        // index of the pokemon we should switch to (in own pokemon list)
+        let xsiIndexInTeam = 0;
+        // check if we have xsi to the opponent's active pokemon in own team
+        for (const pokemon of info.side.pokemon) {
+            // we want to switch, so skip the own active pokemon
+            if (!pokemon.active) {
+                currentPokemon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
+                // check if currentPokemon appears in oppActiveMon's xsi list
+                if (oppMonChecks) {
+                    xsiIndex = oppMonChecks.indexOf(`${currentPokemon}`);
+                    if (xsiIndex > -1) {
+                        xsiExists = true;
+                        xsiName = oppMonChecks[xsiIndex];
+                        // found xsi, exit loop
+                        break;
+                    }
+                }
+            }
+            xsiIndexInTeam++;
+        }
+        return [xsiExists, xsiName, xsiIndexInTeam];
     }
 }
 
