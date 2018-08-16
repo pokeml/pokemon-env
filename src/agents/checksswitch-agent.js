@@ -134,9 +134,9 @@ class ChecksSwitchAgent extends BattleAgent {
             // in this case the goal is to switch into a gsi
             console.log(`>> ${player}: Search gsi`);
             // check if switch action is possible
-            let switchIsPossible = this._actionTypePossible(actions, 'switch');
+            let switchIsPossibleSsi = this._actionTypePossible(actions, 'switch');
 
-            if (switchIsPossible) {
+            if (switchIsPossibleSsi) {
                 console.log(`>> ${player}: Switching is possible`);
                 // if we are in this case, we already know our active pokemon is not gsi
                 // if only one choice in switching then no need to continue
@@ -149,7 +149,6 @@ class ChecksSwitchAgent extends BattleAgent {
                 // check if we have gsi to the opponent's active pokemon in own team
                 // returns [gsiExists, gsiName, gsiIndexInTeam]
                 let gsiData = this._inXsi(info, oppMonChecks.gsi);
-                // console.log(gsiData);
                 // whether we have a gsi in the team
                 let gsiExists = gsiData[0];
                 // pokemon name (to which we should switch)
@@ -173,14 +172,9 @@ class ChecksSwitchAgent extends BattleAgent {
                 } else {
                     console.log(`>> ${player}: No gsi found, stay in`);
                     // make sure a MoveAction is possible, else switch anyway
-                    let moveIsPossible = false;
-                    for (const acts of actions) {
-                        if (acts.type === 'move') {
-                            moveIsPossible = true;
-                            break;
-                        }
-                    }
-                    if (moveIsPossible) {
+                    let moveIsPossibleSsi = this._actionTypePossible(actions, 'move');
+
+                    if (moveIsPossibleSsi) {
                         console.log(`>> ${player}: Move is possible, stay in`);
                         stayInActions = actions.filter((e) => (e.type === 'move'));
                         // console.log(stayInActions);
@@ -200,7 +194,77 @@ class ChecksSwitchAgent extends BattleAgent {
         case 'nsi':
             console.log(`>> ${player}: Search gsi/ssi`);
             // in this case the goal is to search gsi first and then ssi
-            // if both not available, stay in
+            let switchIsPossibleNsi = this._actionTypePossible(actions, 'switch');
+
+            if (switchIsPossibleNsi) {
+                console.log(`>> ${player}: Switching is possible`);
+                // if we are in this case, we already know our active pokemon is not gsi
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    // TODO: set action
+                    console.log(`>> ${player}: Only one option to switch`);
+                    break;
+                }
+                // check if we have gsi to the opponent's active pokemon in own team
+                let gsiDataNsi = this._inXsi(info, oppMonChecks.gsi);
+                let gsiExistsNsi = gsiDataNsi[0];
+                let gsiNameNsi = gsiDataNsi[1];
+                let gsiIndexInTeamNsi = gsiDataNsi[2];
+
+                if (gsiExistsNsi) {
+                    console.log(`>> ${player}: Found gsi, switch to ${gsiNameNsi}`);
+                    // do the switch to gsi
+                    // console.log(`Action: ${action}`);
+                    // search for correct switch action in actions object
+                    for (const act of actions) {
+                        if ((act.type === 'switch') && (act.pokeNum == (gsiIndexInTeamNsi + 1))) {
+                            action = act;
+                            console.log(`>> ${player}: Switchaction index ${gsiIndexInTeamNsi+1}`);
+                            break;
+                        }
+                    }
+                } else {
+                    console.log(`>> ${player}: No gsi found, search for ssi`);
+                    let ssiDataNsi = this._inXsi(info, oppMonChecks.ssi);
+                    let ssiExistsNsi = ssiDataNsi[0];
+                    let ssiNameNsi = ssiDataNsi[1];
+                    let ssiIndexInTeamNsi = ssiDataNsi[2];
+
+                    if (ssiExistsNsi) {
+                        console.log(`>> ${player}: Found ssi, switch to ${ssiNameNsi}`);
+                        // do the switch to gsi
+                        // console.log(`Action: ${action}`);
+                        // search for correct switch action in actions object
+                        for (const act of actions) {
+                            if ((act.type === 'switch') && (act.pokeNum == (ssiIndexInTeamNsi+1))) {
+                                action = act;
+                                console.log(`>> ${player}: Switchaction index`
+                                  + `${ssiIndexInTeamNsi+1}`);
+                                break;
+                            }
+                        }
+                    } else {
+                        console.log(`>> ${player}: No ssi found, stay in`);
+                        // make sure a MoveAction is possible, else switch anyway
+                        let moveIsPossibleNsi = this._actionTypePossible(actions, 'move');
+
+                        if (moveIsPossibleNsi) {
+                            console.log(`>> ${player}: Move is possible, stay in`);
+                            stayInActions = actions.filter((e) => (e.type === 'move'));
+                            // console.log(stayInActions);
+                            // TODO: 1v1
+                            action = _.sample(stayInActions);
+                        } else {
+                            // switch anyway
+                            console.log(`>> ${player}: Move is not possible, switch`);
+                        }
+                    }
+                }
+            } else {
+                // switching is not a valid choice
+                // TODO: 1v1
+                console.log(`>> ${player}: Switching not possible, stay in`);
+            }
 
             break;
         case '--':
