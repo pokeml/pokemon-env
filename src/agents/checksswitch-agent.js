@@ -88,8 +88,8 @@ class ChecksSwitchAgent extends BattleAgent {
             } else if (oppMonChecks.nsi.indexOf(`${myActiveMon}`) > -1) {
                 typeOfCheck = 'nsi';
             } else {
-                // not available in list, not switching probably a bad choice
-                typeOfCheck = '--';
+                // not available in list (Not In List), not switching probably a bad choice
+                typeOfCheck = 'na';
             }
         }
         // console.log(`>> ${player}: I'm ${player}, my opponent is ${opponent}.`);
@@ -125,7 +125,7 @@ class ChecksSwitchAgent extends BattleAgent {
                 // TODO: 1v1
                 action = _.sample(stayInActions);
             } else {
-                // TODO: elaborate situation in which switching is only move, and use a stratgy
+                // TODO: elaborate situation in which switching is only move, and use a strategy
                 // action = _.sample(actions);
             }
 
@@ -267,9 +267,85 @@ class ChecksSwitchAgent extends BattleAgent {
             }
 
             break;
-        case '--':
+        case 'na':
             console.log(`>> ${player}: Search gsi/ssi/nsi, or typeResistance`);
-            // do random action for now here
+            // in this case the goal is to search gsi first then ssi then nsi
+            let switchIsPossibleNa = this._actionTypePossible(actions, 'switch');
+
+            if (switchIsPossibleNa) {
+                console.log(`>> ${player}: Switching is possible`);
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    // TODO: set action
+                    console.log(`>> ${player}: Only one option to switch`);
+                    break;
+                }
+                // check if we have gsi to the opponent's active pokemon in own team
+                let gsiDataNa = this._inXsi(info, oppMonChecks.gsi);
+                let gsiExistsNa = gsiDataNa[0];
+                let gsiNameNa = gsiDataNa[1];
+                let gsiIndexInTeamNa = gsiDataNa[2];
+
+                if (gsiExistsNa) {
+                    console.log(`>> ${player}: Found gsi, switch to ${gsiNameNa}`);
+                    for (const act of actions) {
+                        if ((act.type === 'switch') && (act.pokeNum == (gsiIndexInTeamNa + 1))) {
+                            action = act;
+                            console.log(`>> ${player}: Switchaction index ${gsiIndexInTeamNa+1}`);
+                            break;
+                        }
+                    }
+                } else {
+                    console.log(`>> ${player}: No gsi found, search for ssi`);
+                    let ssiDataNa = this._inXsi(info, oppMonChecks.ssi);
+                    let ssiExistsNa = ssiDataNa[0];
+                    let ssiNameNa = ssiDataNa[1];
+                    let ssiIndexInTeamNa = ssiDataNa[2];
+
+                    if (ssiExistsNa) {
+                        console.log(`>> ${player}: Found ssi, switch to ${ssiNameNa}`);
+                        // do the switch to gsi
+                        // console.log(`Action: ${action}`);
+                        // search for correct switch action in actions object
+                        for (const act of actions) {
+                            if ((act.type === 'switch') && (act.pokeNum == (ssiIndexInTeamNa+1))) {
+                                action = act;
+                                console.log(`>> ${player}: Switchaction index`
+                                  + `${ssiIndexInTeamNa+1}`);
+                                break;
+                            }
+                        }
+                    } else {
+                        console.log(`>> ${player}: No ssi found, search for nsi`);
+                        let nsiDataNa = this._inXsi(info, oppMonChecks.nsi);
+                        let nsiExistsNa = nsiDataNa[0];
+                        let nsiNameNa = nsiDataNa[1];
+                        let nsiIndexInTeamNa = nsiDataNa[2];
+
+                        if (nsiExistsNa) {
+                            console.log(`>> ${player}: Found nsi, switch to ${nsiNameNa}`);
+                            // do the switch to nsi
+                            // console.log(`Action: ${action}`);
+                            // search for correct switch action in actions object
+                            for (const act of actions) {
+                                if ((act.type === 'switch')
+                                && (act.pokeNum == (nsiIndexInTeamNa+1))) {
+                                    action = act;
+                                    console.log(`>> ${player}: Switchaction index`
+                                      + `${nsiIndexInTeamNa+1}`);
+                                    break;
+                                }
+                            }
+                        } else {
+                            console.log(`>> ${player}: No nsi found, check typeResistance (TODO)`);
+                        }
+                    }
+                }
+            } else {
+                // switching is not a valid choice
+                // TODO: 1v1
+                console.log(`>> ${player}: Switching not possible, stay in`);
+            }
             break;
         default:
             console.log(`>> ${player}: Unexpected typeOfCheck`);
