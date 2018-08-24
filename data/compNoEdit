@@ -1,0 +1,712 @@
+S, vr, Landorus-Therian, Magearna
+
+A+, vr, Celesteela, Diancie-Mega, Ferrothorn, Greninja, Greninja-Ash, Heatran, Tapu Koko, Tapu Lele, Toxapex, Zygarde
+A, vr, Clefable, Kyurem-Black, Latios, Mawile-Mega, Mew, Pinsir-Mega, Tangrowth, Tapu Bulu, Volcarona, Zapdos
+A-, vr, Chansey, Garchomp, Kartana, Keldeo, Medicham-Mega, Pelipper, Sableye-Mega, Scizor-Mega, Tyranitar, Venusaur-Mega
+
+B+, vr, Alakazam-Mega, Bisharp, Charizard-Mega-Y, Gengar, Gyarados, Heracross-Mega, Kingdra, Latias-Mega, Lopunny-Mega, Magnezone, Mantine, Marowak-Alola, Skarmory, Suicune, Swampert-Mega, Tapu Fini, Tornadus-Therian, Tyranitar-Mega, Weavile
+B, vr, Alomomola, Amoonguss, Excadrill, Gastrodon, Hoopa-Unbound, Jirachi, Latias, Mamoswine, Manaphy, Mimikyu, Reuniclus, Rotom-Wash, Serperior, Thundurus
+B-, vr, Alakazam, Azumarill, Camerupt-Mega, Charizard-Mega-X, Dragonite, Gallade-Mega, Hawlucha, Hippowdon, Manectric-Mega, Slowbro-Mega, Terrakion
+
+C+, vr, Aerodactyl-Mega, Altaria-Mega, Chandelure, Cofagrigus, Ditto, Garchomp-Mega, Gardevoir-Mega, Gyarados-Mega, Infernape, Muk-Alola, Nidoking, Ninetales-Alola, Quagsire, Salamence, Scolipede, Sharpedo-Mega, Slowbro, Smeargle, Togekiss, Victini
+C, vr, Azelf, Crawdaunt, Cresselia, Gliscor, Hydreigon, Nihilego, Porygon-Z, Primarina, Starmie, Thundurus-Therian, Uxie, Volcanion
+C-, vr, Araquanid, Breloom, Buzzwole, Conkeldurr, Empoleon, Omastar, Shuckle, Talonflame
+
+Aerodactyl-Mega|offensive, icon, aerodactylite
+Aerodactyl-Mega|offensive, GSI, Clefable|unaware|cm|utility, Slowbro|cm|mixed def, Gastrodon|sp d, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Hippowdon|mixed def, Quagsire|unaware|curse, Suicune|vin cune|cro cune, Reuniclus|cm, Cresselia|tr utility
+Aerodactyl-Mega|offensive, SSI, Skarmory|def, Landorus-Therian|def, Celesteela|autotomize|sp d, Ferrothorn|mixed def, Tapu Fini|utility, Jirachi|scarf|utility, Rotom-Wash|off utility, Excadrill|sd sand rush|sash|scarf, Scizor-Mega|utility, Toxapex|tha pex, Gliscor|sub toxic, Empoleon|sp d, Mawile-Mega|sd|4 atks
+Aerodactyl-Mega|offensive, NSI, Greninja|ash|scarf, Keldeo|scarf, Garchomp|scarf, Manaphy|tg icium-z|z-rain dance, Nihilego|scarf, Terrakion|scarf, Tyranitar|cb, Kingdra|swift swim, Gyarados-Mega|sub dd, Kabutops|sd swift swim, Azumarill|z-belly drum, Crawdaunt|cb|sd, Starmie|lo, Primarina|specs, Greninja|scarf, Tapu Koko|scarf, Conkeldurr|guts,
+
+Alakazam-Mega|offensive, icon, alakazite
+Alakazam-Mega|offensive, GSI, Celesteela|sp d, Magearna|av, Chansey|blob, Muk-Alola|av
+Alakazam-Mega|offensive, SSI, Jirachi|scarf|utility, Latios|scarf, Sableye-Mega|def, Hoopa-Unbound|cb|scarf|specs, Scizor-Mega|utility, Gastrodon|sp d, Bisharp|sd
+Alakazam-Mega|offensive, NSI, Magearna|sg z-fight/elec/fairy|av|double dance, Kartana|scarf, Greninja|scarf, Aerodactyl-Mega|offensive, Landorus-Therian|scarf, Garchomp|scarf, Medicham-Mega|offensive, Terrakion|scarf, Azumarill|z-belly drum, Tangrowth|av, Kingdra|swift swim, Kabutops|sd swift swim, Mawile-Mega|sd, Tornadus-Therian|av, Excadrill|sd sand rush|sash|scarf, Sharpedo-Mega|cleaner, Mimikyu|sd
+
+Araquanid|cb, GSI, Venusaur-Mega|mixed def|offensive, Ferrothorn|mixed def, Mantine|mixed def, Suicune|vin cune|cro cune, Volcanion|specs|z-ground/grass, Slowbro-Mega|cm|mega tank
+Araquanid|cb, SSI, Tangrowth|mixed def|av, Gastrodon|sp d, Pelipper|mixed def, Scizor-Mega|utility, Kyurem-Black|sub icium-z|lo|cb, Kingdra|swift swim, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Slowbro|cm|mixed def, Skarmory|def, Amoonguss|mixed def, Cresselia|tr utility
+Araquanid|cb|rd waterium-z, NSI, Mew|utility, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Bulu|sd z-grass/fight|cb, Tapu Lele|specs, Landorus-Therian|flyinium|rockium|double dance, Garchomp|offensive sr, Zygarde|cb|dd, Tapu Fini|cm|utility, Keldeo|specs, Pinsir-Mega|sd, Magearna|sg z-fight/elec/fairy, Mawile-Mega|sd|4 atks, Hoopa-Unbound|cb, Hawlucha|sd unburden, Rotom-Wash|off utility, Terrakion|sd|scarf, Tyranitar|cb, Tyranitar-Mega|dd, Kabutops|sd swift swim, Tornadus-Therian|lo, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Aerodactyl-Mega|offensive, Pidgeot-Mega|offensive, Manectric-Mega|offensive, Nihilego|specs, Togekiss|stallbreaker, Azumarill|z-belly drum, Heracross-Mega|sd, Primarina|specs, Talonflame|sd, Victini|cb
+
+Araquanid|rd waterium-z, icon, wateriumz
+Araquanid|rd waterium-z, letters, RD
+Araquanid|rd waterium-z, GSI, Mantine|mixed def, Gastrodon|sp d, Volcanion|specs|z-ground/grass, Tangrowth|mixed def, Venusaur-Mega|mixed def|offensive, Pelipper|mixed def, Kingdra|swift swim, Ferrothorn|mixed def, Slowbro-Mega|cm|mega tank, Cresselia|tr utility
+Araquanid|rd waterium-z, SSI, Tangrowth|av, Pelipper|specs, Scizor-Mega|utility, Kyurem-Black|sub icium-z|lo|cb, Kingdra|swift swim, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Slowbro|cm|mixed def, Skarmory|def, Amoonguss|mixed def
+
+Azumarill|z-belly drum, icon, normaliumz
+Azumarill|z-belly drum, letters, z-BD
+Azumarill|z-belly drum, GSI, Venusaur-Mega|mixed def|offensive
+Azumarill|z-belly drum, SSI, Tapu Bulu|sd z-grass/fight|cb, Volcanion|specs|z-ground/grass, Kartana|sd|scarf, Clefable|unaware, Quagsire|unaware|curse, Suicune|vin cune, Primarina|specs
+Azumarill|z-belly drum, NSI, Kyurem-Black|sub icium-z, Dragonite|dd z-fly/elec, Greninja|protean|scarf, Starmie|lo, Latios|scarf|lo|specs, Tapu Lele|scarf|stallbreaker|specs, Sharpedo-Mega|cleaner, Breloom|sash, Salamence|dd, Swampert-Mega|swift swim, Gyarados|dd, Keldeo|specs, Manaphy|tg icium-z, Scizor-Mega|utility, Zapdos|off utility|def, Skarmory|def, Toxapex|tha pex, Amoonguss|mixed def, Rotom-Wash|off utility, Gastrodon|sp d, Alomomola|mixed def, Hydreigon|specs, Kyurem|specs, Serperior|sub seed, Mimikyu|sd, Cofagrigus|tr ghostium-z
+
+Bisharp|sd, icon, darkiniumz
+Bisharp|sd, letters, SD
+Bisharp|sd, GSI, Keldeo|scarf|specs, Buzzwole|sub punch
+Bisharp|sd, SSI, Charizard-Mega-X|dd, Tangrowth|mixed def, Celesteela|mixed def, Scizor-Mega|utility, Tapu Fini|cm|utility, Quagsire|unaware|curse, Celesteela|autotomize|sp d, Araquanid|rd waterium-z, Conkeldurr|guts, Hippowdon|mixed def
+Bisharp|sd, NSI, Greninja|protean|ash, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Lele|scarf|specs, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Bulu|sd z-grass/fight|cb, Rotom-Wash|off utility, Lopunny-Mega|offensive, Terrakion|sd|scarf, Gliscor|sub toxic, Breloom|sash, Hawlucha|sd unburden, Hydreigon|specs, Heracross-Mega|sd, Tyranitar-Mega|dd, Talonflame|sd, Pidgeot-Mega|offensive, Gallade-Mega|sd
+
+Breloom|sd, icon, lifeorb
+Breloom|sd|sash, GSI, Amoonguss|mixed def, Venusaur-Mega|mixed def|offensive
+Breloom|sd|sash, SSI, Charizard-Mega-X|dd, Tapu Bulu|sd z-grass/fight|cb, Charizard-Mega-Y|wallbreaker, Gengar|off utility, Pinsir-Mega|sd, Salamence|dd, Skarmory|def, Tangrowth|mixed def, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Latios|scarf|specs|lo, Marowak-Alola|sd, Scolipede|sd waterium-z, Tornadus-Therian|lo, Zapdos|off utility|def, Buzzwole|sub punch, Heracross-Mega|sd, Dragonite|dd z-fly/elec, Latias|off utility, Mew|utility, Togekiss|stallbreaker, Hawlucha|sd unburden, Talonflame|sd, Victini|cb, Chandelure|specs, Cresselia|tr utility
+Breloom|sd|sash, NSI, Tapu Lele|scarf|stallbreaker|specs, Mamoswine|lo, Weavile|cb, Alakazam-Mega|offensive, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Manaphy|tg icium-z, Thundurus|np|defiant mixed, Nidoking|lo, Starmie|lo
+
+Buzzwole|sub punch, icon, leftovers
+Buzzwole|sub punch. letters, Sub
+Buzzwole|sub punch, GSI, Mantine|mixed def, Pelipper|mixed def, Chandelure|specs
+Buzzwole|sub punch, SSI, Skarmory|def, Landorus-Therian|def|flyinium, Tapu Fini|utility, Marowak-Alola|sd, Charizard-Mega-Y|wallbreaker, Pinsir-Mega|sd, Sableye-Mega|def, Salamence|dd, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Clefable|unaware|cm|utility, Tornadus-Therian|lo, Toxapex|tha pex, Zapdos|off utility|def, Heracross-Mega|sd, Gliscor|sub toxic, Togekiss|stallbreaker, Azumarill|z-belly drum, Primarina|specs, Cresselia|tr utility
+Buzzwole|sub punch, NSI, Landorus-Therian|rockium|double dance|scarf, Celesteela|autotomize, Charizard-Mega-Y|wallbreaker, Hoopa-Unbound|cb|specs|scarf, Charizard-Mega-X|dd, Latios|scarf|specs|lo, Latias|off utility, Pinsir-Mega|sd, Kyurem-Black|sub icium-z, Kingdra|swift swim, Omastar|ss swift swim, Starmie|lo, Kyurem|specs, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Talonflame|sd, Pidgeot-Mega|offensive, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Camerupt-Mega|wallbreaker, icon, cameruptite
+Camerupt-Mega|wallbreaker, GSI, Chansey|blob, Gastrodon|sp d, Mantine|mixed def, Pelipper|mixed def
+Camerupt-Mega|wallbreaker, SSI, Latios|lo|specs|scarf, Latias|off utility, Rotom-Wash|off utility, Tapu Fini|cm|utility, Suicune|vin cune|cro cune, Gyarados|dd, Gyarados-Mega|sub dd, Kingdra|swift swim, Hydreigon|specs, Salamence|dd, Dragonite|dd z-fly/elec, Pelipper|specs, Araquanid|cb|rd waterium-z
+Camerupt-Mega|wallbreaker, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|scarf|sd, Garchomp-Mega|sd sand force, Zygarde|cb|dd|double dance|sub coil, Greninja|protean|ash|scarf, Keldeo|scarf|specs, Heatran|off z-ground/grass, Tapu Bulu|sd z-grass/fight|cb, Marowak-Alola|sd, Medicham-Mega|offensive, Swampert-Mega|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Tyranitar|cb, Volcanion|specs|z-ground/grass, Tapu Lele|specs, Mamoswine|lo, Kyurem-Black|sub icium-z, Manaphy|tg icium-z|z-rain dance, Azumarill|z-belly drum, Sharpedo-Mega|cleaner, Nidoking|lo, Gliscor|sub toxic, Aerodactyl-Mega|offensive, Crawdaunt|cb|sd, Starmie|lo
+
+Celesteela|autotomize, icon, flyiniumz
+Celesteela|autotomize, letters, Auto
+Celesteela|autotomize, GSI, Chansey|blob, Zapdos|off utility|def, Manaphy|z-rain dance, Cresselia|tr utility
+Celesteela|autotomize, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Rotom-Wash|off utility, Manectric-Mega|offensive, Tyranitar-Mega|dd, Chandelure|specs, Reuniclus|cm
+Celesteela|autotomize, NSI, Tapu Koko|scarf, Kingdra|swift swim, Omastar|ss swift swim, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Cofagrigus|tr ghostium-z
+
+Clefable|cm, icon, leftovers
+Clefable|cm, GSI, Heatran|sub toxic|sp d|off z-ground/grass, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Charizard-Mega-Y|wallbreaker, Celesteela|sp d, Venusaur-Mega|mixed def|offensive, Jirachi|utility, Clefable|unaware, Toxapex|tha pex, Nidoking|lo, Quagsire|curse, Talonflame|sd, Victini|cb, Volcanion|specs|z-ground/grass, Araquanid|cb|rd waterium-z, Reuniclus|cm
+Clefable|cm, SSI, Celesteela|mixed def, Magearna|sg z-fight/elec/fairy, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|sd, Jirachi|scarf, Amoonguss|mixed def, Gengar|off utility|specs, Magnezone|av, Skarmory|def, Chansey|blob, Scizor-Mega|utility, Ferrothorn|mixed def, Scolipede|sd waterium-z, Volcanion|specs|z-ground/grass, Muk-Alola|av, Victini|cb, Mawile-Mega|sd|4 atks
+Clefable|cm, NSI, Landorus-Therian|flyinium, Tapu Koko|z-wild charge|off utility, Tapu Fini|cm|utility, Tapu Bulu|sd z-grass/fight|cb, Tapu Lele|stallbreaker, Kyurem-Black|sub icium-z, Manaphy|tg icium-z|z-rain dance, Hoopa-Unbound|cb, Bisharp|sd, Kartana|sd, Omastar|ss swift swim, Porygon-Z|z-conversion ghost
+
+Chandelure|specs, SSI, Chansey|blob, Mantine|mixed def, Gastrodon|sp d, Heatran|sub toxic|sp d|off z-ground/grass, Alomomola|mixed def, Tyranitar|cb, Tyranitar-Mega|dd, Muk-Alola|av, Hydreigon|specs, Gyarados-Mega|sub dd, Araquanid|cb|rd waterium-z, Alakazam-Mega|trace
+Chandelure|specs, NSI, Greninja|protean|ash, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Keldeo|scarf|specs, Zygarde|cb|dd, Latios|lo|specs|scarf, Excadrill|sd sand rush|sash|scarf, Tapu Lele|stallbreaker|scarf|specs, Lopunny-Mega|offensive, Gengar|off utility|specs, Kyurem|specs, Kyurem-Black|sub icium-z|lo|cb|scarf, Pinsir-Mega|sd, Medicham-Mega|offensive, Hoopa-Unbound|scarf, Weavile|cb, Terrakion|sd|scarf, Bisharp|sd, Mawile-Mega|sd|4 atks, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Manaphy|tg icium-z|z-rain dance, Thundurus|defiant mixed, Thundurus-Therian|agility, Azumarill|z-belly drum, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Nidoking|lo, Crawdaunt|cb|sd, Starmie|lo, Sharpedo-Mega|cleaner, Aerodactyl-Mega|offensive, Scolipede|sd waterium-z, Nihilego|specs|scarf, Mimikyu|sd, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Porygon-Z|z-conversion ghost, Araquanid|cb|rd waterium-z, Primarina|specs
+
+Charizard-Mega-X|dd, icon, charizarditex
+Charizard-Mega-X|dd, GSI, Landorus-Therian|def
+Charizard-Mega-X|dd, SSI, Toxapex|tha pex, Tapu Fini|utility, Alomomola|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Quagsire|unaware|curse, Hippowdon|mixed def
+Charizard-Mega-X|dd, NSI, Landorus-Therian|scarf, Garchomp|scarf, Nihilego|scarf, Latios|scarf, Latias|off utility, Terrakion|scarf, Gliscor|sub toxic, Kingdra|swift swim, Kabutops|sd swift swim, Azumarill|z-belly drum, Primarina|specs, Conkeldurr|guts
+
+Charizard-Mega-Y|wallbreaker, icon, charizarditey
+Charizard-Mega-Y|wallbreaker, GSI, Chansey|blob, Latios|scarf|specs|lo, Latias|off utility, Mantine|mixed def, Talonflame|sd, Chandelure|specs
+Charizard-Mega-Y|wallbreaker, SSI, Charizard-Mega-X|dd, Dragonite|dd z-fly/elec, Toxapex|tha pex, Garchomp|scarf|offensive sr|sd, Cresselia|tr utility
+Charizard-Mega-Y|wallbreaker, NSI, Landorus-Therian|scarf, Garchomp|scarf, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Nihilego|scarf|specs, Terrakion|sd|scarf, Thundurus|np|defiant mixed, Aerodactyl-Mega|offensive, Thundurus-Therian|agility, Greninja|scarf, Manectric-Mega|offensive, Araquanid|cb|rd waterium-z
+
+Cofagrigus|tr ghostium-z, icon, ghostiumz
+Cofagrigus|tr ghostium-z, letters, NP
+Cofagrigus|tr ghostium-z, GSI, Chansey|blob, Magearna|av
+Cofagrigus|tr ghostium-z, SSI, Greninja|protean|ash, Hydreigon|specs, Porygon-Z|z-conversion ghost, Araquanid|cb|rd waterium-z
+Cofagrigus|tr ghostium-z, NSI, Gengar|off utility|specs, Tyranitar|cb, Tyranitar-Mega|dd, Bisharp|sd, Weavile|cb, Gengar|off utility|specs, Hoopa-Unbound|cb|specs, Gyarados-Mega|sub dd, Latios|specs, Kingdra|swift swim, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Chandelure|specs
+
+Conkeldurr|guts, icon, flameorb
+Conkeldurr|guts, letters, BU
+Conkeldurr|guts, GSI, Sableye-Mega|def, Cresselia|tr utility
+Conkeldurr|guts, SSI, Landorus-Therian|def, Marowak-Alola|sd, Mew|utility, Scizor-Mega|utility, Toxapex|tha pex, Venusaur-Mega|mixed def|offensive, Tangrowth|mixed def, Volcarona|qd z-fire/psy/bug, Chandelure|specs, Cofagrigus|tr ghostium-z, Mimikyu|sd, Pelipper|specs, Primarina|specs, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Hippowdon|mixed def, Gliscor|sub toxic
+Conkeldurr|guts, NSI, Landorus-Therian|flyinium, Celesteela|autotomize|mixed def, Latios|lo|specs|scarf, Charizard-Mega-Y|wallbreaker, Keldeo|specs, Tapu Lele|stallbreaker|specs|scarf, Tapu Koko|lo|specs, Garchomp|offensive sr, Magearna|sg z-fight/elec/fairy, Tapu Bulu|sd z-grass/fight|cb, Kyurem|specs, Kyurem-Black|sub icium-z|cb, Hoopa-Unbound|cb|specs|scarf, Mawile-Mega|sd|4 atks, Medicham-Mega|offensive, Pinsir-Mega|sd, Alakazam-Mega|offensive, Gardevoir-Mega|offensive, Gallade-Mega|sd, Pidgeot-Mega|offensive, Hawlucha|sd unburden, Togekiss|stallbreaker, Skarmory|def, Kingdra|swift swim, Omastar|ss swift swim, Tornadus-Therian|lo|av, Thundurus-Therian|agility, Victini|cb, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Azumarill|z-belly drum, Manaphy|z-rain dance, Araquanid|cb|rd waterium-z, Breloom|sash, Volcanion|specs, Talonflame|sd, Pidgeot-Mega|offensive, Gallade-Mega|sd
+
+Crawdaunt|cb, GSI, Tangrowth|mixed def, Tapu Bulu|sd z-grass/fight|cb
+Crawdaunt|cb, SSI, Venusaur-Mega|mixed def, Tangrowth|av, Keldeo|scarf|specs, Scizor-Mega|utility, Ferrothorn|mixed def, Mantine|mixed def, Gastrodon|sp d, Alomomola|mixed def, Volcanion|specs|z-ground/grass
+Crawdaunt|cb, NSI, Venusaur-Mega|offensive, Greninja|ash, Latios|lo|specs|scarf, Latias|off utility, Zapdos|off utility|def, Tapu Fini|cm|utility, Kartana|sd|scarf, Kyurem|specs, Kyurem-Black|sub icium-z, Rotom-Wash|off utility, Kingdra|swift swim, Pelipper|specs, Ninetales-Alola|utility, Serperior|sub seed, Azumarill|z-belly drum, Hydreigon|specs, Mimikyu|sd, Manectric-Mega|offensive, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Breloom|sd|sash, Primarina|specs, Talonflame|sd, Conkeldurr|guts, Gallade-Mega|sd
+
+Crawdaunt|sd, icon, lifeorb
+Crawdaunt|sd, GSI, Venusaur-Mega|mixed def|offensive, Tapu Bulu|sd z-grass/fight|cb
+Crawdaunt|sd, SSI, Tangrowth|av, Keldeo|scarf|specs, Ferrothorn|mixed def, Alomomola|mixed def, Volcanion|specs|z-ground/grass
+Crawdaunt|sd, NSI, Greninja|ash, Latios|lo|specs|scarf, Latias|off utility, Zapdos|off utility|def, Scizor-Mega|utility, Tapu Fini|cm|utility, Kartana|sd|scarf, Kyurem|specs, Kyurem-Black|sub icium-z, Rotom-Wash|off utility, Kingdra|swift swim, Pelipper|specs, Ninetales-Alola|utility, Serperior|sub seed, Azumarill|z-belly drum, Hydreigon|specs, Mimikyu|sd, Manectric-Mega|offensive, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Breloom|sd|sash, Primarina|specs, Talonflame|sd, Conkeldurr|guts
+
+Dragonite|dd z-fly/elec, icon, flyiniumz
+Dragonite|dd z-fly/elec, letters, DD
+Dragonite|dd z-fly/elec, GSI, Quagsire|unaware|curse, Cresselia|tr utility
+Dragonite|dd z-fly/elec, SSI, Landorus-Therian|def, Zapdos|off utility|def, Celesteela|autotomize|sp d, Alomomola|mixed def, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Ferrothorn|mixed def
+Dragonite|dd z-fly/elec, NSI, Landorus-Therian|scarf|rockium, Clefable|unaware, Garchomp|scarf, Tapu Lele|scarf, Nihilego|scarf, Latios|scarf, Terrakion|scarf, Mamoswine|lo, Weavile|cb, Manaphy|tg icium-z, Thundurus|np|defiant mixed, Aerodactyl-Mega|offensive, Kingdra|swift swim, Kabutops|sd swift swim, Greninja|scarf
+
+Excadrill|sd sand rush, icon, lifeorb
+Excadrill|sd sand rush, letters, SD
+Excadrill|sd sand rush, GSI, Skarmory|def, Landorus-Therian|def, Slowbro|cm|mixed def
+Excadrill|sd sand rush, SSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Celesteela|autotomize|sp d, Rotom-Wash|off utility, Tangrowth|mixed def, Buzzwole|sub punch, Gyarados|dd, Gliscor|sub toxic, Slowbro|cm|mixed def, Alomomola|mixed def, Hippowdon|mixed def, Quagsire|unaware|curse, Pelipper|mixed def, Cresselia|tr utility
+Excadrill|sd sand rush, NSI, Charizard-Mega-Y|wallbreaker, Breloom|sd|sash, Conkeldurr|guts
+
+Excadrill|sash, letters, Mold
+Excadrill|sash, GSI, Celesteela|autotomize|mixed def|sp d, Tangrowth|mixed def|av, Skarmory|def, Landorus-Therian|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Gliscor|sub toxic, Hippowdon|mixed def, Slowbro|cm|mixed def, Alomomola|mixed def, Quagsire|unaware|curse, Reuniclus|cm, Cresselia|tr utility
+Excadrill|sash, SSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|scarf, Mantine|mixed def, Buzzwole|sub punch, Gyarados|dd, Pelipper|mixed def|specs, Heracross-Mega|sd
+Excadrill|sash, NSI, Greninja|protean|ash, Charizard-Mega-Y|wallbreaker, Keldeo|scarf|specs, Manaphy|tg icium-z|z-rain dance, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Terrakion|sd|scarf, Lopunny-Mega|offensive, Kingdra|swift swim, Sharpedo-Mega|cleaner, Breloom|sash, Gyarados-Mega|sub dd, Kabutops|sd swift swim, Omastar|ss swift swim, Suicune|vin cune|cro cune, Azumarill|z-belly drum, Crawdaunt|cb|sd, Starmie|lo, Hawlucha|sd unburden, Victini|cb, Swampert-Mega|swift swim, Conkeldurr|guts
+
+Excadrill|scarf, GSI, Celesteela|autotomize|mixed def|sp d, Tangrowth|mixed def|av, Skarmory|def, Landorus-Therian|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Gliscor|sub toxic, Hippowdon|mixed def, Slowbro|cm|mixed def, Alomomola|mixed def, Quagsire|unaware|curse, Reuniclus|cm, Cresselia|tr utility
+Excadrill|scarf, SSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|scarf, Mantine|mixed def, Buzzwole|sub punch, Gyarados|dd, Pelipper|mixed def|specs, Heracross-Mega|sd
+Excadrill|scarf, NSI, Greninja|ash, Keldeo|scarf, Volcarona|charti, Terrakion|scarf, Sharpedo-Mega|cleaner, Breloom|sash, Gyarados-Mega|sub dd, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Suicune|vin cune|cro cune, Azumarill|z-belly drum, Crawdaunt|cb|sd, Hawlucha|sd unburden, Conkeldurr|guts
+
+Gallade-Mega|sd, icon, galladite
+Gallade-Mega|sd, GSI, Sableye-Mega|def, Clefable|unaware, Slowbro-Mega|cm|mega tank
+Gallade-Mega|sd, SSI, Landorus-Therian|def, Celesteela|mixed def, Scizor-Mega|utility, Zapdos|off utility|def, Skarmory|def, Pinsir-Mega|sd, Tornadus-Therian|lo|av, Pelipper|mixed def, Gliscor|sub toxic, Togekiss|stallbreaker, Clefable|cm|utility, Quagsire|unaware|curse, Mantine|mixed def, Alomomola|mixed def, Rotom-Wash|off utility, Hippowdon|mixed def, Cresselia|tr utility
+Gallade-Mega|sd, NSI, Kyurem-Black|scarf, Tapu Lele|scarf|stallbreaker|specs, Tapu Koko|z-wild charge|lo|specs, Jirachi|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim, Azumarill|z-belly drum, Dragonite|dd z-fly/elec, Cofagrigus|tr ghostium-z, Pidgeot-Mega|offensive, Gardevoir-Mega|offensive, Sharpedo-Mega|cleaner, Mimikyu|sd, Lopunny-Mega|offensive, Hawlucha|sd unburden, Aerodactyl-Mega|offensive, Talonflame|sd
+
+Garchomp|offensive sr, icon, dragoniumz
+Garchomp|offensive sr, letters, SD
+Garchomp|offensive sr, GSI, Clefable|unaware, Cresselia|tr utility
+Garchomp|offensive sr, SSI, Landorus-Therian|def, Clefable|cm|utility, Celesteela|autotomize|sp d|mixed def, Tapu Bulu|sd z-grass/fight|cb, Skarmory|def, Tangrowth|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Togekiss|stallbreaker, Alomomola|mixed def
+Garchomp|offensive sr|sd, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Garchomp|scarf, Tapu Lele|scarf, Tapu Fini|cm|utility, Lopunny-Mega|offensive, Mew|utility, Latios|scarf|specs|lo, Weavile|cb, Kingdra|swift swim, Mamoswine|lo, Thundurus|np|defiant mixed, Latias|off utility, Omastar|ss swift swim, Ninetales-Alola|utility, Starmie|lo, Greninja|scarf, Sharpedo-Mega|cleaner, Conkeldurr|guts
+
+Garchomp|scarf, GSI, Togekiss|stallbreaker, Clefable|unaware|cm|utility, Cresselia|tr utility
+Garchomp|scarf, SSI, Landorus-Therian|def, Celesteela|autotomize|sp d|mixed def, Tapu Bulu|sd z-grass/fight|cb, Skarmory|def, Tangrowth|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Pelipper|mixed def
+Garchomp|scarf, NSI, Tapu Fini|utility, Latios|scarf, Latias|off utility, Mamoswine|lo, Weavile|cb, Swampert-Mega|swift swim, Kingdra|swift swim, Greninja|scarf, Sharpedo-Mega|cleaner, Conkeldurr|guts
+
+Garchomp|sd, icon, lifeorb
+Garchomp|sd, GSI, Clefable|unaware
+Garchomp|sd, SSI, Landorus-Therian|def, Clefable|cm|utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Togekiss|stallbreaker, Alomomola|mixed def
+
+Garchomp-Mega|sd sand force, icon, garchompite
+Garchomp-Mega|sd sand force, letters, SD
+Garchomp-Mega|sd sand force, SSI, Charizard-Mega-Y|wallbreaker, Clefable|unaware|cm|utility, Mew|utility, Zapdos|def, Mantine|mixed def, Togekiss|stallbreaker, Quagsire|unaware|curse, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Hippowdon|mixed def, Cresselia|tr utility
+Garchomp-Mega|sd sand force, NSI, Landorus-Therian|def|flyinium|rockium|double dance|scarf, Garchomp|offensive sr|sd|scarf, Latios|lo|specs|scarf, Latias|off utility, Kyurem|sub roost|specs, Kyurem-Black|scarf, Charizard-Mega-X|dd, Salamence|dd, Greninja|protean|ash|scarf, Tapu Lele|stallbreaker|specs|scarf, Keldeo|scarf|specs, Zapdos|off utility, Medicham-Mega|offensive, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Mamoswine|lo, Weavile|cb, Mimikyu|sd, Lopunny-Mega|offensive, Rotom-Wash|off utility, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim, Ninetales-Alola|utility, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Aerodactyl-Mega|offensive, Sharpedo-Mega|cleaner, Manectric-Mega|offensive, Conkeldurr|guts
+
+Gardevoir-Mega|offensive, icon, gardevoirite
+Gardevoir-Mega|offensive, letters, Wisp
+Gardevoir-Mega|offensive, GSI, Magearna|av, Chansey|blob
+Gardevoir-Mega|offensive, SSI, Scizor-Mega|utility, Celesteela|sp d|mixed def, Jirachi|utility|scarf, Mantine|mixed def, Muk-Alola|av, Victini|cb
+Gardevoir-Mega|offensive, NSI, Greninja|protean|ash|scarf, Landorus-Therian|scarf, Garchomp|offensive sr|sd|scarf, Kartana|sd|scarf, Hoopa-Unbound|scarf, Kyurem-Black|scarf, Mawile-Mega|sd|4 atks, Tapu Koko|z-wild charge, Terrakion|sd, Nihilego|specs|scarf, Pinsir-Mega|sd, Excadrill|sd sand rush|sash|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Azumarill|z-belly drum, Gengar|off utility|specs, Breloom|sash, Sharpedo-Mega|cleaner, Magearna|sg z-fight/elec/fairy, Scolipede|sd waterium-z, Mimikyu|sd, Lopunny-Mega|offensive, Aerodactyl-Mega|offensive, Infernape|scarf,
+
+Gengar|off utility, icon, lifeorb
+Gengar|off utility, letters, Wisp
+Gengar|off utility, GSI, Venusaur-Mega|mixed def, Magearna|av, Chansey|blob
+Gengar|off utility, SSI, Celesteela|sp d, Tornadus-Therian|av, Gliscor|sub toxic, Muk-Alola|av
+Gengar|off utility|specs, NSI, Greninja|protean|ash, Landorus-Therian|scarf, Garchomp|scarf, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Lele|scarf, Alakazam-Mega|offensive, Jirachi|scarf, Mawile-Mega|sd|4 atks, Excadrill|sd sand rush|sash|scarf, Hoopa-Unbound|scarf, Latios|scarf, Latias|off utility, Scizor-Mega|utility, Lopunny-Mega|offensive, Scolipede|sd waterium-z, Tornadus-Therian|lo|av, Tyranitar|cb, Weavile|cb, Bisharp|sd, Mimikyu|sd, Keldeo|scarf, Lopunny-Mega|offensive, Terrakion|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Aerodactyl-Mega|offensive, Sharpedo-Mega|cleaner, Thundurus|np|defiant mixed, Manectric-Mega|offensive, Starmie|lo, Crawdaunt|cb|sd, Araquanid|cb|rd waterium-z, Pidgeot-Mega|offensive
+
+Gengar|specs, GSI, Venusaur-Mega|mixed def
+Gengar|specs, SSI, Magearna|av, Celesteela|sp d, Chansey|blob, Tornadus-Therian|av, Gliscor|sub toxic, Muk-Alola|av,
+
+Gliscor|sub toxic, icon, toxicorb
+Gliscor|sub toxic, GSI, Tapu Bulu|sd z-grass/fight|cb, Skarmory|def, Manaphy|z-rain dance, Suicune|cro cune, Araquanid|rd waterium-z, Reuniclus|cm
+Gyarados|dd, Slowbro|cm|mixed def, Mantine|def, Slowbro-Mega|cm|mega tank, Quagsire|unaware|curse, Swampert-Mega|swift swim, Sableye-Mega|def
+Gliscor|sub toxic, SSI, Charizard-Mega-Y|wallbreaker, Keldeo|scarf|specs, Manaphy|tg icium-z, Serperior|sub seed, Kingdra|swift swim, Mamoswine|lo, Gyarados-Mega|sub dd, Suicune|vin cune, Azumarill|z-belly drum, Kyurem|specs
+Gliscor|sub toxic, NSI, Greninja|protean|ash|scarf, Hoopa-Unbound|cb|specs, Lopunny-Mega|offensive, Gyarados|dd, Gyarados-Mega|sub dd, Mamoswine|lo, Weavile|cb, Sharpedo-Mega|cleaner, Kabutops|sd swift swim, Omastar|ss swift swim, Nidoking|lo, Ninetales-Alola|utility, Primarina|specs, Starmie|lo, Araquanid|cb
+
+Greninja|protean, icon, lifeorb
+Greninja|protean, GSI, Gastrodon|sp d
+Greninja|protean, SSI, Ferrothorn|mixed def, Keldeo|scarf|specs, Venusaur-Mega|mixed def|offensive, Chansey|blob, Mantine|mixed def, Celesteela|sp d, Magnezone|av, Rotom-Wash|off utility, Araquanid|cb|rd waterium-z
+Greninja|protean, NSI, Landorus-Therian|scarf, Garchomp|scarf, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Lele|scarf, Terrakion|scarf, Kartana|scarf, Lopunny-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Breloom|sd|sash, Latios|scarf, Manectric-Mega|offensive, Conkeldurr|guts
+
+Greninja|ash, image, Greninja-Ash
+Greninja|ash, icon, choicespecs
+Greninja|ash, letters, Ash
+Greninja|ash, GSI, Tapu Fini|utility, Chansey|blob, Keldeo|scarf, Primarina|specs
+Greninja|ash, SSI, Tangrowth|av, Gyarados-Mega|sub dd, Hydreigon|specs, Keldeo|specs|scarf, Amoonguss|mixed def, Toxapex|tha pex, Araquanid|cb|rd waterium-z
+Greninja|ash, NSI, Landorus-Therian|scarf, Garchomp|scarf, Tapu Lele|scarf, Lopunny-Mega|offensive, Scolipede|sd waterium-z, Terrakion|scarf, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Breloom|sd|sash, Azumarill|z-belly drum, Manectric-Mega|offensive, Tapu Koko|scarf, Conkeldurr|guts
+
+Greninja|scarf, GSI, Venusaur-Mega|mixed def|offensive, Celesteela|sp d|mixed def, Toxapex|tha pex, Scizor-Mega|utility, Mawile-Mega|sd|4 atks, Chansey|blob, Alomomola|mixed def, Gastrodon|sp d, Jirachi|utility|scarf, Rotom-Wash|off utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Quagsire|unaware|curse, Pelipper|mixed def, Araquanid|cb|rd waterium-z
+Greninja|scarf, SSI, Tangrowth|mixed def|av, Clefable|cm|utility|unaware, Ferrothorn|mixed def, Tapu Fini|cm|utility, Keldeo|scarf|specs, Mantine|mixed def, Conkeldurr|guts
+Greninja|scarf, NSI, Tapu Koko|scarf, Hawlucha|sd unburden, Breloom|sd|sash, Conkeldurr|guts
+
+Gyarados|dd, icon, flyiniumz
+Gyarados|dd, GSI, Rotom-Wash|off utility, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Quagsire|unaware|curse, Empoleon|sp d
+Gyarados|dd, SSI, Ferrothorn|mixed def, Zapdos|off utility|def, Alomomola|mixed def
+Gyarados|dd, NSI, Landorus-Therian|scarf, Nihilego|scarf, Terrakion|scarf, Aerodactyl-Mega|offensive, Mawile-Mega|sd|4 atks, Tapu Koko|scarf, Kingdra|swift swim
+
+Gyarados-Mega|sub dd, icon, gyaradosite
+Gyarados-Mega|sub dd, letters, DD
+Gyarados-Mega|sub dd, GSI, Ferrothorn|mixed def, Tapu Bulu|sd z-grass/fight|cb, Tapu Fini|cm|utility, Keldeo|scarf|specs, Skarmory|def, Tangrowth|mixed def|av, Venusaur-Mega|mixed def|offensive, Kartana|sd, Azumarill|z-belly drum, Primarina|specs, Conkeldurr|guts
+Gyarados-Mega|sub dd, SSI, Amoonguss|mixed def, Zapdos|off utility|def, Breloom|sash, Alomomola|mixed def
+Gyarados-Mega|sub dd, NSI, Landorus-Therian|scarf, Tapu Lele|scarf, Terrakion|scarf, Tapu Koko|scarf
+
+Hawlucha|sd unburden, icon, electricseed
+Hawlucha|sd unburden, letters, SD
+Hawlucha|sd unburden, GSI, Landorus-Therian|def, Clefable|unaware, Celesteela|mixed def, Toxapex|tha pex, Skarmory|def, Hippowdon|mixed def
+Hawlucha|sd unburden, SSI, Zapdos|off utility|def, Cofagrigus|tr ghostium-z, Cresselia|tr utility
+Hawlucha|sd unburden, NSI, Landorus-Therian|flyinium, Greninja|ash, Tapu Bulu|sd z-grass/fight|cb, Mew|utility, Sableye-Mega|def, Clefable|cm|utility, Pinsir-Mega|sd, Mamoswine|lo, Weavile|cb, Manectric-Mega|offensive
+
+Heatran|sub toxic, icon, leftovers
+Heatran|sub toxic, letters, Sub
+Heatran|sub toxic, GSI, Tapu Fini|utility|cm, Gliscor|sub toxic, Suicune|cro cune, Manaphy|z-rain dance, Togekiss|stallbreaker, Pelipper|specs|mixed def, Araquanid|rd waterium-z, Reuniclus|cm
+Heatran|sub toxic, SSI, Toxapex|tha pex, Keldeo|scarf|specs, Garchomp|offensive sr|scarf|sd, Manaphy|tg icium-z, Garchomp-Mega|sd sand force, Zygarde|cb|dd|double dance, Suicune|vin cune, Gyarados|dd, Gyarados-Mega|sub dd, Aerodactyl-Mega|offensive, Alakazam-Mega|trace, Azumarill|z-belly drum, Charizard-Mega-Y|wallbreaker, Charizard-Mega-X|dd, Salamence|dd, Swampert-Mega|swift swim, Kingdra|swift swim, Araquanid|cb
+Heatran|sub toxic, NSI, Greninja|protean|ash|scarf, Landorus-Therian|flyinium|rockium|double dance|scarf, Landorus-Therian|def, Volcarona|qd z-fire/psy/bug|charti, Kyurem-Black|sub icium-z, Pinsir-Mega|sd, Excadrill|sd sand rush|sash|scarf, Kartana|sd|scarf, Mamoswine|lo, Manaphy|tg icium-z, Scolipede|sd waterium-z, Quagsire|unaware|curse, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Sharpedo-Mega|cleaner, Crawdaunt|cb|sd, Omastar|ss swift swim, Hippowdon|mixed def, Nidoking|lo, Empoleon|sp d, Kyurem|specs,
+Hawlucha|sub sd unburden, Conkeldurr|guts, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Heatran|off z-ground/grass, icon, groundiumz
+Heatran|off z-ground/grass, letters, Off
+Heatran|off z-ground/grass, GSI, Gyarados|dd, Araquanid|cb|rd waterium-z,
+Heatran|off z-ground/grass, SSI, Latios|specs|lo, Tapu Fini|utility, Charizard-Mega-Y|wallbreaker, Garchomp|offensive sr|scarf|sd, Garchomp-Mega|sd sand force, Mantine|mixed def, Zygarde|cb|dd|double dance, Keldeo|scarf|specs, Manaphy|tg icium-z|z-rain dance, Rotom-Wash|off utility, Gliscor|sub toxic, Alakazam-Mega|trace, Chansey|blob, Toxapex|tha pex, Pelipper|specs|mixed def, Slowbro|cm|mixed def, Gastrodon|sp d, Suicune|vin cune, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Togekiss|stallbreaker, Aerodactyl-Mega|offensive, Primarina|specs, Starmie|lo, Hydreigon|specs, Salamence|dd, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Reuniclus|cm
+Heatran|off z-ground/grass, NSI, Greninja|protean|ash|scarf, Landorus-Therian|flyinium|rockium|double dance|scarf, Landorus-Therian|def, Kyurem-Black|sub icium-z, Pinsir-Mega|sd, Excadrill|sd sand rush|sash|scarf, Lopunny-Mega|offensive, Kartana|sd|scarf, Mamoswine|lo, Omastar|ss swift swim, Scolipede|sd waterium-z, Terrakion|sd|scarf, Quagsire|unaware|curse, Sharpedo-Mega|cleaner, Azumarill|z-belly drum, Crawdaunt|cb|sd, Hippowdon|mixed def, Nidoking|lo, Empoleon|sp d, Kyurem|specs, Hawlucha|sd unburden, Marowak-Alola|sd, Camerupt-Mega|wallbreaker, Conkeldurr|guts, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Heracross-Mega|sd, icon, heracronite
+Heracross-Mega|sd, GSI, Clefable|unaware
+Heracross-Mega|sd, SSI, Clefable|cm|utility, Skarmory|def, Toxapex|tha pex, Mimikyu|sd, Tapu Fini|utility, Nidoking|lo
+Heracross-Mega|sd, NSI, Hoopa-Unbound|cb|specs|scarf, Charizard-Mega-X|dd, Pinsir-Mega|sd, Tornadus-Therian|lo|av, Latios|lo|specs, Tapu Lele|scarf|stallbreaker|specs, Alakazam-Mega|offensive, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Heatran|sub toxic|off z-ground/grass, Charizard-Mega-Y|wallbreaker, Kingdra|swift swim, Omastar|ss swift swim, Togekiss|stallbreaker, Talonflame|sd, Tapu Koko|scarf, Chandelure|specs, Conkeldurr|guts, Pidgeot-Mega|offensive, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Hoopa-Unbound|specs, GSI, Magearna|av, Muk-Alola|av
+Hoopa-Unbound|specs, SSI
+Hoopa-Unbound|specs, NSI, Magearna|sg z-fight/elec/fairy, Landorus-Therian|flyinium|rockium|double dance, Greninja|protean|ash|scarf, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Jirachi|scarf, Pinsir-Mega|sd, Salamence|dd, Excadrill|sd sand rush|sash|scarf, Scolipede|sd waterium-z, Terrakion|sd|scarf, Mawile-Mega|sd|4 atks, Lopunny-Mega|offensive, Tornadus-Therian|lo, Weavile|cb, Kartana|sd, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Crawdaunt|cb|sd, Victini|cb
+
+Hoopa-Unbound|cb, SSI, Magearna|av
+Hoopa-Unbound|cb, NSI, Magearna|sg z-fight/elec/fairy, Landorus-Therian|flyinium|rockium|double dance|scarf, Landorus-Therian|def, Greninja|protean|ash|scarf, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Jirachi|scarf, Pinsir-Mega|sd, Salamence|dd, Excadrill|sd sand rush|sash|scarf, Scolipede|sd waterium-z, Terrakion|sd|scarf, Mawile-Mega|sd|4 atks, Lopunny-Mega|offensive, Tornadus-Therian|lo, Weavile|cb, Kartana|sd|scarf, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Crawdaunt|cb|sd, Victini|cb
+
+Hoopa-Unbound|scarf, GSI, Magearna|sg z-fight/elec/fairy|av|double dance, Muk-Alola|av
+Hoopa-Unbound|scarf, SSI, Scizor-Mega|utility, Tangrowth|av
+Hoopa-Unbound|scarf, NSI, Landorus-Therian|scarf|flyinium|rockium|double dance, Landorus-Therian|def, Garchomp|scarf, Greninja|scarf, Tapu Koko|scarf, Jirachi|scarf, Pinsir-Mega|sd, Salamence|dd, Excadrill|sd sand rush|sash|scarf, Terrakion|scarf, Tornadus-Therian|lo, Weavile|cb, Kartana|scarf, Mawile-Mega|sd|4 atks, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Crawdaunt|cb|sd
+
+Hydreigon|specs, GSI, Chansey|blob, Mantine|mixed def
+Hydreigon|specs, SSI, Tapu Fini|cm|utility, Scizor-Mega|utility, Celesteela|sp d, Heatran|sp d, Magearna|av|sg z-fight/elec/fairy|double dance, Clefable|cm|utility|unaware, Gastrodon|sp d, Togekiss|stallbreaker
+Hydreigon|specs, NSI, Garchomp|offensive sr|sd|scarf, Latios|lo|specs|scarf, Latias|off utility, Charizard-Mega-Y|wallbreaker, Charizard-Mega-X|dd, Heatran|sub toxic, Keldeo|scarf|specs, Tapu Lele|scarf, Gengar|off utility|specs, Celesteela|mixed def, Mawile-Mega|4 atks|sd, Lopunny-Mega|offensive, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Ferrothorn|mixed def, Mamoswine|lo, Weavile|cb, Terrakion|sd|scarf, Tyranitar-Mega|dd, Alakazam-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Medicham-Mega|offensive, Salamence|dd, Thundurus|np|defiant mixed, Tornadus-Therian|lo|av, Ninetales-Alola|utility, Sharpedo-Mega|cleaner, Azumarill|z-belly drum, Amoonguss|mixed def, Empoleon|sp d, Breloom|sd|sash, Primarina|specs, Gallade-Mega|sd
+
+Infernape|scarf, GSI, Toxapex|tha pex, Landorus-Therian|def, Venusaur-Mega|mixed def|offensive, Mew|utility, Zapdos|def, Tapu Fini|cm|utility, Clefable|cm|utility|unaware, Alomomola|mixed def, Azumarill|z-belly drum, Gliscor|sub toxic, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Hippowdon|mixed def, Sableye-Mega|def, Cresselia|tr utility
+Infernape|scarf, SSI, Zapdos|off utility, Marowak-Alola|sd, Gastrodon|sp d, Mantine|mixed def, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Quagsire|unaware|curse, Talonflame|sd, Victini|cb, Pelipper|specs|mixed def, Cofagrigus|tr ghostium-z, Araquanid|cb|rd waterium-z, Chandelure|specs
+Infernape|scarf, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Latios|scarf, Latias|off utility, Tapu Koko|scarf, Greninja|ash|scarf, Excadrill|sd sand rush|sash, Pinsir-Mega|sd, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Crawdaunt|cb|sd, Primarina|specs, Conkeldurr|guts
+
+Jirachi|scarf, GSI, Landorus-Therian|def, Celesteela|autotomize|sp d|mixed def, Ferrothorn|mixed def, Heatran|off z-ground/grass, Rotom-Wash|off utility, Skarmory|def, Tangrowth|mixed def, Bisharp|sd, Scizor-Mega|utility, Zapdos|off utility|def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Empoleon|sp d, Victini|cb, Mawile-Mega|sd|4 atks, Rotom-Wash|off utility, Araquanid|rd waterium-z, Chandelure|specs
+Jirachi|scarf, SSI, Heatran|sub toxic|sp d, Charizard-Mega-X|dd, Charizard-Mega-Y|wallbreaker, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Slowbro|cm|mixed def, Gyarados|dd, Marowak-Alola|sd, Gliscor|sub toxic, Pelipper|specs|mixed def, Gyarados-Mega|sub dd, Mantine|mixed def, Suicune|vin cune, Volcanion|specs|z-ground/grass, Quagsire|unaware|curse, Talonflame|sd, Swampert-Mega|swift swim, Hippowdon|mixed def, Araquanid|cb, Cresselia|tr utility
+Jirachi|scarf, NSI, Garchomp|scarf, Kingdra|swift swim
+
+Kabutops|sd swift swim, icon, rockiumz
+Kabutops|sd swift swim, letters, SD
+Kabutops|sd swift swim, GSI, Kartana|sd, Gastrodon|sp d, Slowbro|cm|mixed def, Cresselia|tr utility
+Kabutops|sd swift swim, SSI, Ferrothorn|mixed def, Amoonguss|mixed def, Rotom-Wash|off utility, Venusaur-Mega|mixed def|offensive, Slowbro|cm|mixed def, Breloom|sash, Alomomola|mixed def, Empoleon|sp d, Tangrowth|mixed def
+Kabutops|sd swift swim, NSI, Greninja|protean|ash, Keldeo|scarf|specs, Alakazam-Mega|trace, Charizard-Mega-Y|wallbreaker, Kingdra|swift swim, Conkeldurr|guts
+
+Kartana|sd, icon, fightiniumz
+Kartana|sd, GSI, Zapdos|off utility|def
+Kartana|sd, SSI, Tangrowth|mixed def, Scizor-Mega|utility, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Charizard-Mega-Y|wallbreaker, Cresselia|tr utility
+Kartana|sd, NSI, Greninja|protean|ash|scarf, Nihilego|scarf, Terrakion|scarf, Latios|specs|lo, Latias|off utility, Lopunny-Mega|offensive, Gengar|off utility|specs, Landorus-Therian|def|flyinium|rockium|double dance|scarf, Starmie|lo, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tornadus-Therian|av|lo, Omastar|ss swift swim, Manectric-Mega|offensive, Thundurus|np|defiant mixed, Breloom|sd|sash, Chandelure|specs, Conkeldurr|guts, Pidgeot-Mega|offensive, Gallade-Mega|sd, Reuniclus|cm
+
+Kartana|scarf, GSI, Zapdos|off utility|def, Landorus-Therian|def, Scizor-Mega|utility, Charizard-Mega-Y|wallbreaker, Cresselia|tr utility, Skarmory|def
+Kartana|scarf, SSI, Tangrowth|mixed def|av, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Magnezone|av, Heatran|sub toxic|sp d|off z-ground/grass
+Kartana|scarf, NSI, Greninja|scarf, Latios|scarf, Latias|off utility, Landorus-Therian|flyinium|rockium|double dance|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Breloom|sd|sash, Chandelure|specs, Conkeldurr|guts, Reuniclus|cm
+
+Keldeo|specs, GSI, Tapu Fini|utility, Amoonguss|mixed def, Venusaur-Mega|mixed def|offensive, Toxapex|tha pex, Latias|off utility
+Keldeo|specs, SSI, Tapu Bulu|sd z-grass/fight|cb, Gyarados|dd, Latios|scarf|specs|lo, Pelipper|mixed def, Slowbro|cm|mixed def, Mantine|mixed def, Slowbro-Mega|cm|mega tank, Azumarill|z-belly drum, Primarina|specs, Starmie|lo, Araquanid|cb|rd waterium-z, Cresselia|tr utility
+Keldeo|specs, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Lopunny-Mega|offensive, Tapu Lele|scarf, Alakazam-Mega|offensive, Tangrowth|av, Hoopa-Unbound|scarf, Serperior|sub seed, Tornadus-Therian|lo, Kartana|sd, Thundurus|np|defiant mixed, Talonflame|sd, Manectric-Mega|offensive, Gallade-Mega|sd
+
+Keldeo|scarf, GSI, Tapu Fini|utility, Tangrowth|av, Amoonguss|mixed def, Venusaur-Mega|mixed def|offensive, Toxapex|tha pex, Slowbro|cm|mixed def, Latias|off utility, Slowbro-Mega|cm|mega tank, Cresselia|tr utility
+Keldeo|scarf, SSI, Tapu Bulu|sd z-grass/fight|cb, Gyarados|dd, Latios|scarf|specs|lo, Sableye-Mega|def, Pelipper|mixed def, Mantine|mixed def, Azumarill|z-belly drum, Primarina|specs, Starmie|lo, Araquanid|cb|rd waterium-z
+Keldeo|scarf, NSI, Serperior|sub seed, Tornadus-Therian|lo, Tapu Koko|scarf
+
+Kingdra|swift swim, icon, choicespecs
+Kingdra|swift swim, GSI, Ferrothorn|mixed def, Tapu Fini|utility, Empoleon|sp d
+Kingdra|swift swim, SSI, Amoonguss|mixed def, Tangrowth|av, Venusaur-Mega|mixed def|offensive, Chansey|blob, Toxapex|tha pex, Cresselia|tr utility
+Kingdra|swift swim, NSI, Azumarill|z-belly drum, Primarina|specs, Alakazam-Mega|trace, Ninetales-Alola|utility, Araquanid|cb|rd waterium-z
+
+Kyurem|sub roost, icon, leftovers
+Kyurem|sub roost, letters, Sub
+Kyurem|sub roost, GSI, Magearna|av, Scizor-Mega|utility, Celesteela|sp d, Venusaur-Mega|mixed def|offensive, Tapu Fini|cm|utility, Clefable|cm|utility|unaware, Alomomola|mixed def, Gastrodon|sp d, Ferrothorn|mixed def, Ninetales-Alola|utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Magnezone|av, Azumarill|z-belly drum, Primarina|specs, Azumarill|z-belly drum, Araquanid|rd waterium-z
+Kyurem|sub roost, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Jirachi|utility, Toxapex|tha pex, Empoleon|sp d, Cresselia|tr utility
+Kyurem|sub roost|specs, NSI, Garchomp|offensive sr|sd|scarf, Latios|lo|specs|scarf, Latias|off utility, Keldeo|scarf|specs, Excadrill|sd sand rush|scarf, Gengar|off utility|specs, Terrakion|sd|scarf, Tapu Lele|scarf, Medicham-Mega|offensive, Infernape|scarf, Kartana|sd|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Lopunny-Mega|offensive, Charizard-Mega-X|dd, Charizard-Mega-Y|wallbreaker, Tyranitar-Mega|dd, Thundurus|np|defiant mixed, Alakazam-Mega|offensive, Aerodactyl-Mega|offensive, Hawlucha|sd unburden, Salamence|dd, Thundurus-Therian|agility, Jirachi|scarf, Mawile-Mega|sd|4 atks, Mimikyu|sd, Breloom|sd|sash, Conkeldurr|guts, Gallade-Mega|sd
+
+Kyurem|specs, GSI, Celesteela|sp d, Venusaur-Mega|mixed def, Tapu Fini|cm|utility, Tyranitar-Mega|dd, Mantine|mixed def, Chansey|blob,
+Kyurem|specs, SSI, Magearna|av, Scizor-Mega|utility, Venusaur-Mega|offensive, Jirachi|utility, Toxapex|tha pex, Heatran|sub toxic|sp d|off z-ground/grass, Clefable|cm|utility|unaware, Alomomola|mixed def, Gastrodon|sp d, Ferrothorn|mixed def, Ninetales-Alola|utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Magnezone|av, Azumarill|z-belly drum, Primarina|specs, Empoleon|sp d, Araquanid|cb|rd waterium-z, Conkeldurr|guts, Gallade-Mega|sd
+
+Kyurem-Black|sub icium-z, icon, iciumz
+Kyurem-Black|sub icium-z, letters, Sub
+Kyurem-Black|sub icium-z, SSI, Jirachi|scarf, Scizor-Mega|utility, Slowbro-Mega|cm|mega tank
+Kyurem-Black|sub icium-z|lo|cb, NSI, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Mew|utility, Tapu Koko|lo|specs, Excadrill|sd sand rush|scarf, Charizard-Mega-X|dd, Keldeo|scarf|specs, Nihilego|scarf|specs, Salamence|dd, Latios|scarf|specs|lo, Terrakion|sd|scarf, Kartana|sd, Lopunny-Mega|offensive, Kingdra|swift swim, Kabutops|sd swift swim, Latias|off utility, Infernape|scarf, Hawlucha|sd unburden, Hydreigon|specs, Victini|cb, Conkeldurr|guts
+
+Kyurem-Black|lo, SSI, Gastrodon|sp d, Jirachi|scarf, Magearna|av, Scizor-Mega|utility, Chansey|blob, Ferrothorn|mixed def, Slowbro-Mega|cm|mega tank
+
+Kyurem-Black|cb, GSI, Ferrothorn|mixed def,
+Kyurem-Black|cb, SSI, Clefable|unaware|utility|cm, Celesteela|mixed def, Tapu Fini|cm|utility, Skarmory|def
+
+Kyurem-Black|scarf, GSI, Ferrothorn|mixed def, Scizor-Mega|utility, Jirachi|utility|scarf, Magnezone|av, Slowbro-Mega|cm|mega tank
+Kyurem-Black|scarf, SSI, Landorus-Therian|def, Venusaur-Mega|mixed def, Mew|utility, Tangrowth|mixed def|av, Clefable|cm|utility|unaware, Toxapex|tha pex, Mawile-Mega|sd|4 atks, Tapu Bulu|sd z-grass/fight|cb, Celesteela|mixed def|sp d|autotomize, Magearna|sg z-fight/elec/fairy|double dance|av, Heatran|sub toxic|sp d|off z-ground/grass, Tapu Fini|cm|utility, Excadrill|sd sand rush|sash|scarf, Kartana|sd|scarf, Azumarill|z-belly drum, Primarina|specs, Slowbro|cm|mixed def, Skarmory|def, Quagsire|unaware|curse, Hippowdon|mixed def, Empoleon|sp d, Ninetales-Alola|utility,
+Kyurem-Black|scarf, NSI, Landorus-Therian|scarf|flyinium|rockium|double dance, Garchomp|scarf, Latios|scarf, Latias|off utility, Keldeo|scarf, Tapu Koko|scarf, Terrakion|scarf, Infernape|scarf, Nihilego|scarf, Hawlucha|sd unburden, Tyranitar|cb, Tyranitar-Mega|dd, Zapdos|def, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Breloom|sd|sash, Conkeldurr|guts
+
+Landorus-Therian|flyinium, icon, flyiniumz
+Landorus-Therian|flyinium, letters, SD
+Landorus-Therian|flyinium, SSI, Landorus-Therian|def, Clefable|unaware, Celesteela|autotomize|mixed def|sp d, Rotom-Wash|off utility, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Quagsire|unaware|curse, Cresselia|tr utility
+Landorus-Therian|flyinium|rockium, NSI, Greninja|protean|ash|scarf, Charizard-Mega-Y|wallbreaker, Keldeo|scarf|specs, Alakazam-Mega|trace, Manaphy|tg icium-z|z-rain dance, Kyurem-Black|sub icium-z, Latios|specs|lo, Mamoswine|lo, Weavile|cb, Sableye-Mega|def, Lopunny-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Thundurus|np|defiant mixed, Suicune|vin cune|cro cune, Gyarados-Mega|sub dd, Tapu Fini|utility|cm, Azumarill|z-belly drum, Ninetales-Alola|utility, Starmie|lo, Kyurem|sub roost|specs, Thundurus-Therian|agility, Porygon-Z|z-conversion elec
+
+Landorus-Therian|rockium, icon, rockiumz
+Landorus-Therian|rockium, letters, SD
+Landorus-Therian|rockium, GSI, Quagsire|unaware|curse
+Landorus-Therian|rockium, SSI, Landorus-Therian|def, Tangrowth|mixed def, Rotom-Wash|off utility, Clefable|unaware|cm|utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Cresselia|tr utility
+
+Landorus-Therian|double dance, icon, rockiumz
+Landorus-Therian|double dance, letters, RP
+Landorus-Therian|double dance, GSI
+Landorus-Therian|double dance, SSI, Landorus-Therian|def, Celesteela|autotomize|sp d, Rotom-Wash|off utility, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Quagsire|unaware|curse, Cresselia|tr utility
+Landorus-Therian|double dance, NSI, Greninja|scarf|ash, Manaphy|tg icium-z|z-rain dance, Mamoswine|lo, Weavile|cb, Sableye-Mega|def, Lopunny-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Gyarados-Mega|sub dd, Suicune|vin cune|cro cune, Azumarill|z-belly drum, Tapu Fini|utility|cm, Ninetales-Alola|utility, Porygon-Z|z-conversion elec
+
+Landorus-Therian|scarf, GSI, Landorus-Therian|def, Celesteela|autotomize|sp d|mixed def, Tangrowth|mixed def, Sableye-Mega|def, Rotom-Wash|off utility, Clefable|unaware|cm|utility, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alomomola|mixed def, Hippowdon|mixed def, Quagsire|unaware|curse, Suicune|vin cune|cro cune, Cresselia|tr utility
+Landorus-Therian|scarf, SSI, Landorus-Therian|flyinium|rockium|double dance, Ferrothorn|mixed def, Tapu Bulu|sd z-grass/fight|cb, Gliscor|sub toxic, Tapu Fini|utility|cm, Pelipper|mixed def
+Landorus-Therian|scarf, NSI, Greninja|scarf|ash, Keldeo|scarf, Manaphy|tg icium-z|z-rain dance, Tapu Fini|utility|cm, Mamoswine|lo, Weavile|cb, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Azumarill|z-belly drum
+
+Latias|off utility, icon, choicescarf
+Latias|off utility, letters, HW
+Latias|off utility, GSI, Jirachi|scarf, Heatran|off z-ground/grass, Magearna|sg z-fight/elec/fairy, Celesteela|autotomize, Araquanid|cb|rd waterium-z, Gardevoir-Mega|offensive
+Latias|off utility, SSI, Magearna|av|double dance, Jirachi|utility, Celesteela|sp d|mixed def, Clefable|cm|utility, Tapu Lele|scarf|stallbreaker|specs, Ferrothorn|mixed def, Heatran|sub toxic|sp d, Tapu Fini|utility, Magnezone|av, Skarmory|def, Excadrill|sd sand rush|sash|scarf, Chansey|blob, Muk-Alola|av, Tyranitar|cb, Tyranitar-Mega|dd, Togekiss|stallbreaker, Empoleon|sp d, Reuniclus|cm, Cresselia|tr utility
+Latias|off utility, NSI, Greninja|protean|ash, Landorus-Therian|scarf, Garchomp|scarf, Tapu Bulu|sd z-grass/fight|cb, Bisharp|sd, Hoopa-Unbound|cb|specs|scarf, Latios|scarf, Mamoswine|lo, Weavile|cb, Kingdra|swift swim, Azumarill|z-belly drum, Mimikyu|sd, Primarina|specs
+
+Latios|specs|lo, GSI,
+Latios|specs|lo, SSI, Jirachi|utility|scarf, Magearna|sg z-fight/elec/fairy|av|double dance, Celesteela|autotomize|sp d|mixed def, Tapu Lele|scarf, Sableye-Mega|def, Ferrothorn|mixed def, Heatran|sub toxic|sp d|off z-ground/grass, Magnezone|av, Skarmory|def, Chansey|blob, Clefable|cm|utility, Scizor-Mega|utility, Tyranitar|cb, Muk-Alola|av, Empoleon|sp d, Tyranitar-Mega|dd, Gardevoir-Mega|offensive, Cresselia|tr utility
+Latios|specs|lo, NSI, Greninja|protean|ash, Excadrill|sd sand rush|sash|scarf, Landorus-Therian|scarf, Garchomp|scarf, Lopunny-Mega|offensive, Tapu Bulu|sd z-grass/fight|cb, Tapu Fini|utility, Bisharp|sd, Hoopa-Unbound|cb|specs|scarf, Latios|scarf, Mamoswine|lo, Weavile|cb, Kingdra|swift swim, Sharpedo-Mega|cleaner, Azumarill|z-belly drum, Mimikyu|sd, Primarina|specs, Mawile-Mega|sd|4 atks
+
+Latios|scarf, GSI, Magearna|sg z-fight/elec/fairy, Celesteela|autotomize|sp d|mixed def, Jirachi|scarf, Tyranitar|cb, Mawile-Mega|sd|4 atks, Tyranitar-Mega|dd, Gardevoir-Mega|offensive
+Latios|scarf, SSI, Excadrill|sd sand rush|sash|scarf, Jirachi|utility, Heatran|sub toxic|sp d|off z-ground/grass, Magearna|av|double dance, Clefable|cm|utility, Tapu Lele|scarf|stallbreaker|specs, Magnezone|av, Sableye-Mega|def, Ferrothorn|mixed def, Scizor-Mega|utility, Muk-Alola|av, Empoleon|sp d, Skarmory|def, Araquanid|cb|rd waterium-z, Reuniclus|cm, Cresselia|tr utility
+Latios|scarf, NSI, Tapu Bulu|sd z-grass/fight|cb, Tapu Fini|utility, Bisharp|sd, Mamoswine|lo, Weavile|cb, Hoopa-Unbound|cb|specs|scarf, Scolipede|sd waterium-z, Kingdra|swift swim, Azumarill|z-belly drum, Mimikyu|sd, Primarina|specs
+
+Lopunny-Mega|offensive, icon, lopunnite
+Lopunny-Mega|offensive, GSI, Mew|utility, Clefable|unaware, Quagsire|unaware|curse, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Cresselia|tr utility
+Lopunny-Mega|offensive, SSI, Landorus-Therian|def, Celesteela|mixed def, Toxapex|tha pex, Clefable|cm|utility, Tangrowth|mixed def, Zapdos|def, Scizor-Mega|utility, Venusaur-Mega|mixed def, Tapu Lele|scarf, Mantine|mixed def, Alomomola|mixed def, Skarmory|def, Hippowdon|mixed def, Cofagrigus|tr ghostium-z
+Lopunny-Mega|offensive, NSI, Landorus-Therian|scarf|flyinium|rockium|double dance, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Latios|scarf, Latias|off utility, Keldeo|scarf, Terrakion|scarf, Kartana|scarf, Tapu Koko|scarf, Infernape|scarf, Hoopa-Unbound|scarf, Rotom-Wash|off utility, Pinsir-Mega|sd, Alakazam-Mega|offensive, Excadrill|sd sand rush, Hawlucha|sd unburden, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Aerodactyl-Mega|offensive, Dragonite|dd z-fly/elec, Breloom|sd|sash, Talonflame|sd, Conkeldurr|guts
+
+Magearna|sg z-fight/elec/fairy, icon, fightiniumz
+Magearna|sg z-fight/elec/fairy, letters, SG
+Magearna|sg z-fight/elec/fairy, GSI, Marowak-Alola|lightning rod, Venusaur-Mega|mixed def|offensive, Jirachi|utility, Magearna|av
+Magearna|sg z-fight/elec/fairy, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Excadrill|sd sand rush|sash|scarf, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Gastrodon|sp d, Swampert-Mega|swift swim, Camerupt-Mega|wallbreaker, Volcanion|specs|z-ground/grass, Chansey|blob
+Magearna|sg z-fight/elec/fairy, NSI, Marowak-Alola|sd, Infernape|scarf, Heracross-Mega|sd, Quagsire|unaware
+
+Magearna|double dance, icon, electriumz
+Magearna|double dance, letters, CM
+Magearna|double dance, GSI, Marowak-Alola|lightning rod, Jirachi|utility, Magearna|av, Venusaur-Mega|mixed def|offensive, Gastrodon|sp d, Chansey|blob, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z, Tyranitar|cb, Tyranitar-Mega|dd, Camerupt-Mega|wallbreaker, Mamoswine|lo, Quagsire|unaware|curse, Magnezone|av
+Magearna|double dance, SSI, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Heatran|sub toxic|off z-ground/grass|sp d, Volcanion|specs, Victini|cb
+Magearna|double dance, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|scarf|sd, Garchomp-Mega|sd sand force, Zygarde|cb|dd|double dance|sub coil, Marowak-Alola|sd, Charizard-Mega-Y|wallbreaker, Infernape|scarf, Heracross-Mega|sd, Ferrothorn|mixed def
+
+Magearna|av, GSI, Jirachi|utility, Marowak-Alola|lightning rod, Venusaur-Mega|mixed def|offensive, Heatran|sub toxic|sp d|off z-ground/grass, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Camerupt-Mega|wallbreaker, Gastrodon|sp d, Chansey|blob
+Magearna|av, SSI, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|sd, Swampert-Mega|swift swim, Volcanion|specs|z-ground/grass
+Magearna|av, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|scarf|sd, Garchomp-Mega|sd sand force, Zygarde|cb|dd|double dance|sub coil, Marowak-Alola|sd, Mamoswine|lo, Charizard-Mega-Y|wallbreaker, Infernape|scarf, Heracross-Mega|sd, Quagsire|unaware|curse, Conkeldurr|guts
+
+Magnezone|av, GSI, Marowak-Alola|lightning rod, Gliscor|sub toxic, Venusaur-Mega|mixed def, Zapdos|off utility|def, Charizard-Mega-X|dd, Swampert-Mega|swift swim, Gastrodon|sp d, Chansey|blob, Thundurus-Therian|agility, Camerupt-Mega|wallbreaker
+Magnezone|av, SSI, Excadrill|sd sand rush|sash|scarf, Zygarde|sub coil, Venusaur-Mega|mixed def|offensive
+Magnezone|av, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|scarf|sd, Garchomp-Mega|sd sand force, Zygarde|cb|dd|double dance, Heatran|sub toxic|sp d|off z-ground/grass, Charizard-Mega-Y|wallbreaker, Keldeo|specs, Lopunny-Mega|offensive, Salamence|dd, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Mamoswine|lo, Hippowdon|mixed def, Nidoking|lo, Buzzwole|sub punch, Terrakion|sd|scarf, Tapu Lele|specs, Heracross-Mega|sd, Aerodactyl-Mega|offensive, Breloom|sd|sash, Omastar|ss swift swim, Dragonite|dd z-fly/elec, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z, Medicham-Mega|offensive, Pinsir-Mega|sd, Kartana|sd|scarf, Hawlucha|sd unburden, Talonflame|sd, Victini|cb, Volcanion|specs|z-ground/grass, Alakazam-Mega|trace, Chandelure|specs, Conkeldurr|guts
+
+Mamoswine|lo, GSI, Scizor-Mega|utility, Celesteela|mixed def, Alomomola|mixed def, Skarmory|def, Slowbro-Mega|cm|mega tank, Cresselia|tr utility
+Mamoswine|lo, SSI, Celesteela|autotomize|sp d, Mew|utility, Rotom-Wash|off utility, Ferrothorn|mixed def, Clefable|cm|utility|unaware, Chansey|blob, Tapu Fini|utility|cm, Mantine|mixed def, Slowbro|cm|mixed def, Quagsire|unaware|curse, Pelipper|specs|mixed def
+Mamoswine|lo, NSI, Greninja|ash|protean|scarf, Volcarona|qd z-fire/psy/bug|charti, Keldeo|scarf|specs, Venusaur-Mega|mixed def|offensive, Suicune|vin cune|cro cune, Lopunny-Mega|offensive, Gyarados|dd, Gyarados-Mega|sub dd, Buzzwole|sub punch, Heracross-Mega|sd, Charizard-Mega-X|dd, Kartana|sd|scarf, Terrakion|sd|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Infernape|scarf, Azumarill|z-belly drum, Starmie|lo, Sharpedo-Mega|cleaner, Crawdaunt|cb|sd, Scolipede|sd waterium-z, Talonflame|sd, Alakazam-Mega|trace, Araquanid|cb|rd waterium-z, Conkeldurr|guts, Gardevoir-Mega|offensive, Gallade-Mega|sd, Reuniclus|cm
+
+Manaphy|tg icium-z, icon, iciumz
+Manaphy|tg icium-z, letters, TG
+Manaphy|tg icium-z, SSI, Chansey|blob, Ferrothorn|mixed def, Venusaur-Mega|mixed def|offensive, Latios|specs|lo, Toxapex|tha pex, Mantine|mixed def
+Manaphy|tg icium-z, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tangrowth|av, Rotom-Wash|off utility, Serperior|sub seed, Kartana|sd|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Manectric-Mega|offensive, Ninetales-Alola|utility
+
+Manaphy|z-rain dance, icon, wateriumz
+Manaphy|z-rain dance, letters, z-RD
+Manaphy|z-rain dance, GSI, Tangrowth|av, Magnezone|av
+Manaphy|z-rain dance, SSI, Magearna|av, Mantine|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Empoleon|sp d
+Manaphy|z-rain dance, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Kartana|sd|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Gyarados-Mega|sub dd, Manectric-Mega|offensive, Serperior|sub seed, Breloom|sash
+
+Manectric-Mega|offensive, icon, manectite
+Manectric-Mega|offensive, GSI, Kyurem-Black|sub icium-z, Tyranitar|cb, Tyranitar-Mega|dd, Swampert-Mega|swift swim, Latias|off utility, Venusaur-Mega|mixed def|offensive, Chansey|blob, Quagsire|unaware|curse, Gastrodon|sp d, Kyurem|sub roost|specs, Camerupt-Mega|wallbreaker, Cresselia|tr utility
+Manectric-Mega|offensive, SSI, Latios|specs|lo|scarf, Mamoswine|lo, Charizard-Mega-X|dd, Tangrowth|av
+Manectric-Mega|offensive, NSI, Garchomp|scarf, Landorus-Therian|scarf, Excadrill|sd sand rush|sash|scarf, Hydreigon|specs, Hoopa-Unbound|cb|specs|scarf, Zygarde|sub coil|dd|cb, Conkeldurr|guts
+
+Marowak-Alola|sd, icon, thickclub
+Marowak-Alola|sd, GSI, Hydreigon|specs
+Marowak-Alola|sd, SSI, Landorus-Therian|def, Greninja|protean|ash|scarf, Rotom-Wash|off utility, Gyarados-Mega|sub dd
+Marowak-Alola|sd, NSI, Landorus-Therian|flyinium|rockium|scarf, Zygarde|sub coil|dd|cb, Keldeo|scarf|specs, Latios|lo|specs|scarf, Latias|off utility, Nihilego|scarf|specs, Bisharp|sd, Excadrill|sd sand rush|sash|scarf, Hoopa-Unbound|cb|specs|scarf, Terrakion|sd, Lopunny-Mega|offensive, Tyranitar|cb, Weavile|cb, Kingdra|swift swim, Mamoswine|lo, Sharpedo-Mega|cleaner, Kabutops|sd swift swim, Omastar|ss swift swim, Manaphy|tg icium-z|z-rain dance, Suicune|vin cune, Volcanion|specs|z-ground/grass, Azumarill|z-belly drum, Crawdaunt|cb|sd, Nidoking|lo, Primarina|specs, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Rotom-Wash|off utility, Swampert-Mega|swift swim, Tyranitar-Mega|dd, Chandelure|specs, Porygon-Z|z-conversion ghost, Pidgeot-Mega|offensive, Gallade-Mega|sd
+
+Mawile-Mega|sd|4 atks, icon, mawilite
+Mawile-Mega|sd, GSI,
+Mawile-Mega|sd, SSI, Landorus-Therian|def, Heatran|sub toxic|sp d|off z-ground/grass, Mew|utility, Cofagrigus|tr ghostium-z
+Mawile-Mega|sd, NSI, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Lele|specs, Keldeo|specs, Lopunny-Mega|offensive, Rotom-Wash|off utility, Primarina|specs, Hydreigon|specs, Magearna|sg z-fight/elec/fairy, Tyranitar|cb, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Heracross-Mega|sd, Celesteela|autotomize, Volcanion|specs|z-ground/grass, Pidgeot-Mega|offensive
+
+Mawile-Mega|4 atks, GSI,
+Mawile-Mega|4 atks, SSI, Landorus-Therian|def, Heatran|sub toxic|sp d|off z-ground/grass, Mew|utility, Cofagrigus|tr ghostium-z
+Mawile-Mega|4 atks, NSI, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Lele|specs, Keldeo|specs, Lopunny-Mega|offensive, Rotom-Wash|off utility, Primarina|specs, Hydreigon|specs, Magearna|sg z-fight/elec/fairy, Tyranitar|cb, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Heracross-Mega|sd, Celesteela|autotomize, Volcanion|specs|z-ground/grass, Pidgeot-Mega|offensive
+
+Medicham-Mega, icon, medichamite
+Medicham-Mega|offensive, GSI, Mew|utility, Sableye-Mega|def, Cresselia|tr utility
+Medicham-Mega|offensive, SSI, Cofagrigus|tr ghostium-z, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank
+Medicham-Mega|offensive, NSI, Landorus-Therian|def, Garchomp|offensive sr|sd|scarf, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Greninja|protean|ash, Pinsir-Mega|sd, Tornadus-Therian|lo|av, Excadrill|sd sand rush|sash|scarf, Latios|scarf|lo|specs, Keldeo|specs, Tapu Lele|scarf, Lopunny-Mega|offensive, Clefable|unaware|cm|utility, Hawlucha|sd unburden, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Dragonite|dd z-fly/elec, Nihilego|specs, Talonflame|sd, Pidgeot-Mega|offensive, Reuniclus|cm
+
+Mimikyu|sd, icon, lifeorb
+Mimikyu|sd, GSI, Clefable|cm|utility|unaware, Tangrowth|mixed def, Toxapex|tha pex, Scizor-Mega|utility, Quagsire|unaware|curse,
+Mimikyu|sd, SSI, Landorus-Therian|def, Venusaur-Mega|mixed def|offensive, Tangrowth|av, Celesteela|sp d|mixed def, Mantine|mixed def, Alomomola|mixed def
+Mimikyu|sd, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Excadrill|sash, Rotom-Wash|off utility, Greninja|ash, Lopunny-Mega|offensive, Kyurem-Black|scarf
+
+Necrozma|cm, icon, grassyseed
+Necrozma|cm, GSI, Hoopa-Unbound|cb|scarf|specs, Greninja|protean|ash|scarf, Crawdaunt|cb|sd, Hydreigon|specs, Bisharp|sd, Sharpedo-Mega|cleaner, Tyranitar|cb, Tyranitar-Mega|dd, Gyarados-Mega|sub dd, Weavile|cb, Jirachi|utility|scarf, Sableye-Mega|def
+
+Nidoking|lo, GSI, Chansey|blob, Gastrodon|sp d, Cresselia|tr utility
+Nidoking|lo, SSI, Mantine|mixed def
+Nidoking|lo, NSI, Terrakion|sd|scarf, Zygarde|dd|cb, Charizard-Mega-X|dd, Hoopa-Unbound|scarf, Kyurem-Black|sub icium-z, Medicham-Mega|offensive, Charizard-Mega-Y|wallbreaker, Weavile|cb, Kingdra|swift swim, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Greninja|protean|ash|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Starmie|lo, Manaphy|tg icium-z|z-rain dance, Landorus-Therian|double dance|scarf, Sharpedo-Mega|cleaner, Greninja|protean|ash|scarf, Excadrill|sd sand rush|sash|scarf, Latios|specs|lo|scarf, Keldeo|scarf|specs, Alakazam-Mega|offensive, Latias|off utility, Tapu Lele|scarf|stallbreaker|specs, Hydreigon|specs, Kyurem|specs, Crawdaunt|cb|sd, Rotom-Wash|off utility, Manaphy|tg icium-z, Ninetales-Alola|utility, Gardevoir-Mega|offensive, Gallade-Mega|sd, Reuniclus|cm
+
+Nihilego|specs, GSI, Magearna|av, Chansey|blob, Gastrodon|sp d, Swampert-Mega|swift swim
+Nihilego|specs, SSI, Celesteela|autotomize|sp d, Garchomp|offensive sr|scarf|sd, Ferrothorn|mixed def, Zygarde|sub coil|dd|cb, Scizor-Mega|utility, Terrakion|sd|scarf, Hippowdon|mixed def, Nidoking|lo, Mawile-Mega|sd|4 atks, Conkeldurr|guts, Cresselia|tr utility
+Nihilego|specs, NSI, Greninja|protean|ash, Landorus-Therian|scarf, Magearna|sg z-fight/elec/fairy|av|double dance, Alakazam-Mega|offensive, Keldeo|scarf|specs, Hoopa-Unbound|cb|scarf|specs, Latios|scarf|specs|lo, Weavile|cb, Kartana|sd, Lopunny-Mega|offensive, Kingdra|swift swim, Kabutops|sd swift swim, Sharpedo-Mega|cleaner, Aerodactyl-Mega|offensive, Latias|off utility, Omastar|ss swift swim, Suicune|vin cune|cro cune, Manaphy|z-rain dance, Azumarill|z-belly drum, Crawdaunt|cb|sd, Starmie|lo, Gallade-Mega|sd, Reuniclus|cm
+
+Nihilego|scarf, GSI, Magearna|av, Chansey|blob, Gastrodon|sp d, Swampert-Mega|swift swim, Hippowdon|mixed def, Cresselia|tr utility
+Nihilego|scarf, SSI, Celesteela|autotomize|sp d, Garchomp|scarf|offensive sr|sd, Ferrothorn|mixed def, Magearna|sg z-fight/elec/fairy|av|double dance, Zygarde|sub coil|dd|cb, Scizor-Mega|utility, Terrakion|scarf|sd, Nidoking|lo, Mawile-Mega|sd|4 atks, Tyranitar-Mega|dd, Conkeldurr|guts
+Nihilego|scarf, NSI, Greninja|scarf|ash, Keldeo|scarf, Hoopa-Unbound|cb|scarf|specs, Latios|scarf, Latias|off utility, Kingdra|swift swim, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Latias|off utility, Omastar|ss swift swim, Suicune|vin cune|cro cune, Azumarill|z-belly drum, Crawdaunt|cb|sd, Gallade-Mega|sd, Reuniclus|cm
+
+Omastar|ss swift swim, icon, wateriumz
+Omastar|ss swift swim, letters, Smash
+Omastar|ss swift swim, GSI, Tangrowth|av
+Omastar|ss swift swim, SSI, Chansey|blob, Venusaur-Mega|mixed def|offensive, Tapu Bulu|sd z-grass/fight|cb, Mantine|mixed def, Ferrothorn|mixed def
+Omastar|ss swift swim, NSI, Hawlucha|sd unburden, Landorus-Therian|scarf, Garchomp|scarf, Keldeo|scarf, Tapu Lele|scarf, Tapu Koko|scarf, Kartana|scarf, Latios|scarf, Latias|off utility, Excadrill|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Infernape|scarf, Alakazam-Mega|trace, Cresselia|tr utility
+
+Pelipper|specs, GSI, Chansey|blob, Mantine|mixed def, Empoleon|sp d
+Pelipper|specs, SSI, Magearna|av, Toxapex|tha pex, Latias|off utility, Ferrothorn|mixed def, Gastrodon|sp d, Alomomola|mixed def, Cresselia|tr utility
+Pelipper|specs, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Greninja|ash, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|offensive sr, Magearna|sg z-fight/elec/fairy|double dance, Tapu Bulu|sd z-grass/fight, Tapu Lele|stallbreaker|specs|scarf, Zygarde|cb|dd, Keldeo|scarf|specs, Latios|lo|specs|scarf, Celesteela|autotomize, Zapdos|off utility|def, Medicham-Mega|offensive, Lopunny-Mega|offensive, Alakazam-Mega|offensive, Kyurem-Black|sub icium-z|lo|cb|scarf, Tyranitar-Mega|dd, Terrakion|sd|scarf, Gengar|off utility|specs, Rotom-Wash|off utility, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Manaphy|z-rain dance, Hoopa-Unbound|cb|specs, Ninetales-Alola|utility, Heatran|off z-ground/grass, Tornadus-Therian|lo, Kyurem|specs|sub roost, Mamoswine|lo, Pinsir-Mega|sd, Nihilego|specs|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Nidoking|lo, Hydreigon|specs, Chandelure|specs, Victini|cb, Volcanion|specs|z-ground/grass, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Azumarill|z-belly drum, Pidgeot-Mega|offensive, Heracross-Mega|sd, Aerodactyl-Mega|offensive, Gardevoir-Mega|offensive, Sharpedo-Mega|cleaner, Manectric-Mega|offensive, Magnezone|av, Starmie|lo, Porygon-Z|z-conversion ghost|z-conversion elec, Talonflame|sd
+
+Pidgeot-Mega|offensive, icon, pidgeotite
+Pidgeot-Mega|offensive, GSI, Zapdos|off utility|def, Chansey|blob, Gastrodon|sp d, Mantine|mixed def, Tyranitar|cb, Tyranitar-Mega|dd, Magearna|av, Rotom-Wash|off utility, Muk-Alola|av, Cresselia|tr utility
+Pidgeot-Mega|offensive, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Mew|utility, Toxapex|tha pex, Nihilego|scarf|specs, Alomomola|mixed def, Empoleon|sp d
+Pidgeot-Mega|offensive, NSI, Greninja|protean|ash, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Landorus-Therian|scarf, Garchomp|scarf, Tapu Lele|scarf, Jirachi|scarf, Terrakion|scarf, Excadrill|sd sand rush, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Mamoswine|lo, Weavile|cb, Azumarill|z-belly drum, Sharpedo-Mega|cleaner, Aerodactyl-Mega|offensive, Manectric-Mega|offensive, Tornadus-Therian|av, Dragonite|dd z-fly/elec, Clefable|cm, Slowbro|cm, Magnezone|av
+
+Pinsir-Mega|sd, icon, pinsirite
+Pinsir-Mega|sd, letters, SD
+Pinsir-Mega|sd, GSI, Skarmory|def, Zapdos|off utility|def
+Pinsir-Mega|sd, SSI, Celesteela|autotomize|sp d, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Rotom-Wash|off utility, Manectric-Mega|offensive
+Pinsir-Mega|sd, NSI, Landorus-Therian|scarf, Garchomp|scarf, Nihilego|scarf, Excadrill|sd sand rush|sash|scarf, Terrakion|scarf, Thundurus|np|defiant mixed, Aerodactyl-Mega|offensive, Kabutops|sd swift swim, Omastar|ss swift swim, Thundurus-Therian|agility, Cofagrigus|tr ghostium-z, Pidgeot-Mega|offensive
+
+Porygon-Z|z-conversion ghost|z-conversion elec, icon, normaliumz
+Porygon-Z|z-conversion ghost, letters, Ghost
+Porygon-Z|z-conversion ghost, GSI, Chansey|blob, Tyranitar|cb, Tyranitar-Mega|dd, Clefable|unaware, Muk-Alola|av
+Porygon-Z|z-conversion ghost, SSI, Magearna|av, Cresselia|tr utility
+Porygon-Z|z-conversion ghost, NSI, Mawile-Mega|sd|4 atks, Bisharp|sd, Kingdra|swift swim, Omastar|ss swift swim, Mimikyu|sd
+
+Porygon-Z|z-conversion elec, letters, Elec
+Porygon-Z|z-conversion elec, GSI, Venusaur-Mega|mixed def|offensive, Marowak-Alola|lightning rod, Chansey|blob, Gastrodon|sp d, Quagsire|unaware|curse
+Porygon-Z|z-conversion elec, SSI, Ferrothorn|mixed def, Magearna|av, Cresselia|tr utility
+Porygon-Z|z-conversion elec, NSI, Landorus-Therian|scarf, Garchomp|scarf, Excadrill|sd sand rush|sash|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim
+
+Primarina|specs, GSI, Chansey|blob, Mantine|mixed def, Empoleon|sp d
+Primarina|specs, SSI, Venusaur-Mega|mixed def|offensive, Tangrowth|av, Magearna|av, Gastrodon|sp d, Ferrothorn|mixed def, Alomomola|mixed def, Volcanion|specs|z-ground/grass, Amoonguss|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank
+Primarina|specs, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Bulu|sd z-grass/fight|cb, Landorus-Therian|flyinium|rockium|double dance, Greninja|protean|scarf, Garchomp|sd, Garchomp-Mega|sd sand force, Lopunny-Mega|offensive, Gengar|off utility|specs, Charizard-Mega-Y|wallbreaker, Kyurem-Black|sub icium-z|lo|cb|scarf, Medicham-Mega|offensive, Tapu Lele|specs, Kartana|sd|scarf, Nihilego|scarf|specs, Magnezone|av, Hoopa-Unbound|cb|specs|scarf, Kabutops|sd swift swim, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Manectric-Mega|offensive, Serperior|sub seed, Breloom|sd|sash, Scolipede|sd waterium-z, Victini|cb, Porygon-Z|z-conversion elec
+
+Reuniclus|cm, icon, leftovers
+Reuniclus|cm, GSI, Hoopa-Unbound|cb|specs|scarf, Araquanid|cb|rd waterium-z, Tapu Fini|cm|utility, Muk-Alola|av
+Reuniclus|cm, SSI, Greninja|protean|ash, Kyurem-Black|sub icium-z, Tyranitar|cb, Tyranitar-Mega|dd, Scizor-Mega|sd|utility, Bisharp|sd, Weavile|cb, Volcarona|qd z-fire/psy/bug, Crawdaunt|cb|sd, Mawile-Mega|sd|4 atks, Hydreigon|specs, Gyarados-Mega|sub dd, Sableye-Mega|def, Marowak-Alola|sd, Porygon-Z|z-conversion ghost, Slowbro-Mega|cm
+Reuniclus|cm, NSI, Gengar|off utility|specs, Azumarill|z-belly drum, Sharpedo-Mega|cleaner, Heracross-Mega|sd, Cofagrigus|tr ghostium-z
+
+Salamence|dd, icon, flyiniumz
+Salamence|dd, GSI, Celesteela|autotomize|sp d|mixed def, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Cresselia|tr utility
+Salamence|dd, SSI, Landorus-Therian|def, Zapdos|off utility|def
+Salamence|dd, NSI, Garchomp|scarf, Keldeo|scarf, Nihilego|scarf, Latios|scarf, Latias|off utility, Terrakion|scarf, Mamoswine|lo, Weavile|cb, Kingdra|swift swim, Thundurus|np|defiant mixed, Kabutops|sd swift swim, Omastar|ss swift swim, Greninja|scarf
+
+Scizor-Mega|sd, icon, scizorite
+Scizor-Mega|sd, GSI, Skarmory|def, Pelipper|specs|mixed def, Chandelure|specs
+Scizor-Mega|sd, SSI, Heatran|sub toxic|sp d|off z-ground/grass
+Scizor-Mega|sd, NSI,
+
+Scolipede|sd waterium-z, icon, wateriumz
+Scolipede|sd waterium-z, letters, SD
+Scolipede|sd waterium-z, GSI, Scizor-Mega|utility, Skarmory|def, Quagsire|unaware|curse, Pelipper|mixed def
+Scolipede|sd waterium-z, SSI, Venusaur-Mega|mixed def, Celesteela|mixed def|sp d, Toxapex|tha pex, Clefable|cm|utility|unaware, Alomomola|mixed def, Ferrothorn|mixed def, Mantine|mixed def, Zapdos|off utility|def, Conkeldurr|guts
+Scolipede|sd waterium-z, NSI, Greninja|ash|scarf, Tapu Koko|scarf, Pinsir-Mega|sd, Zygarde|cb, Mawile-Mega|sd|4 atks, Lopunny-Mega|offensive, Hawlucha|sd unburden, Bisharp|sd, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Dragonite|dd z-fly/elec, Talonflame|sd, Pidgeot-Mega|offensive
+
+Serperior|sub seed, icon, leftovers
+Serperior|sub seed, GSI, Venusaur-Mega|mixed def|offensive, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Celesteela|autotomize, Charizard-Mega-X|dd, Amoonguss|mixed def, Infernape|scarf, Talonflame|sd,
+Serperior|sub seed, SSI, Tangrowth|av, Heatran|sub toxic|sp d|off z-ground/grass
+Serperior|sub seed, NSI, Greninja|protean|ash|scarf, Landorus-Therian|scarf, Garchomp|scarf, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Magearna|sg z-fight/elec/fairy|double dance, Charizard-Mega-Y|wallbreaker, Zapdos|off utility|def, Latios|scarf, Latias|off utility, Lopunny-Mega|offensive, Tapu Lele|scarf, Marowak-Alola|sd, Gengar|off utility|specs, Lopunny-Mega|offensive, Kartana|scarf, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Nihilego|scarf, Tornadus-Therian|lo|av, Pinsir-Mega|sd, Mamoswine|lo, Weavile|cb, Gyarados|dd, Salamence|dd, Dragonite|dd z-fly/elec, Aerodactyl-Mega|offensive, Sharpedo-Mega|cleaner, Manectric-Mega|offensive, Starmie|lo, Muk-Alola|av, Chandelure|specs, Conkeldurr|guts
+
+Sharpedo-Mega|cleaner, icon, sharpedonite
+Sharpedo-Mega|cleaner, GSI, Ferrothorn|mixed def, Skarmory|def, Tangrowth|mixed def
+Sharpedo-Mega|cleaner, SSI, Tapu Fini|utility, Amoonguss|mixed def, Keldeo|scarf|specs, Rotom-Wash|off utility, Venusaur-Mega|mixed def, Clefable|unaware|cm|utility, Toxapex|tha pex, Zapdos|off utility|def, Alomomola|mixed def, Azumarill|z-belly drum, Primarina|specs
+Sharpedo-Mega|cleaner, NSI, Greninja|scarf, Scolipede|sd waterium-z, Kartana|sd|scarf, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Breloom|sash, Hydreigon|specs, Tapu Koko|scarf, Conkeldurr|guts
+
+Slowbro|cm, GSI, Greninja|protean|ash, Magnezone|av, Clefable|unaware, Hoopa-Unbound|specs, Hydreigon|specs, Volcanion|z-ground/grass, Araquanid|cb, Reuniclus|cm
+Slowbro|cm, SSI, Tapu Fini|utility, Latios|specs|lo, Serperior|sub seed, Gyarados-Mega|sub dd
+Slowbro|cm, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Bulu|sd z-grass/fight|cb, Gengar|off utility, Magnezone|av, Rotom-Wash|off utility, Zapdos|off utility|def, Kartana|sd, Sharpedo-Mega|cleaner, Thundurus|np|defiant mixed, Crawdaunt|cb|sd, Thundurus-Therian|agility, Heracross-Mega|sd, Manectric-Mega|offensive, Chandelure|specs, Porygon-Z|z-conversion ghost
+
+Slowbro-Mega|cm, GSI, Greninja|protean|ash, Magnezone|av, Clefable|unaware, Hoopa-Unbound|specs, Hydreigon|specs, Volcanion|z-ground/grass
+Slowbro-Mega|cm, SSI, Tapu Fini|utility, Latios|specs|lo, Serperior|sub seed, Gyarados-Mega|sub dd
+Slowbro-Mega|cm, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Bulu|sd z-grass/fight|cb, Gengar|off utility, Magnezone|av, Rotom-Wash|off utility, Zapdos|off utility|def, Kartana|sd, Sharpedo-Mega|cleaner, Thundurus|np|defiant mixed, Crawdaunt|cb|sd, Thundurus-Therian|agility, Heracross-Mega|sd, Manectric-Mega|offensive, Chandelure|specs, Porygon-Z|z-conversion ghost
+
+Starmie|lo, GSI, Chansey|blob, Gastrodon|sp d,
+Starmie|lo, SSI, Venusaur-Mega|mixed def|offensive, Tangrowth|av, Hoopa-Unbound|scarf, Latios|scarf, Latias|off utility, Amoonguss|mixed def, Araquanid|cb|rd waterium-z, Cresselia|tr utility
+Starmie|lo, NSI Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Landorus-Therian|scarf, Garchomp|scarf, Greninja|protean|ash, Lopunny-Mega|offensive, Hoopa-Unbound|cb|specs, Kyurem-Black|sub icium-z, Weavile|cb, Lopunny-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Gyarados-Mega|sub dd, Mimikyu|sd, Manectric-Mega|offensive, Muk-Alola|av, Talonflame|sd
+
+Suicune|vin cune|cro cune, icon, leftovers
+Suicune|vin cune, letters, Vin
+Suicune|vin cune, GSI, Tapu Fini|utility, Mantine|mixed def, Gastrodon|sp d, Slowbro|cm, Slowbro-Mega|cm, Toxapex|tha pex, Araquanid|rd waterium-z, Reuniclus|cm
+Suicune|vin cune, SSI, Greninja|protean, Hoopa-Unbound|specs, Clefable|unaware, Latios|specs|lo|scarf, Latias|off utility
+Suicune|vin cune|cro cune, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Magnezone|av, Manaphy|tg icium-z, Kyurem-Black|sub icium-z, Zapdos|off utility|def, Tornadus-Therian|lo, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Manectric-Mega|offensive
+
+Suicune|cro cune, letters, Cro
+Suicune|cro cune, GSI, Tapu Fini|utility, Mantine|mixed def, Gastrodon|sp d, Clefable|unaware, Slowbro|cm, Slowbro-Mega|cm, Volcanion|specs|z-ground/grass,
+Suicune|cro cune, SSI, Tangrowth|av, Toxapex|tha pex, Latios|specs|lo|scarf, Latias|off utility, Hoopa-Unbound|specs, Amoonguss|mixed def
+Suicune|cro cune, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Tapu Bulu|sd z-grass/fight, Keldeo|specs, Kyurem-Black|sub icium-z|lo|cb|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Manectric-Mega|offensive, Serperior|sub seed, Porygon-Z|z-conversion elec
+
+Swampert-Mega|swift swim, icon, swampertite
+Swampert-Mega|swift swim, GSI, Rotom-Wash|off utility, Tangrowth|mixed def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Skarmory|def, Alomomola|mixed def, Araquanid|cb|rd waterium-z
+Swampert-Mega|swift swim, SSI, Mantine|mixed def, Pelipper|mixed def, Serperior|sub seed, Tapu Bulu|sd z-grass/fight|cb, Ferrothorn|mixed def, Hydreigon|specs
+Swampert-Mega|swift swim, NSI, Venusaur-Mega|mixed def|offensive, Alakazam-Mega|trace, Pelipper|specs, Conkeldurr|guts
+
+Talonflame|sd, icon, flyiniumz
+
+Tapu Bulu|sd z-grass/fight, icon, grassiumz
+Tapu Bulu|sd z-grass/fight, letters, SD
+Tapu Bulu|sd z-grass/fight, SSI, Celesteela|mixed def|sp d|autotomize, Zapdos|off utility|def, Amoonguss|mixed def, Charizard-Mega-Y|wallbreaker, Pinsir-Mega|sd, Salamence|dd, Skarmory|def, Tangrowth|mixed def, Venusaur-Mega|mixed def|offensive, Scizor-Mega|utility, Tornadus-Therian|lo|av, Togekiss|stallbreaker, Talonflame|sd, Heracross-Mega|sd, Buzzwole|sub punch, Chandelure|specs
+Tapu Bulu|sd z-grass/fight|cb, NSI, Charizard-Mega-X|dd, Heatran|sub toxic|sp d|off z-ground/grass, Volcarona|qd z-fire/psy/bug|charti|bulky qd, Jirachi|utility|scarf, Gengar|off utility|specs, Nihilego|scarf|specs, Excadrill|sd sand rush|sash|scarf, Kyurem-Black|sub icium-z|lo|cb, Manaphy|tg icium-z, Gyarados|dd, Mew|utility, Mamoswine|lo, Weavile|cb, Kartana|sd|scarf, Sharpedo-Mega|cleaner, Dragonite|dd z-fly/elec, Volcanion|specs|z-ground/grass, Muk-Alola|av, Nidoking|lo, Ninetales-Alola|utility, Kyurem|sub roost|specs, Manectric-Mega|offensive, Victini|cb, Pidgeot-Mega|offensive
+
+Tapu Bulu|cb, GSI, Skarmory|def, Celesteela|mixed def, Scizor-Mega|utility,
+Tapu Bulu|cb, SSI, Celesteela|sp d|autotomize, Zapdos|off utility|def, Amoonguss|mixed def, Charizard-Mega-Y|wallbreaker, Pinsir-Mega|sd, Salamence|dd, Tangrowth|mixed def, Venusaur-Mega|mixed def, Tornadus-Therian|lo|av, Togekiss|stallbreaker, Talonflame|sd, Heracross-Mega|sd, Buzzwole|sub punch, Chandelure|specs
+
+Tapu Fini|cm, icon, leftovers
+Tapu Fini|cm, GSI, Venusaur-Mega|offensive|mixed def, Ferrothorn|mixed def, Volcanion|specs|z-ground/grass,
+Tapu Fini|cm, SSI, Chansey|blob, Empoleon|sp d
+Tapu Fini|cm, NSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Gengar|specs|off utility, Magearna|sg z-fight/elec/fairy|double dance, Tapu Lele|specs, Charizard-Mega-Y|wallbreaker, Kyurem-Black|sub icium-z|lo|cb, Kartana|sd|scarf, Magnezone|av, Nihilego|specs|scarf, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Hoopa-Unbound|scarf, Ninetales-Alola|utility, Porygon-Z|z-conversion elec
+
+Tapu Koko|z-wild charge, icon, electriumz
+Tapu Koko|z-wild charge, GSI, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|lightning rod, Swampert-Mega|swift swim, Camerupt-Mega|wallbreaker, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Gastrodon|sp d, Charizard-Mega-X|dd, Ferrothorn|mixed def
+Tapu Koko|z-wild charge, SSI, Tangrowth|av|mixed def, Venusaur-Mega|mixed def|offensive, Mamoswine|lo, Magnezone|av, Manectric-Mega|lightning rod pre-mega, Amoonguss|mixed def, Cresselia|tr utility
+Tapu Koko|z-wild charge|off utility|lo|specs, NSI, Landorus-Therian|scarf, Garchomp|scarf, Greninja|scarf, Keldeo|scarf, Lopunny-Mega|offensive, Nihilego|scarf, Scizor-Mega|utility, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Tyranitar-Mega|dd, Aerodactyl-Mega|offensive, Manectric-Mega|offensive, Thundurus-Therian|agility
+
+Tapu Koko|off utility, icon, magnet
+Tapu Koko|off utility, GSI, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|lightning rod, Tangrowth|av|mixed def, Magearna|av, Magnezone|av, Swampert-Mega|swift swim, Chansey|blob, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Camerupt-Mega|wallbreaker, Gastrodon|sp d, Mamoswine|lo, Charizard-Mega-X|dd, Ferrothorn|mixed def, Amoonguss|mixed def, Muk-Alola|av, Manectric-Mega|lightning rod pre-mega, Cresselia|tr utility
+
+Tapu Koko|lo, GSI, Tangrowth|av, Venusaur-Mega|mixed def|offensive, Magearna|av, Chansey|blob, Amoonguss|mixed def, Cresselia|tr utility
+Tapu Koko|lo, SSI, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|lightning rod, Ferrothorn|mixed def, Swampert-Mega|swift swim, Camerupt-Mega|wallbreaker, Magnezone|av, Gastrodon|sp d, Muk-Alola|av, Manectric-Mega|lightning rod pre-mega
+
+Tapu Koko|specs, GSI, Tangrowth|av, Venusaur-Mega|mixed def|offensive, Chansey|blob, Amoonguss|mixed def
+Tapu Koko|specs, SSI, Magearna|av, Excadrill|sd sand rush|sash|scarf, Marowak-Alola|lightning rod, Ferrothorn|mixed def, Swampert-Mega|swift swim, Camerupt-Mega|wallbreaker, Magnezone|av, Gastrodon|sp d, Muk-Alola|av, Manectric-Mega|lightning rod pre-mega, Cresselia|tr utility
+
+Tapu Koko|scarf, GSI, Excadrill|sd sand rush|sash, Mamoswine|lo, Swampert-Mega|swift swim, Magnezone|av, Ferrothorn|mixed def, Chansey|blob, Quagsire|unaware|curse, Gastrodon|sp d, Camerupt-Mega|wallbreaker, Cresselia|tr utility
+Tapu Koko|scarf, SSI, Tangrowth|av|mixed def, Venusaur-Mega|mixed def|offensive, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|scarf|sd, Zygarde|dd|cb|sub coil, Charizard-Mega-X|dd, Tyranitar|cb, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Nidoking|lo, Amoonguss|mixed def, Manectric-Mega|lightning rod pre-mega
+Tapu Koko|scarf, NSI, Tapu Bulu|sd z-grass/fight|cb, Tyranitar-Mega|dd, Manectric-Mega|offensive
+
+Tapu Lele|stallbreaker, icon, shedshell
+Tapu Lele|stallbreaker|specs, GSI, Celesteela|sp d, Magearna|av, Jirachi|scarf|utility, Cresselia|tr utility
+Tapu Lele|stallbreaker|specs, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Magnezone|av, Skarmory|def, Excadrill|sd sand rush|sash|scarf, Mew|utility, Muk-Alola|av, Reuniclus|cm
+Tapu Lele|stallbreaker|specs, NSI, Celesteela|autotomize, Ferrothorn|mixed def, Magearna|sg z-fight/elec/fairy|double dance, Gengar|off utility|specs, Nihilego|scarf|specs, Pinsir-Mega|sd, Kartana|sd|scarf, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Victini|cb
+
+Tapu Lele|scarf, GSI, Celesteela|sp d, Magearna|av, Jirachi|utility, Reuniclus|cm, Cresselia|tr utility
+Tapu Lele|scarf, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Jirachi|scarf, Magnezone|av, Skarmory|def, Excadrill|sd sand rush|sash|scarf, Mew|utility, Muk-Alola|av
+Tapu Lele|scarf, NSI, Celesteela|autotomize, Ferrothorn|mixed def, Magearna|sg z-fight/elec/fairy|double dance, Nihilego|scarf, Kartana|scarf, Sharpedo-Mega|cleaner, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Victini|cb
+
+Terrakion|sd, icon, rockiumz
+Terrakion|sd, GSI, Slowbro|cm|mixed def, Cresselia|tr utility
+Terrakion|sd, SSI, Landorus-Therian|def, Skarmory|def, Tangrowth|mixed def, Toxapex|tha pex, Slowbro|cm|mixed def, Hippowdon|mixed def, Reuniclus|cm
+Terrakion|sd, NSI, Greninja|protean|ash, Landorus-Therian|scarf, Garchomp|scarf, Tapu Lele|scarf, Alakazam-Mega|offensive, Keldeo|scarf, Excadrill|sd sand rush|sash|scarf, Hoopa-Unbound|scarf, Latios|scarf|specs|lo, Latias|off utility, Scizor-Mega|utility, Serperior|sub seed, Terrakion|scarf, Gliscor|sub toxic, Kartana|sd, Kingdra|swift swim, Sharpedo-Mega|cleaner, Breloom|sash, Kabutops|sd swift swim, Omastar|ss swift swim, Latias|off utility, Starmie|lo, Hawlucha|sd unburden, Conkeldurr|guts, Gallade-Mega|sd
+
+Terrakion|scarf, GSI, Landorus-Therian|def, Venusaur-Mega|mixed def|offensive, Toxapex|tha pex, Celesteela|mixed def, Tangrowth|mixed def, Skarmory|def, Slowbro|cm|mixed def, Slowbro|cm|mixed def, Hippowdon|mixed def, Reuniclus|cm, Cresselia|tr utility
+Terrakion|scarf, SSI, Celesteela|sp d, Cofagrigus|tr ghostium-z
+Terrakion|scarf, NSI, Landorus-Therian|scarf, Latios|scarf, Latias|off utility, Lopunny-Mega|offensive, Scizor-Mega|utility, Gliscor|sub toxic, Hawlucha|sd unburden, Swampert-Mega|swift swim, Kingdra|swift swim, Breloom|sash, Kabutops|sd swift swim, Omastar|ss swift swim, Heracross-Mega|sd, Conkeldurr|guts, Gallade-Mega|sd
+
+Thundurus|np|defiant mixed, icon, lifeorb
+Thundurus|np, letters, NP
+Thundurus|np, GSI, Marowak-Alola|lightning rod
+Thundurus|np, SSI, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Charizard-Mega-X|dd, Chansey|blob, Latios|scarf, Marowak-Alola|sd, Gastrodon|sp d, Latias|off utility, Camerupt-Mega|wallbreaker, Swampert-Mega|swift swim, Manectric-Mega|lightning rod pre-mega, Cresselia|tr utility
+Thundurus|np|defiant mixed, NSI, Tapu Lele|scarf, Greninja|protean|ash, Landorus-Therian|scarf, Garchomp|scarf, Nihilego|scarf, Terrakion|scarf, Lopunny-Mega|offensive, Mamoswine|lo, Weavile|cb, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Sharpedo-Mega|cleaner, Aerodactyl-Mega|offensive, Kabutops|sd swift swim
+
+Thundurus|defiant mixed, GSI, Cresselia|tr utility
+Thundurus|defiant mixed, SSI, Magearna|sg z-fight/elec/fairy, Tapu Koko|z-wild charge|off utility|lo|scarf, Charizard-Mega-X|dd, Latios|scarf, Marowak-Alola|sd, Gastrodon|sp d, Latias|off utility, Camerupt-Mega|wallbreaker, Swampert-Mega|swift swim, Manectric-Mega|lightning rod pre-mega
+
+Thundurus-Therian|agility, icon, electriumz
+Thundurus-Therian|agility, letters, Agil
+Thundurus-Therian|agility, GSI, Venusaur-Mega|mixed def|offensive, Marowak-Alola|lightning rod, Gastrodon|sp d, Camerupt-Mega|wallbreaker, Alakazam-Mega|trace
+Thundurus-Therian|agility, SSI, Excadrill|sd sand rush|sash, Magearna|av, Latios|lo|specs|scarf, Swampert-Mega|swift swim, Mamoswine|lo, Cresselia|tr utility
+Thundurus-Therian|agility, NSI, Landorus-Therian|scarf, Greninja|protean|ash|scarf, Garchomp|offensive sr|sd|scarf, Weavile|cb, Tyranitar-Mega|dd, Ferrothorn|mixed def
+
+Togekiss|stallbreaker, icon, leftovers
+Togekiss|stallbreaker, letters, NP
+Togekiss|stallbreaker, GSI, Celesteela|autotomize|sp d|mixed def, Heatran|sp d, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Jirachi|scarf|utility, Magnezone|av, Nihilego|scarf|specs, Excadrill|sd sand rush|sash|scarf, Tyranitar|cb, Zapdos|off utility|def, Aerodactyl-Mega|offensive, Manaphy|tg icium-z|z-rain dance, Rotom-Wash|off utility, Manectric-Mega|offensive
+Togekiss|stallbreaker, SSI, Scizor-Mega|utility, Thundurus|np|defiant mixed, Kabutops|sd swift swim, Omastar|ss swift swim, Thundurus-Therian|agility
+Togekiss|stallbreaker, NSI, Bisharp|sd, Kyurem-Black|sub icium-z|lo|cb, Terrakion|sd|scarf, Mamoswine|lo, Weavile|cb, Mamoswine|lo, Ninetales-Alola|utility, Kyurem|specs
+
+Tornadus-Therian|lo, GSI, Rotom-Wash|off utility, Aerodactyl-Mega|offensive, Cresselia|tr utility
+Tornadus-Therian|lo, SSI, Chansey|blob, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Nihilego|scarf, Zapdos|off utility|def, Manectric-Mega|offensive
+Tornadus-Therian|lo, NSI, Landorus-Therian|scarf, Terrakion|scarf, Mamoswine|lo, Weavile|cb, Kabutops|sd swift swim, Omastar|ss swift swim, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Greninja|protean|ash|scarf, Alakazam-Mega|offensive
+
+Tyranitar|cb, GSI, Landorus-Therian|def, Keldeo|scarf|specs, Buzzwole|sub punch, Hippowdon|mixed def
+Tyranitar|cb, SSI, Landorus-Therian|flyinium|rockium|double dance, Garchomp|offensive sr|sd|scarf, Skarmory|def, Tangrowth|mixed def, Bisharp|sd, Excadrill|sd sand rush|sash|scarf, Terrakion|sd|scarf, Gliscor|sub toxic, Breloom|sd|sash, Mawile-Mega|sd|4 atks, Heracross-Mega|sd, Swampert-Mega|swift swim
+Tyranitar|cb, NSI, Greninja|protean|ash|scarf, Zygarde|sub coil|dd|cb, Lopunny-Mega|offensive, Pinsir-Mega|sd, Tornadus-Therian|lo, Mamoswine|lo, Kartana|sd|scarf, Gyarados-Mega|sub dd, Kabutops|sd swift swim, Volcanion|specs|z-ground/grass, Quagsire|unaware|curse, Manaphy|tg icium-z|z-rain dance, Garchomp-Mega|sd sand force, Hawlucha|sd unburden, Rotom-Wash|off utility, Sableye-Mega|def, Conkeldurr|guts, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Tyranitar-Mega|dd, icon, tyranitarite
+Tyranitar-Mega|dd, GSI, Keldeo|scarf|specs, Quagsire|unaware|curse, Tangrowth|mixed def, Hippowdon|mixed def
+Tyranitar-Mega|dd, SSI, Kartana|sd, Terrakion|scarf, Landorus-Therian|def, Zygarde|dd|sub coil|cb, Scizor-Mega|utility, Ferrothorn|mixed def, Skarmory|def
+Tyranitar-Mega|dd, NSI, Rotom-Wash|off utility, Sableye-Mega|def, Conkeldurr|guts, Gardevoir-Mega|offensive, Gallade-Mega|sd, Breloom|sd|sash
+
+Venusaur-Mega|offensive, icon, venusaurite
+Venusaur-Mega|offensive, letters, Off
+Venusaur-Mega|offensive, GSI, Heatran|sub toxic|sp d|off z-ground/grass, Chansey|blob, Jirachi|utility, Reuniclus|cm, Cresselia|tr utility
+Venusaur-Mega|offensive, SSI, Latios|lo|specs|scarf, Latias|off utility, Volcarona|qd z-fire/psy/bug, Jirachi|scarf, Kyurem-Black|sub icium-z|lo|cb, Tornadus-Therian|lo|av, Salamence|dd, Dragonite|dd z-fly/elec, Mew|utility, Victini|cb
+Venusaur-Mega|offensive, NSI, Landorus-Therian|flyinium, Tapu Lele|specs|stallbreaker|scarf, Hawlucha|sd unburden, Alakazam-Mega|offensive, Medicham-Mega|offensive, Gyarados|dd, Celesteela|autotomize, Hoopa-Unbound|cb|specs|scarf, Charizard-Mega-Y|wallbreaker, Garchomp-Mega|sd sand force, Pelipper|specs, Charizard-Mega-X|dd, Pinsir-Mega|sd, Aerodactyl-Mega|offensive, Sharpedo-Mega|cleaner, Togekiss|stallbreaker, Camerupt-Mega|wallbreaker, Talonflame|sd, Pelipper|specs, Chandelure|specs, Conkeldurr|guts, Pidgeot-Mega|offensive, Gardevoir-Mega|offensive, Gallade-Mega|sd
+
+Victini|cb, GSI,
+Victini|cb, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Gastrodon|sp d, Chandelure|specs, Charizard-Mega-X|dd, Swampert-Mega|swift swim, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank
+Victini|cb, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf|def, Garchomp|offensive sr|sd|scarf, Zygarde|cb|dd, Greninja|protean|ash, Tapu Fini|cm|utility, Latios|specs, Gengar|off utility|specs, Keldeo|specs|scarf, Terrakion|sd|scarf, Mawile-Mega|sd|4 atks, Marowak-Alola|sd, Azumarill|z-belly drum, Excadrill|sd sand rush|sash|scarf, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Dragonite|dd z-fly/elec, Crawdaunt|cb|sd, Starmie|lo, Hydreigon|specs, Tyranitar|cb, Tyranitar-Mega|dd, Scolipede|sd waterium-z, Nihilego|specs|scarf, Camerupt-Mega|wallbreaker, Thundurus-Therian|agility
+
+Volcanion|specs, GSI, Tapu Fini|cm|utility, Chansey|blob, Mantine|mixed def, Hydreigon|specs
+Volcanion|specs, SSI, Rotom-Wash|off utility, Latios|scarf|specs|lo, Latias|off utility, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Alakazam-Mega|trace
+Volcanion|specs, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|offensive sr|scarf|sd, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Zygarde|sub coil|dd|cb, Nihilego|scarf|specs, Excadrill|sd sand rush|sash|scarf, Hoopa-Unbound|specs, Kyurem-Black|sub icium-z, Terrakion|sd|scarf, Zapdos|off utility|def, Mamoswine|lo, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Aerodactyl-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Nidoking|lo, Garchomp-Mega|sd sand force, Thundurus-Therian|agility, Manectric-Mega|offensive, Dragonite|dd z-fly/elec, Salamence|dd, Porygon-Z|z-conversion elec
+
+Volcanion|z-ground/grass, icon, groundiumz
+Volcanion|z-ground/grass, GSI, Mantine|mixed def, Chansey|blob, Latios|lo|specs|scarf, Latias|off utility, Hydreigon|specs
+Volcanion|z-ground/grass, SSI, Tapu Fini|cm|utility, Rotom-Wash|off utility,
+Volcanion|z-ground/grass, NSI, Landorus-Therian|flyinium|rockium|double dance|scarf, Garchomp|offensive sr|scarf|sd, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Zygarde|sub coil|dd|cb, Nihilego|scarf|specs, Excadrill|sd sand rush|sash|scarf, Hoopa-Unbound|specs, Kyurem-Black|sub icium-z, Terrakion|sd|scarf, Zapdos|off utility|def, Mamoswine|lo, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Aerodactyl-Mega|offensive, Swampert-Mega|swift swim, Kingdra|swift swim, Kabutops|sd swift swim, Nidoking|lo, Garchomp-Mega|sd sand force, Thundurus-Therian|agility, Manectric-Mega|offensive, Dragonite|dd z-fly/elec, Salamence|dd, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank
+
+Volcarona|qd z-fire/psy/bug, icon, firiumz
+Volcarona|qd z-fire/psy/bug, GSI, Mantine|mixed def, Araquanid|cb|rd waterium-z
+Volcarona|qd z-fire/psy/bug, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Chansey|blob, Tyranitar-Mega|dd, Aerodactyl-Mega|offensive, Tyranitar|cb, Toxapex|tha pex, Dragonite|dd z-fly/elec, Garchomp|scarf|offensive sr|sd, Zygarde|cb|sub coil|dd, Latios|scarf|specs|lo, Infernape|scarf, Camerupt-Mega|wallbreaker, Pelipper|mixed def, Chandelure|specs
+Volcarona|qd z-fire/psy/bug, NSI, Nihilego|scarf, Terrakion|scarf, Kingdra|swift swim, Thundurus|np|defiant mixed, Gyarados|dd, Kabutops|sd swift swim, Omastar|ss swift swim, Crawdaunt|cb|sd, Greninja|scarf, Keldeo|scarf, Tapu Koko|scarf, Talonflame|sd
+
+Volcarona|charti, icon, chartiberry
+Volcarona|charti, GSI, Mantine|mixed def, Talonflame|sd, Toxapex|tha pex, Tyranitar-Mega|dd, Pelipper|mixed def, Araquanid|cb|rd waterium-z
+Volcarona|charti, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Chansey|blob, Aerodactyl-Mega|offensive, Tyranitar|cb, Dragonite|dd z-fly/elec, Garchomp|scarf|offensive sr|sd, Zygarde|cb|sub coil|dd, Latios|scarf|specs|lo, Latias|off utility, Camerupt-Mega|wallbreaker, Chandelure|specs
+Volcarona|charti, NSI, Terrakion|scarf, Kingdra|swift swim, Thundurus|np|defiant mixed, Gyarados|dd, Kabutops|sd swift swim, Omastar|ss swift swim, Crawdaunt|cb|sd, Tapu Koko|scarf, Infernape|scarf, Talonflame|sd
+
+Volcarona|bulky qd, icon, leftovers
+Volcarona|bulky qd, GSI, Mantine|mixed def, Chansey|blob, Talonflame|sd, Tyranitar-Mega|dd, Araquanid|cb|rd waterium-z
+Volcarona|bulky qd, SSI, Heatran|sub toxic|sp d|off z-ground/grass, Marowak-Alola|sd, Aerodactyl-Mega|offensive, Tyranitar|cb, Toxapex|tha pex, Dragonite|dd z-fly/elec, Garchomp|scarf|offensive sr|sd, Zygarde|cb|sub coil|dd, Latios|scarf|specs|lo, Latias|off utility, Infernape|scarf, Camerupt-Mega|wallbreaker, Pelipper|mixed def, Chandelure|specs
+Volcarona|bulky qd, NSI, Nihilego|scarf, Terrakion|scarf, Kingdra|swift swim, Thundurus|np|defiant mixed, Gyarados|dd, Kabutops|sd swift swim, Omastar|ss swift swim, Crawdaunt|cb|sd, Greninja|scarf, Keldeo|scarf, Tapu Koko|scarf, Talonflame|sd
+
+Weavile|cb, GSI, Magearna|sg z-fight/elec/fairy, Keldeo|scarf, Skarmory|def, Scizor-Mega|utility, Toxapex|tha pex, Mawile-Mega|sd|4 atks
+Weavile|cb, SSI, Magearna|av|double dance, Tapu Fini|utility, Bisharp|sd, Clefable|unaware|cm|utility, Gyarados-Mega|sub dd, Alomomola|mixed def, Azumarill|z-belly drum, Primarina|specs
+Weavile|cb, NSI, Greninja|protean|ash|scarf, Jirachi|scarf, Nihilego|scarf, Terrakion|scarf, Kartana|sd, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Heracross-Mega|sd, Manectric-Mega|offensive, Araquanid|cb, Conkeldurr|guts, Cresselia|tr utility
+
+Zapdos|off utility, icon, leftovers
+Zapdos|off utility, letters, Off
+Zapdos|off utility, GSI, Kyurem-Black|sub icium-z|lo|cb, Charizard-Mega-X|dd, Latios|lo|specs, Tyranitar|cb, Tyranitar-Mega|dd, Latias|off utility, Clefable|cm|utility, Chansey|blob, Gastrodon|sp d, Kyurem|specs, Quagsire|unaware|curse, Swampert-Mega|swift swim, Camerupt-Mega|wallbreaker
+Zapdos|off utility, SSI, Mamoswine|lo, Nihilego|specs|scarf, Hydreigon|specs, Hoopa-Unbound|cb|specs|scarf, Terrakion|sd|scarf, Manectric-Mega|lightning rod pre-mega
+Zapdos|off utility, NSI, Tapu Lele|specs, Tapu Koko|z-wild charge|off utility|lo|specs|scarf, Kingdra|swift swim, Kabutops|sd swift swim, Omastar|ss swift swim, Chandelure|specs
+
+Zygarde|cb, GSI, Tangrowth|mixed def, Clefable|cm|utility|unaware, Landorus-Therian|def, Scizor-Mega|utility, Slowbro-Mega|cm|mega tank, Hippowdon|mixed def, Cresselia|tr utility
+Zygarde|cb, SSI, Mew|utility, Buzzwole|sub punch, Tangrowth|av, Tapu Bulu|sd z-grass/fight|cb, Ferrothorn|mixed def, Quagsire|unaware|curse, Slowbro|cm|mixed def, Gliscor|sub toxic, Araquanid|cb|rd waterium-z
+Zygarde|cb, NSI, Garchomp|offensive sr|sd|scarf, Garchomp-Mega|sd sand force, Tapu Lele|stallbreaker|specs|scarf, Greninja|protean|ash|scarf, Latios|specs|lo|scarf, Latias|off utility, Lopunny-Mega|offensive, Medicham-Mega|offensive, Kyurem|sub roost|specs, Kyurem-Black|scarf, Mamoswine|lo, Weavile|cb, Manaphy|tg icium-z, Sableye-Mega|def, Aerodactyl-Mega|offensive, Sharpedo-Mega|cleaner, Thundurus|np|defiant mixed, Thundurus-Therian|agility, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim, Ninetales-Alola|utility, Hydreigon|specs, Porygon-Z|z-conversion elec, Suicune|vin cune|cro cune, Starmie|lo
+
+Zygarde|dd, icon, dragoniumz
+Zygarde|dd, GSI, Clefable|unaware, Ferrothorn|mixed def, Skarmory|def, Slowbro|cm|mixed def, Slowbro-Mega|cm|mega tank, Hippowdon|mixed def, Cresselia|tr utility
+Zygarde|dd, SSI, Landorus-Therian|def, Mew|utility, Clefable|cm|utility, Tapu Bulu|sd z-grass/fight|cb, Buzzwole|sub punch, Tangrowth|mixed def|av, Quagsire|unaware|curse
+Zygarde|dd, NSI, Garchomp|scarf, Greninja|scarf, Latios|scarf, Latias|off utility, Tapu Lele|scarf, Mamoswine|lo, Weavile|cb, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim, Suicune|vin cune|cro cune, Sharpedo-Mega|cleaner
+
+Zygarde|double dance, icon, figyberry
+Zygarde|double dance, letters, Coil
+Zygarde|double dance, GSI, Ferrothorn|mixed def, Tangrowth|mixed def|av, Mew|utility, Tapu Bulu|sd z-grass/fight|cb, Landorus-Therian|def, Clefable|unaware|cm|utility, Heracross-Mega|sd, Cresselia|tr utility
+Zygarde|double dance, SSI, Buzzwole|sub punch, Araquanid|cb|rd waterium-z, Conkeldurr|guts
+Zygarde|double dance, NSI, Greninja|protean|ash|scarf, Mamoswine|lo, Weavile|cb, Garchomp|scarf|offensive sr|sd, Garchomp-Mega|sd sand force, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Latios|scarf|specs|lo, Latias|off utility, Swampert-Mega|swift swim, Kingdra|swift swim, Omastar|ss swift swim, Ninetales-Alola|utility, Tapu Lele|scarf|stallbreaker|specs, Suicune|vin cune|cro cune
+
+Zygarde|sub coil, icon, leftovers
+Zygarde|sub coil, letters, Sub
+Zygarde|sub coil, GSI, Tangrowth|mixed def|av, Mew|utility, Clefable|unaware|cm|utility, Landorus-Therian|def, Tapu Bulu|sd z-grass/fight|cb, Heracross-Mega|sd, Cresselia|tr utility
+Zygarde|sub coil, SSI, Buzzwole|sub punch, Araquanid|cb|rd waterium-z, Conkeldurr|guts
+Zygarde|sub coil, NSI, Greninja|protean|ash|scarf, Garchomp|offensive sr|scarf|sd, Mamoswine|lo, Weavile|cb, Kyurem|sub roost|specs, Kyurem-Black|sub icium-z|lo|cb, Latios|specs|lo|scarf, Latias|off utility, Tapu Lele|specs, Kingdra|swift swim, Ninetales-Alola|utility, Porygon-Z|z-conversion elec
+
+scarf, icon, choicescarf
+band, icon, choiceband
+specs, icon, choicespecs
+sash, icon, focussash
+lo, icon, lifeorb
+av, icon, assaultvest
+
+SD, letters, SD
+DD, letters, DD
+CM, letters, CM
+
+Marowak-Alola|lightning rod, letters, Rod
+Manectric-Mega|lightning rod pre-mega, letters, Rod
+
+Alomomola|mixed def, icon, leftovers
+Amoonguss|mixed def, icon, blacksludge
+Celesteela|sp d|mixed def, icon, leftovers
+Celesteela|sp d, letters, SpD
+Chansey|blob, icon, eviolite
+Clefable|utility|unaware, icon, leftovers
+Clefable|unaware, letters, Un
+Cresselia|tr utility, icon, mentalherb
+Cresselia|tr utility, letters, LD
+Empoleon|sp d, icon, leftovers
+Ferrothorn|mixed def, icon, leftovers
+Gastrodon|sp d, icon, leftovers
+Heatran|sp d, icon, leftovers
+Hippowdon|mixed def, icon, leftovers
+Jirachi|utility, icon, leftovers
+Jirachi|utility, letters, HW
+Landorus-Therian|def, icon, rockyhelmet
+Mantine|mixed def, icon, leftovers
+Mew|utility, icon, leftovers
+Mew|utility, letters, Wisp
+Ninetales-Alola|utility, icon, lightclay
+Pelipper|mixed def, icon, damprock
+Quagsire|unaware|curse, icon, leftovers
+Quagsire|curse, letters, Curse
+Rotom-Wash|off utility, icon, leftovers
+Rotom-Wash|off utility, letters, Wisp
+Sableye-Mega|def, icon, sablenite
+Scizor-Mega|utility, icon, scizorite
+Skarmory|def, icon, shedshell
+Slowbro|cm|mixed def, icon, leftovers
+Slowbro|cm, letters, CM
+Slowbro-Mega|cm|mega tank, icon, slowbronite
+Slowbro-Mega|cm, letters, CM
+Tangrowth|mixed def, icon, leftovers
+Tapu Fini|utility, icon, leftovers
+Toxapex|tha pex, icon, shedshell
+Venusaur-Mega|mixed def, icon, venusaurite
+Zapdos|def, icon, leftovers

@@ -2,7 +2,7 @@
 
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
-const checks = require('../../data/checks.json');
+const checks = require('../../data/compTest.json');
 // const actions = require('./actions');
 
 // const MoveAction = actions.MoveAction;
@@ -50,6 +50,7 @@ class ChecksSwitchAgent extends BattleAgent {
         for (const pokemon of myMons) {
             if (pokemon.active == true) {
                 myActiveMon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
+                myActiveMon = myActiveMon.replace(/-/, '');
             }
         }
         // console.log(myActiveMon);
@@ -59,6 +60,7 @@ class ChecksSwitchAgent extends BattleAgent {
         if (player === 'p1') {
             if (battle.sides[1].active[0]) {
                 oppActiveMon = battle.sides[1].active[0].species.toLowerCase().replace(/\s/g, '');
+                oppActiveMon = oppActiveMon.replace(/-/, '');
             } else {
                 oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');
@@ -66,6 +68,7 @@ class ChecksSwitchAgent extends BattleAgent {
         } else {
             if (battle.sides[0].active[0]) {
                 oppActiveMon = battle.sides[0].active[0].species.toLowerCase().replace(/\s/g, '');
+                oppActiveMon = oppActiveMon.replace(/-/, '');
             } else {
                 oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');

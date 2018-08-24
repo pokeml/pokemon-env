@@ -1,0 +1,68 @@
+{
+    "aerodactylmega": {
+        "gsi": ["clefable", "slowbro", "gastrodon", "slowbromega", "alomomola", "hippowdon", "quagsire", "suicune", "reuniclus",  "cresselia"],
+        "ssi": ["skarmory", "landorustherian", "celesteela", "ferrothorn", "tapu fini", "jirachi", "rotomwash", "excadrill", "scizormega", "toxapex", "gliscor", "empoleon", "mawilemega"],
+        "nsi": ["greninja", "keldeo", "garchomp", "manaphy", "nihilego", "terrakion", "tyranitar", "kingdra", "gyaradosmega", "kabutops", "azumarill", "crawdaunt", "starmie", "primarina", "greninja", "tapu koko", "conkeldurr"]
+    },
+
+    "tapukoko": {
+        "gsi": ["excadrill", "marowakalola", "swampertmega", "cameruptmega", "kyurem", "kyuremblack", "gastrodon", "charizardmegax",  "ferrothorn"],
+        "ssi": ["tangrowth", "venusaurmega", "mamoswine", "magnezone", "manectricmega", "amoonguss",  "cresselia"],
+        "nsi": ["landorustherian", "garchomp", "greninja", "keldeo", "lopunnymega", "nihilego", "scizormega", "kingdra", "kabutops", "omastar", "tyranitarmega", "aerodactylmega", "manectricmega",  "thundurustherian"]
+    },
+
+    "landorustherian": {
+        "gsi": ["landorustherian", "celesteela", "tangrowth", "sableyemega", "rotomwash", "clefable", "skarmory", "slowbro", "slowbromega", "alomomola", "hippowdon", "quagsire", "suicune",  "cresselia"],
+        "ssi": ["landorustherian", "ferrothorn", "tapu bulu", "gliscor", "tapu fini", "pelipper"],
+        "nsi": ["greninja", "keldeo", "manaphy", "tapu fini", "mamoswine", "weavile", "swampertmega", "kingdra", "kabutops", "azumarill"]
+    },
+
+    "toxapex": {
+        "gsi": ["latias", "latios", "latiasmega"],
+        "ssi": ["tapukoko", "magnezone", "manectricmega", "zapdos", "slowbro", "tapulele", "thundurus", "venusaurmega", "zygarde"],
+        "nsi": ["medichammega", "medicham", "landorustherian", "alakazammega", "charizardmegax", "charizardmegay", "excadrill", "hoopaunbound"]
+    },
+
+    "serperior": {
+        "gsi": ["venusaurmega", "volcarona", "celesteela", "charizardmegax", "amoonguss", "infernape", "talonflame"],
+        "ssi": ["tangrowth",  "heatran"],
+        "nsi": ["greninja", "landorustherian", "garchomp", "tapu koko", "magearna", "charizardmegay", "zapdos", "latios", "latias", "lopunnymega", "tapu lele", "marowakalola", "gengar", "lopunnymega", "kartana", "kyurem", "kyuremblack", "kingdra", "kabutops", "omastar", "nihilego", "tornadustherian", "pinsirmega", "mamoswine", "weavile", "gyarados", "salamence", "dragonite", "aerodactylmega", "sharpedomega", "manectricmega", "starmie", "mukalola", "chandelure",  "conkeldurr"]
+    },
+
+    "celesteela": {
+        "gsi": ["chansey", "zapdos", "manaphy",  "cresselia"],
+        "ssi": ["heatran", "rotomwash", "manectricmega", "tyranitarmega", "chandelure",  "reuniclus"],
+        "nsi": ["tapu koko", "kingdra", "omastar", "thundurus", "thundurustherian",  "cofagrigus"]
+    },
+
+    "medichammega": {
+        "gsi": ["mew", "sableyemega",  "cresselia"],
+        "ssi": ["cofagrigus", "slowbro",  "slowbromegamega"],
+        "nsi": ["landorustherian", "garchomp", "tapu koko", "swampertmega", "kingdra", "kabutops", "greninja", "pinsirmega", "tornadustherian", "excadrill", "latios", "keldeo", "tapu lele", "lopunnymega", "clefable", "hawlucha", "omastar", "sharpedomega", "dragonite", "nihilego", "talonflame", "pidgeotmega", "reuniclus"]
+    },
+
+    "magearna": {
+        "gsi": ["marowakalola", "jirachi", "magearna", "venusaurmega", "gastrodon", "chansey", "kyurem", "kyuremblack", "tyranitar", "tyranitarmega", "cameruptmega", "mamoswine", "quagsire",  "magnezone"],
+        "ssi": ["volcarona", "heatran", "volcanion",  "victini"],
+        "nsi": ["landorustherian", "garchomp", "garchompmega", "zygarde", "marowakalola", "charizardmegay", "infernape", "heracrossmega",  "ferrothorn"]
+    },
+
+    "zygarde": {
+        "gsi": ["tangrowth", "clefable", "landorustherian", "scizormega", "slowbromega", "hippowdon",  "cresselia"],
+        "ssi": ["mew", "buzzwole", "tangrowth", "tapu bulu", "ferrothorn", "quagsire", "slowbro", "gliscor", "araquanid"],
+        "nsi": ["garchomp", "garchompmega", "tapu lele", "greninja", "latios", "latias", "lopunnymega", "medichammega", "kyurem", "kyuremblack", "mamoswine", "weavile", "manaphy", "sableyemega", "aerodactylmega", "sharpedomega", "thundurus", "thundurustherian", "swampertmega", "kingdra", "omastar", "ninetalesalola", "hydreigon", "porygonz", "suicune",  "starmie"]
+    },
+
+    "mawilemega": {
+        "gsi": [],
+        "ssi": ["landorustherian", "heatran", "mew", "cofagrigus"],
+        "nsi": ["garchomp", "garchompmega", "tapu lele", "keldeo", "lopunnymega", "rotomwash", "primarina", "hydreigon", "magearna", "tyranitar", "tapu koko", "heracrossmega", "celesteela", "volcanion",  "pidgeotmega"]
+    },
+
+    "manaphy": {
+        "gsi": ["tangrowth",  "magnezone"],
+        "ssi": ["magearna", "mantine", "slowbro", "slowbromega",  "empoleon"],
+        "nsi": ["tapu koko", "kartana", "thundurus", "thundurustherian", "gyaradosmega", "manectricmega", "serperior",  "breloom"]
+    }
+
+}
