@@ -10,7 +10,7 @@ const ChecksSwitchAgent = require('../src/agents/checksswitch-agent');
 // const teams = require('../data/teams');
 
 // get 2v2 team
-const teams2v2 = require('../data/teams2v2');
+const teams2v2 = require('../data/teams');
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
 

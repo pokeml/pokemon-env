@@ -45,12 +45,15 @@ class ChecksSwitchAgent extends BattleAgent {
         // get my active mon
         let myActiveMon;
         let oppActiveMon;
-
         let myMons = info.side.pokemon;
         for (const pokemon of myMons) {
             if (pokemon.active == true) {
-                myActiveMon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
+                // to lower case and remove all spaces in pokemon names
+                myActiveMon = pokemon.details.toLowerCase().replace(/\s/g, '');
+                // remove all "-" (tapu-koko)
                 myActiveMon = myActiveMon.replace(/-/, '');
+                // remove all "," (landorustherian, M)
+                myActiveMon = myActiveMon.split(',')[0];
             }
         }
         // console.log(myActiveMon);
@@ -351,7 +354,7 @@ class ChecksSwitchAgent extends BattleAgent {
             }
             break;
         default:
-            console.log(`>> ${player}: Unexpected typeOfCheck`);
+            console.log(`>> ${player}: Pokemon not known, check for typeResistance (TODO)`);
         }
         return action;
     }
