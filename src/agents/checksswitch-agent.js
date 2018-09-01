@@ -19,6 +19,7 @@ class ChecksSwitchAgent extends BattleAgent {
      */
     constructor(playerStream, debug) {
         super(playerStream, debug);
+        this._xsiMatrix = new Array(6).fill(new Array(6));
     }
 
     /**
@@ -42,18 +43,51 @@ class ChecksSwitchAgent extends BattleAgent {
         //     opponent = 'p1';
         // }
 
+        // create matchup favorability matrix for whole team in beginning of the match
+        // only in first turn
+        // if (info.teamPreview) {
+        //     let xsiMatrix = new Array(6);
+        //     for (let i = 0; i < x.length; i++) {
+        //         xsiMatrix[i] = new Array(6);
+        //     }
+        //     console.log(xsiMatrix);
+        // }
+        if (info.teamPreview) {
+            // console.log(this._xsiMatrix);
+            // console.log(info.side.pokemon);
+            // get own team
+            // list of all own pokemon
+            let myMonsList = new Array(6);
+            let arrayIndex = 0;
+            for (const pokemon of info.side.pokemon) {
+                myMonsList[arrayIndex] = this._normName(pokemon.details);
+                arrayIndex++;
+            }
+            // get list of opposing pokemon
+            let oppMons;
+            if (player === 'p1') {
+                oppMons = battle.sides[1].pokemon;
+            } else {
+                oppMons = battle.sides[0].pokemon;
+            }
+
+            let oppMonsList = Array(6);
+            arrayIndex = 0;
+            for (const pokemon of oppMons) {
+                oppMonsList[arrayIndex] = this._normName(pokemon.details);
+                arrayIndex++;
+            }
+            console.log(`>> ${player}: My team: ${myMonsList}`);
+            console.log(`>> ${player}: My opponents team: ${oppMonsList}`);
+        }
+
         // get my active mon
         let myActiveMon;
         let oppActiveMon;
         let myMons = info.side.pokemon;
         for (const pokemon of myMons) {
             if (pokemon.active == true) {
-                // to lower case and remove all spaces in pokemon names
-                myActiveMon = pokemon.details.toLowerCase().replace(/\s/g, '');
-                // remove all "-" (tapu-koko)
-                myActiveMon = myActiveMon.replace(/-/, '');
-                // remove all "," (landorustherian, M)
-                myActiveMon = myActiveMon.split(',')[0];
+                myActiveMon = this._normName(pokemon.details);
             }
         }
         // console.log(myActiveMon);
@@ -359,6 +393,22 @@ class ChecksSwitchAgent extends BattleAgent {
         return action;
     }
 
+    /**
+     * returns the normalized pokemon name
+     *
+     * @param {string} pokemon
+     * @return {string}
+     */
+    _normName(pokemon) {
+        // lower case and remove spaces
+        let myMon = pokemon.toLowerCase().replace(/\s/g, '');
+        // remove all "-" (tapu-koko)
+        myMon = myMon.replace(/-/, '');
+        // remove "," and everything after that (landorustherian, M)
+        myMon = myMon.split(',')[0];
+
+        return myMon;
+    }
 
     /**
      * return whether the action specified in actionType is present in the actions object
@@ -400,7 +450,12 @@ class ChecksSwitchAgent extends BattleAgent {
         for (const pokemon of info.side.pokemon) {
             // we want to switch, so skip the own active pokemon
             if (!pokemon.active) {
-                currentPokemon = pokemon.ident.slice(4).toLowerCase().replace(/\s/g, '');
+                // to lower case and remove all spaces in pokemon names
+                currentPokemon = pokemon.details.toLowerCase().replace(/\s/g, '');
+                // remove all "-" (tapu-koko)
+                currentPokemon = currentPokemon.replace(/-/, '');
+                // remove all "," and everything after that (landorustherian, M)
+                currentPokemon = currentPokemon.split(',')[0];
                 // check if currentPokemon appears in oppActiveMon's xsi list
                 if (oppMonChecks) {
                     xsiIndex = oppMonChecks.indexOf(`${currentPokemon}`);
