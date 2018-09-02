@@ -20,6 +20,7 @@ class ChecksSwitchAgent extends BattleAgent {
     constructor(playerStream, debug) {
         super(playerStream, debug);
         this._xsiMatrix = new Array(6).fill(new Array(6));
+        this._faintedList = new Array(0);
     }
 
     /**
@@ -96,16 +97,14 @@ class ChecksSwitchAgent extends BattleAgent {
         // if p1, go into Bot 2's pokemon list to search for the active pokemon
         if (player === 'p1') {
             if (battle.sides[1].active[0]) {
-                oppActiveMon = battle.sides[1].active[0].species.toLowerCase().replace(/\s/g, '');
-                oppActiveMon = oppActiveMon.replace(/-/, '');
+                oppActiveMon = this._normName(battle.sides[1].active[0].details);
             } else {
                 oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');
             }
         } else {
             if (battle.sides[0].active[0]) {
-                oppActiveMon = battle.sides[0].active[0].species.toLowerCase().replace(/\s/g, '');
-                oppActiveMon = oppActiveMon.replace(/-/, '');
+                oppActiveMon = this._normName(battle.sides[0].active[0].details);
             } else {
                 oppActiveMon = 'missingno';
                 // console.log('Not initialized yet');
@@ -116,16 +115,16 @@ class ChecksSwitchAgent extends BattleAgent {
         // find out from the checks graph how well you deal with it
 
         // find the opposing active pokemon on the graph and store its checks and counters
-        let oppMonChecks = checks[`${oppActiveMon}`];
+        let oppMonChecks = checks[oppActiveMon];
 
         // search in lists for the own active pokemon
         let typeOfCheck;
         if (oppMonChecks) {
-            if (oppMonChecks.gsi.indexOf(`${myActiveMon}`) > -1) {
+            if (oppMonChecks.gsi.indexOf(myActiveMon) > -1) {
                 typeOfCheck = 'gsi';
-            } else if (oppMonChecks.ssi.indexOf(`${myActiveMon}`) > -1) {
+            } else if (oppMonChecks.ssi.indexOf(myActiveMon) > -1) {
                 typeOfCheck = 'ssi';
-            } else if (oppMonChecks.nsi.indexOf(`${myActiveMon}`) > -1) {
+            } else if (oppMonChecks.nsi.indexOf(myActiveMon) > -1) {
                 typeOfCheck = 'nsi';
             } else {
                 // not available in list (Not In List), not switching probably a bad choice
@@ -393,6 +392,17 @@ class ChecksSwitchAgent extends BattleAgent {
         return action;
     }
 
+    // TODO create list of fainted mons
+    /**
+     * returns whether the pokemon is fainted or not
+     *
+     * @param {string} pokemon
+     * @return {bool}
+     */
+    _isFainted(pokemon) {
+        return false;
+    }
+
     /**
      * returns the normalized pokemon name
      *
@@ -450,15 +460,10 @@ class ChecksSwitchAgent extends BattleAgent {
         for (const pokemon of info.side.pokemon) {
             // we want to switch, so skip the own active pokemon
             if (!pokemon.active) {
-                // to lower case and remove all spaces in pokemon names
-                currentPokemon = pokemon.details.toLowerCase().replace(/\s/g, '');
-                // remove all "-" (tapu-koko)
-                currentPokemon = currentPokemon.replace(/-/, '');
-                // remove all "," and everything after that (landorustherian, M)
-                currentPokemon = currentPokemon.split(',')[0];
+                currentPokemon = this._normName(pokemon.details);
                 // check if currentPokemon appears in oppActiveMon's xsi list
                 if (oppMonChecks) {
-                    xsiIndex = oppMonChecks.indexOf(`${currentPokemon}`);
+                    xsiIndex = oppMonChecks.indexOf(currentPokemon);
                     if (xsiIndex > -1) {
                         xsiExists = true;
                         xsiName = oppMonChecks[xsiIndex];
