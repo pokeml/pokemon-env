@@ -3,6 +3,7 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/compTest.json');
+let xsiMatchupMatrix;
 // const actions = require('./actions');
 
 // const MoveAction = actions.MoveAction;
@@ -19,7 +20,7 @@ class ChecksSwitchAgent extends BattleAgent {
      */
     constructor(playerStream, debug) {
         super(playerStream, debug);
-        this._xsiMatrix = new Array(6).fill(new Array(6));
+        // this._xsiMatchupMatrix = new Array(6).fill(new Array(6)); // didn't work
         this._faintedList = new Array(0);
     }
 
@@ -34,17 +35,9 @@ class ChecksSwitchAgent extends BattleAgent {
     act(battle, actions, info) {
         // TODO: if opponent chose uturn/voltswitch/etc. skip computing
         // determine player and opponent
-        // console.log(actions);
         const player = info.side.id;
-        // let opponent;
-        //
-        // if (player === 'p1') {
-        //     opponent = 'p2';
-        // } else {
-        //     opponent = 'p1';
-        // }
 
-        // create matchup favorability matrix for whole team in beginning of the match
+
         // only in first turn
         // if (info.teamPreview) {
         //     let xsiMatrix = new Array(6);
@@ -53,12 +46,17 @@ class ChecksSwitchAgent extends BattleAgent {
         //     }
         //     console.log(xsiMatrix);
         // }
+
+        let myMonsList;
+        let oppMonsList;
+        let myMonsKeys;
+        let oppMonsKeys;
         if (info.teamPreview) {
             // console.log(this._xsiMatrix);
             // console.log(info.side.pokemon);
             // get own team
             // list of all own pokemon
-            let myMonsList = new Array(6);
+            myMonsList = new Array(6);
             let arrayIndex = 0;
             for (const pokemon of info.side.pokemon) {
                 myMonsList[arrayIndex] = this._normName(pokemon.details);
@@ -72,7 +70,7 @@ class ChecksSwitchAgent extends BattleAgent {
                 oppMons = battle.sides[0].pokemon;
             }
 
-            let oppMonsList = Array(6);
+            oppMonsList = new Array(6);
             arrayIndex = 0;
             for (const pokemon of oppMons) {
                 oppMonsList[arrayIndex] = this._normName(pokemon.details);
@@ -80,6 +78,52 @@ class ChecksSwitchAgent extends BattleAgent {
             }
             console.log(`>> ${player}: My team: ${myMonsList}`);
             console.log(`>> ${player}: My opponents team: ${oppMonsList}`);
+
+            //              mon1 mon2 mon3 ...(opponent)
+            // mon 1      |
+            // mon 2      |
+            // (own mons) |
+
+            // set keys. "slowbro" : 0
+            myMonsKeys = {
+                [myMonsList[0]]: 0,
+                [myMonsList[1]]: 1,
+                [myMonsList[2]]: 2,
+                [myMonsList[3]]: 3,
+                [myMonsList[4]]: 4,
+                [myMonsList[5]]: 5,
+            };
+
+            oppMonsKeys = {
+                [oppMonsList[0]]: 0,
+                [oppMonsList[1]]: 1,
+                [oppMonsList[2]]: 2,
+                [oppMonsList[3]]: 3,
+                [oppMonsList[4]]: 4,
+                [oppMonsList[5]]: 5,
+            };
+            console.log(oppMonsKeys);
+            console.log(myMonsKeys);
+            // calculate the matchupMatrix
+            // for all pokemon in the opposing team
+            // determine whether it is gsi, ssi, nsi, or na
+            // insert 3, 2, 1, or 0 in matchupMatrix
+            // columns i (oppMons), rows j (myMons)
+            xsiMatchupMatrix = new Array(6);
+            for (let i = 0; i < xsiMatchupMatrix.length; i++) {
+                xsiMatchupMatrix[i] = new Array(6);
+            }
+            let oppMonW;
+            for (let i = 0; i < 6; i++) {
+                oppMonW = oppMonsList[i];
+                for (let j = 0; j < 6; j++) {
+                    console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
+                    xsiMatchupMatrix[j][i] =
+                     this._xsiMatchupValue(oppMonW, myMonsList[j]);
+                    console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
+                }
+            }
+            console.log(xsiMatchupMatrix);
         }
 
         // get my active mon
@@ -91,7 +135,6 @@ class ChecksSwitchAgent extends BattleAgent {
                 myActiveMon = this._normName(pokemon.details);
             }
         }
-        // console.log(myActiveMon);
 
         // get the opponent's active mon
         // if p1, go into Bot 2's pokemon list to search for the active pokemon
@@ -110,13 +153,9 @@ class ChecksSwitchAgent extends BattleAgent {
                 // console.log('Not initialized yet');
             }
         }
-        // console.log(oppActiveMon);
-
-        // find out from the checks graph how well you deal with it
 
         // find the opposing active pokemon on the graph and store its checks and counters
         let oppMonChecks = checks[oppActiveMon];
-
         // search in lists for the own active pokemon
         let typeOfCheck;
         if (oppMonChecks) {
@@ -475,6 +514,56 @@ class ChecksSwitchAgent extends BattleAgent {
             xsiIndexInTeam++;
         }
         return [xsiExists, xsiName, xsiIndexInTeam];
+    }
+
+    /**
+     * Returns the matchup value for two specified pokemon
+     * Determine whether it is gsi, ssi, nsi, or na
+     * We check in pokemonWithList's list what type of check pokemonInList is to it
+     *
+     * @param {string} pokemonWithList
+     * @param {string} pokemonInList
+     * @return {int} matchupValue
+     */
+    _xsiMatchupValue(pokemonWithList, pokemonInList) {
+        // TODO: fix, temporary ninetailsalola-hack
+        if (pokemonWithList === 'ninetailsalola') {
+            return -1;
+        }
+        let matchupValue;
+        let xsiIndex;
+        let xsiLists = checks[pokemonWithList];
+
+        if (xsiLists) {
+            // check in gsi
+            xsiIndex = xsiLists.gsi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found gsi
+                matchupValue = 3;
+                return matchupValue;
+            }
+
+            // check ssi
+            xsiIndex = xsiLists.ssi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found ssi
+                matchupValue = 2;
+                return matchupValue;
+            }
+
+            // check nsi
+            xsiIndex = xsiLists.nsi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found nsi
+                matchupValue = 1;
+                return matchupValue;
+            }
+        }
+        // if here, pokemon cannot be found in lists, it probably is not a big threat
+        // TODO: calculate matchupvalue based on typeResistance
+        matchupValue = -1;
+
+        return matchupValue;
     }
 }
 
