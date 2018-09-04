@@ -41,7 +41,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // TODO: if opponent chose uturn/voltswitch/etc. skip computing
         // determine player and opponent
         const player = info.side.id;
-
+        console.log('----');
 
         // only in first turn
         // if (info.teamPreview) {
@@ -181,7 +181,9 @@ class ChecksSwitchAgent extends BattleAgent {
         // try to find a pokemon on your team that does better against the current opposing pokemon.
         // if the current pokemon is already the best choice, attack.
         // if there is a pokemon that does better against the current opposing pokemon, switch to it
-
+        let bestSwitch = this._getBestSwitch(battle, actions, info,
+            activeMatchup, myActiveMon, oppActiveMon, player);
+        console.log(bestSwitch);    
         // random action if below fails
         action = _.sample(actions);
         let stayInActions;
@@ -427,18 +429,64 @@ class ChecksSwitchAgent extends BattleAgent {
         return action;
     }
 
-    // TODO: impl this funtion
     /**
      * calculates the best switch possible in current turn
+     *
+     * @param {battle} battle
+     * @param {actions} actions
+     * @param {info} info
+     * @param {int} activeMatchup current matchup Value of myActiveMon vs. oppActiveMon
+     * @param {string} myActiveMon
+     * @param {string} oppActiveMon
+     * @param {player} player
+     * @return {action} the best switchAction in this turn
+     */
+    _getBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
+        let returnAction = null;
+        // check if bigger value exists in matchupMatrix compared to activeMatchup
+        // look at opposing mon's column and determine max
+        // TODO: integrate static max for every column into MUMatrix, maybe in a MUMatrix object
+
+        // maximum Matchup Value in column of oppActiveMon in MUMatrix
+        let maxMatchupValue = activeMatchup;
+        let currentMatchupValue;
+        // index of oppMon in MUMatrix
+        let oppMonIndex = this._oppMonsKeys[oppActiveMon];
+        // let switchToName;
+        let switchToNameBest;
+        for (let i = 0; i < 6; i++) {
+            currentMatchupValue = this._xsiMatchupMatrix[i][oppMonIndex];
+            // switchToName = this._myMonsList[i];
+            // check if that pokemon is fainted, if fainted, jump to next loop iteration
+            // TODO: skip fainted mons
+
+            if (currentMatchupValue > maxMatchupValue) {
+                maxMatchupValue = currentMatchupValue;
+                switchToNameBest = this._myMonsList[i];
+            }
+        }
+
+        if (maxMatchupValue <= activeMatchup) {
+            // don't switch, a best check already active
+            console.log(`>> ${player}(GBS): Stay in, best check already active`);
+        }
+
+        if (maxMatchupValue > activeMatchup) {
+            // better check found than active, switch to switchtoName
+            console.log(`>> ${player}(GBS): switching to ${switchToNameBest}`);
+        }
+        // if null, it signals to caller that no switch shall be done
+        return returnAction;
+    }
+
+    // TODO
+    /**
+     * teamPreview computations and choosing lead
      *
      * @param {string} pokemon
      * @return {bool}
      */
-    _getBestSwitch(pokemon) {
-        // don't switch if best switch is a fainted mon
-        // if fainted, search next best pokemon
-        // if next best fainted, search next next best pokemon
-        // ...
+    _handleTeamPreview(pokemon) {
         return false;
     }
 
@@ -494,6 +542,7 @@ class ChecksSwitchAgent extends BattleAgent {
     }
 
     /**
+     * used to convert pokemon names in an internal standard format
      * returns the normalized pokemon name
      *
      * @param {string} pokemon
@@ -568,6 +617,7 @@ class ChecksSwitchAgent extends BattleAgent {
     }
 
     /**
+     * Used to generate matchupMatrix entries
      * Returns the matchup value for two specified pokemon
      * Determine whether it is gsi, ssi, nsi, or na
      * We check in pokemonWithList's list what type of check pokemonInList is to it
@@ -589,7 +639,6 @@ class ChecksSwitchAgent extends BattleAgent {
                 matchupValue = 3;
                 return matchupValue;
             }
-
             // check ssi
             xsiIndex = xsiLists.ssi.indexOf(pokemonInList);
             if (xsiIndex > -1) {
@@ -597,7 +646,6 @@ class ChecksSwitchAgent extends BattleAgent {
                 matchupValue = 2;
                 return matchupValue;
             }
-
             // check nsi
             xsiIndex = xsiLists.nsi.indexOf(pokemonInList);
             if (xsiIndex > -1) {
@@ -605,7 +653,7 @@ class ChecksSwitchAgent extends BattleAgent {
                 matchupValue = 1;
                 return matchupValue;
             } else {
-                // if here, pokemon cannot be found in lists, it is set to na
+                // pokemon cannot be found in lists, it is set to na
                 matchupValue = 0;
             }
         } else {
