@@ -184,9 +184,313 @@ class ChecksSwitchAgent extends BattleAgent {
         // if there is a pokemon that does better against the current opposing pokemon, switch to it
         let bestSwitch = this._getBestSwitch(battle, actions, info,
             activeMatchup, myActiveMon, oppActiveMon, player);
-        console.log(bestSwitch);
+        if (bestSwitch) {
+            console.log(`>> ${player}: Best switch`);
+            console.log(bestSwitch);
+            action = bestSwitch;
+        } else {
+            let moveIsPossible = this._actionTypePossible(actions, 'move');
+            if (moveIsPossible) {
+                // only keep MoveActions
+                let stayInActions = actions.filter((e) => (e.type === 'move'));
+                // TODO: 1v1
+                action = _.sample(stayInActions);
+            } else {
+                // when this player uturns out while best check on field to oppMon
+                // no switch will be recommended, but need to switch anyway
+                console.log(`>> ${player}:No move and no switch possible`);
+                console.log(actions);
+                action = _.sample(actions);
+            }
+        }
+        // old impl
+        // let bestSwitchOLD = this._getBestSwitchOLD(battle, actions, info,
+        //     activeMatchup, myActiveMon, oppActiveMon, player, typeOfCheck, oppMonChecks);
+        // console.log(bestSwitchOLD);
+
+        return action;
+    }
+
+    /**
+     * calculates the best switch possible in current turn
+     * when only one switch option possible in actions (length==1). this function returns it
+     *
+     * @param {battle} battle
+     * @param {actions} actions
+     * @param {info} info
+     * @param {int} activeMatchup current matchup Value of myActiveMon vs. oppActiveMon
+     * @param {string} myActiveMon
+     * @param {string} oppActiveMon
+     * @param {player} player
+     * @return {action} if null, it signals to caller that no switch shall be done
+     */
+    _getBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
+        let returnAction = null;
+        // check if bigger value exists in matchupMatrix compared to activeMatchup
+        // look at opposing mon's column and determine max
+        // TODO: integrate static max for every column into MUMatrix, maybe in a MUMatrix object
+        // TODO: but current code makes fainted-skips easier
+
+        // maximum Matchup Value in column of oppActiveMon in MUMatrix
+        let maxMatchupValue = activeMatchup;
+        let currentMatchupValue;
+        // index of oppMon in MUMatrix
+        let oppMonIndex = this._oppMonsKeys[oppActiveMon];
+        // let switchToName;
+        let switchToNameBest;
+        for (let i = 0; i < 6; i++) {
+            currentMatchupValue = this._xsiMatchupMatrix[i][oppMonIndex];
+            // check if that pokemon is fainted, if fainted, jump to next loop iteration
+            if (this._isFainted(this._myMonsList[i], info)) {
+                console.log(`>> ${player}(GBS): ${this._myMonsList[i]} fainted`);
+                continue;
+            }
+
+            // check if pokemon is active, if active, jump to next loop iteration
+            // TODO:
+
+            if (currentMatchupValue > maxMatchupValue) {
+                maxMatchupValue = currentMatchupValue;
+                switchToNameBest = this._myMonsList[i];
+            }
+        }
+
+        if (maxMatchupValue <= activeMatchup) {
+            // don't switch, a best check already active
+            console.log(`>> ${player}(GBS): Stay in, best check already active`);
+        } else {
+            // better check found than active, switch to switchToName
+            console.log(`>> ${player}(GBS): switching to ${switchToNameBest}`);
+            let switchIsPossible = this._actionTypePossible(actions, 'switch');
+            if (switchIsPossible) {
+                console.log(`>> ${player}(GBS): Switching is possible`);
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    console.log(`>> ${player}(GBS): Only one option to switch`);
+                    returnAction = _.sample(actions);
+                    return returnAction;
+                }
+                // TODO: find out when switchactions can not be found in actions
+                // returnAction = _.sample(actions);
+                let indexInOwnTeam = this._getIndexInOwnTeam(switchToNameBest, info);
+                // search for correct switch action in actions object
+                for (const act of actions) {
+                    if ((act.type === 'switch') && (act.pokeNum == (indexInOwnTeam))) {
+                        console.log(`>> ${player}(GBS): Switchaction index ${indexInOwnTeam}`);
+                        returnAction = act;
+                        break;
+                    }
+                }
+            } else {
+                console.log(`>> ${player}(GBS): Switching not possible`);
+            }
+        }
+        return returnAction;
+    }
+
+    /**
+     * gets the index of the pokemon in own pokemon list for switching
+     *
+     * @param {string} switchTo pokemon name, to switch to
+     * @param {info} info
+     * @return {int}
+     */
+    _getIndexInOwnTeam(switchTo, info) {
+        // keeps current pokemon during iterating our teamlist
+        let currentPokemon;
+        let idx = 0;
+        // index of the pokemon we should switch to (in own pokemon list)
+        let indexInTeam = 0;
+        // check if we have xsi to the opponent's active pokemon in own team
+        for (const pokemon of info.side.pokemon) {
+            // we want to switch, skip the own active pokemon
+            if (!pokemon.active) {
+                currentPokemon = this._normName(pokemon.details);
+                if (switchTo === currentPokemon) {
+                    indexInTeam = idx;
+                    break;
+                }
+            }
+            idx++;
+        }
+        return indexInTeam+1;
+    }
+
+    // TODO
+    /**
+     * teamPreview computations and choosing lead
+     *
+     * @param {string} pokemon
+     * @return {bool}
+     */
+    _handleTeamPreview(pokemon) {
+        return false;
+    }
+
+    /**
+     * returns the current matchup value based on the checksgraph
+     *
+     * @param {int} matchupValue
+     * @return {string}
+     */
+    _matchUpValueToXsi(matchupValue) {
+        let xsi;
+        switch (matchupValue) {
+        case 3:
+            xsi = 'gsi';
+            break;
+        case 2:
+            xsi = 'ssi';
+            break;
+        case 1:
+            xsi = 'nsi';
+            break;
+        case 0:
+            xsi = 'na';
+            break;
+        default:
+            console.log('Wrong matchupValue');
+        }
+        return xsi;
+    }
+
+    /**
+     * returns the current matchup value based on the checksgraph
+     *
+     * @param {string} myMon
+     * @param {string} oppMon
+     * @return {int}
+     */
+    _lookUpInMatchupMatrix(myMon, oppMon) {
+        let matchupValue;
+        matchupValue = this._xsiMatchupMatrix[this._myMonsKeys[myMon]][this._oppMonsKeys[oppMon]];
+        return matchupValue;
+    }
+
+    /**
+     * returns whether the pokemon is fainted or not
+     * in own team
+     *
+     * @param {string} faintedMon
+     * @param {info} info
+     * @return {bool}
+     */
+    _isFainted(faintedMon, info) {
+        let currentPokemon;
+        let isFainted = false;
+        for (const pokemon of info.side.pokemon) {
+            currentPokemon = this._normName(pokemon.details);
+            // condition[0] === '0'
+            if ((faintedMon === currentPokemon) && (pokemon.condition === '0 fnt')) {
+                isFainted = true;
+                break;
+            }
+        }
+        return isFainted;
+    }
+
+    /**
+     * used to convert pokemon names in an internal standard format
+     * returns the normalized pokemon name
+     *
+     * @param {string} pokemon
+     * @return {string}
+     */
+    _normName(pokemon) {
+        // lower case and remove spaces
+        let myMon = pokemon.toLowerCase().replace(/\s/g, '');
+        // remove all "-" (tapu-koko)
+        myMon = myMon.replace(/-/, '');
+        // remove "," and everything after that (landorustherian, M)
+        myMon = myMon.split(',')[0];
+
+        return myMon;
+    }
+
+    /**
+     * return whether the action specified in actionType is present in the actions object
+     *
+     * @param {actions} actions
+     * @param {string} actionType
+     * @return {bool}
+     */
+    _actionTypePossible(actions, actionType) {
+        let actionPossible = false;
+        for (const acts of actions) {
+            if (acts.type === actionType) {
+                actionPossible = true;
+                break;
+            }
+        }
+        return actionPossible;
+    }
+
+    /**
+     * Used to generate matchupMatrix entries
+     * Returns the matchup value for two specified pokemon
+     * Determine whether it is gsi, ssi, nsi, or na
+     * We check in pokemonWithList's list what type of check pokemonInList is to it
+     *
+     * @param {string} pokemonWithList
+     * @param {string} pokemonInList
+     * @return {int}
+     */
+    _xsiMatchupValue(pokemonWithList, pokemonInList) {
+        let matchupValue;
+        let xsiIndex;
+        let xsiLists = checks[pokemonWithList];
+
+        if (xsiLists) {
+            // check in gsi
+            xsiIndex = xsiLists.gsi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found gsi
+                matchupValue = 3;
+                return matchupValue;
+            }
+            // check ssi
+            xsiIndex = xsiLists.ssi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found ssi
+                matchupValue = 2;
+                return matchupValue;
+            }
+            // check nsi
+            xsiIndex = xsiLists.nsi.indexOf(pokemonInList);
+            if (xsiIndex > -1) {
+                // found nsi
+                matchupValue = 1;
+                return matchupValue;
+            } else {
+                // pokemon cannot be found in lists, it is set to na
+                matchupValue = 0;
+            }
+        } else {
+            // pokemon not found in the checksgraph, xsiLists is null
+            matchupValue = -1;
+        }
+        return matchupValue;
+    }
+
+    /**
+     * calculates the best switch possible in current turn
+     * when only one switch option possible in actions (length==1). this function returns it
+     *
+     * @param {battle} battle
+     * @param {actions} actions
+     * @param {info} info
+     * @param {int} activeMatchup current matchup Value of myActiveMon vs. oppActiveMon
+     * @param {string} myActiveMon
+     * @param {string} oppActiveMon
+     * @param {player} player
+     * @param {typeOfCheck} typeOfCheck
+     * @param {string[]} oppMonChecks
+     * @return {action} if null, it signals to caller that no switch shall be done
+     */
+    _getBestSwitchOLD(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player,
+        typeOfCheck, oppMonChecks) {
         // random action if below fails
-        action = _.sample(actions);
+        let action = _.sample(actions);
         let stayInActions;
         switch (typeOfCheck) {
         case 'gsi':
@@ -431,215 +735,6 @@ class ChecksSwitchAgent extends BattleAgent {
     }
 
     /**
-     * calculates the best switch possible in current turn
-     * when only one switch option possible in actions (length==1). this function returns it
-     *
-     * @param {battle} battle
-     * @param {actions} actions
-     * @param {info} info
-     * @param {int} activeMatchup current matchup Value of myActiveMon vs. oppActiveMon
-     * @param {string} myActiveMon
-     * @param {string} oppActiveMon
-     * @param {player} player
-     * @return {action} if null, it signals to caller that no switch shall be done
-     */
-    _getBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
-        let returnAction = null;
-        // check if bigger value exists in matchupMatrix compared to activeMatchup
-        // look at opposing mon's column and determine max
-        // TODO: integrate static max for every column into MUMatrix, maybe in a MUMatrix object
-        // TODO: but current code makes fainted-skips easier
-
-        // maximum Matchup Value in column of oppActiveMon in MUMatrix
-        let maxMatchupValue = activeMatchup;
-        let currentMatchupValue;
-        // index of oppMon in MUMatrix
-        let oppMonIndex = this._oppMonsKeys[oppActiveMon];
-        // let switchToName;
-        let switchToNameBest;
-        for (let i = 0; i < 6; i++) {
-            currentMatchupValue = this._xsiMatchupMatrix[i][oppMonIndex];
-            // check if that pokemon is fainted, if fainted, jump to next loop iteration
-            if (this._isFainted(this._myMonsList[i], info)) {
-                console.log(`>> ${player}(GBS): ${this._myMonsList[i]} fainted`);
-                continue;
-            }
-
-            if (currentMatchupValue > maxMatchupValue) {
-                maxMatchupValue = currentMatchupValue;
-                switchToNameBest = this._myMonsList[i];
-            }
-        }
-
-        if (maxMatchupValue <= activeMatchup) {
-            // don't switch, a best check already active
-            console.log(`>> ${player}(GBS): Stay in, best check already active`);
-        } else {
-            // better check found than active, switch to switchToName
-            console.log(`>> ${player}(GBS): switching to ${switchToNameBest}`);
-            let switchIsPossible = this._actionTypePossible(actions, 'switch');
-            if (switchIsPossible) {
-                console.log(`>> ${player}(GBS): Switching is possible`);
-                // if only one choice in switching then no need to continue
-                if (actions.length == 1) {
-                    console.log(`>> ${player}(GBS): Only one option to switch`);
-                    returnAction = actions[0];
-                    return returnAction;
-                }
-                let indexInOwnTeam = this._getIndexInOwnTeam(switchToNameBest, info);
-                // search for correct switch action in actions object
-                for (const act of actions) {
-                    if ((act.type === 'switch') && (act.pokeNum == (indexInOwnTeam))) {
-                        console.log(`>> ${player}(GBS): Switchaction index ${indexInOwnTeam}`);
-                        returnAction = act;
-                        break;
-                    }
-                }
-            } else {
-                console.log(`>> ${player}(GBS): Switching not possible`);
-            }
-        }
-        return returnAction;
-    }
-
-    /**
-     * gets the index of the pokemon in own pokemon list for switching
-     *
-     * @param {string} switchTo pokemon name, to switch to
-     * @param {info} info
-     * @return {int}
-     */
-    _getIndexInOwnTeam(switchTo, info) {
-        // keeps current pokemon during iterating our teamlist
-        let currentPokemon;
-        let idx = 0;
-        // index of the pokemon we should switch to (in own pokemon list)
-        let indexInTeam = 0;
-        // check if we have xsi to the opponent's active pokemon in own team
-        for (const pokemon of info.side.pokemon) {
-            // we want to switch, skip the own active pokemon
-            if (!pokemon.active) {
-                currentPokemon = this._normName(pokemon.details);
-                if (switchTo === currentPokemon) {
-                    indexInTeam = idx;
-                    break;
-                }
-            }
-            idx++;
-        }
-        return indexInTeam+1;
-    }
-
-    // TODO
-    /**
-     * teamPreview computations and choosing lead
-     *
-     * @param {string} pokemon
-     * @return {bool}
-     */
-    _handleTeamPreview(pokemon) {
-        return false;
-    }
-
-    /**
-     * returns the current matchup value based on the checksgraph
-     *
-     * @param {int} matchupValue
-     * @return {string}
-     */
-    _matchUpValueToXsi(matchupValue) {
-        let xsi;
-        switch (matchupValue) {
-        case 3:
-            xsi = 'gsi';
-            break;
-        case 2:
-            xsi = 'ssi';
-            break;
-        case 1:
-            xsi = 'nsi';
-            break;
-        case 0:
-            xsi = 'na';
-            break;
-        default:
-            console.log('Wrong matchupValue');
-        }
-        return xsi;
-    }
-
-    /**
-     * returns the current matchup value based on the checksgraph
-     *
-     * @param {string} myMon
-     * @param {string} oppMon
-     * @return {int}
-     */
-    _lookUpInMatchupMatrix(myMon, oppMon) {
-        let matchupValue;
-        matchupValue = this._xsiMatchupMatrix[this._myMonsKeys[myMon]][this._oppMonsKeys[oppMon]];
-        return matchupValue;
-    }
-
-    /**
-     * returns whether the pokemon is fainted or not
-     * in own team
-     *
-     * @param {string} faintedMon
-     * @param {info} info
-     * @return {bool}
-     */
-    _isFainted(faintedMon, info) {
-        let currentPokemon;
-        let isFainted = false;
-        for (const pokemon of info.side.pokemon) {
-            currentPokemon = this._normName(pokemon.details);
-            // condition[0] === '0'
-            if ((faintedMon === currentPokemon) && (pokemon.condition === '0 fnt')) {
-                isFainted = true;
-                break;
-            }
-        }
-        return isFainted;
-    }
-
-    /**
-     * used to convert pokemon names in an internal standard format
-     * returns the normalized pokemon name
-     *
-     * @param {string} pokemon
-     * @return {string}
-     */
-    _normName(pokemon) {
-        // lower case and remove spaces
-        let myMon = pokemon.toLowerCase().replace(/\s/g, '');
-        // remove all "-" (tapu-koko)
-        myMon = myMon.replace(/-/, '');
-        // remove "," and everything after that (landorustherian, M)
-        myMon = myMon.split(',')[0];
-
-        return myMon;
-    }
-
-    /**
-     * return whether the action specified in actionType is present in the actions object
-     *
-     * @param {actions} actions
-     * @param {string} actionType
-     * @return {bool}
-     */
-    _actionTypePossible(actions, actionType) {
-        let actionPossible = false;
-        for (const acts of actions) {
-            if (acts.type === actionType) {
-                actionPossible = true;
-                break;
-            }
-        }
-        return actionPossible;
-    }
-
-    /**
      * returns xsi (gsi or ssi or nsi) data
      *
      * @param {info} info
@@ -676,53 +771,6 @@ class ChecksSwitchAgent extends BattleAgent {
             xsiIndexInTeam++;
         }
         return [xsiExists, xsiName, xsiIndexInTeam];
-    }
-
-    /**
-     * Used to generate matchupMatrix entries
-     * Returns the matchup value for two specified pokemon
-     * Determine whether it is gsi, ssi, nsi, or na
-     * We check in pokemonWithList's list what type of check pokemonInList is to it
-     *
-     * @param {string} pokemonWithList
-     * @param {string} pokemonInList
-     * @return {int}
-     */
-    _xsiMatchupValue(pokemonWithList, pokemonInList) {
-        let matchupValue;
-        let xsiIndex;
-        let xsiLists = checks[pokemonWithList];
-
-        if (xsiLists) {
-            // check in gsi
-            xsiIndex = xsiLists.gsi.indexOf(pokemonInList);
-            if (xsiIndex > -1) {
-                // found gsi
-                matchupValue = 3;
-                return matchupValue;
-            }
-            // check ssi
-            xsiIndex = xsiLists.ssi.indexOf(pokemonInList);
-            if (xsiIndex > -1) {
-                // found ssi
-                matchupValue = 2;
-                return matchupValue;
-            }
-            // check nsi
-            xsiIndex = xsiLists.nsi.indexOf(pokemonInList);
-            if (xsiIndex > -1) {
-                // found nsi
-                matchupValue = 1;
-                return matchupValue;
-            } else {
-                // pokemon cannot be found in lists, it is set to na
-                matchupValue = 0;
-            }
-        } else {
-            // pokemon not found in the checksgraph, xsiLists is null
-            matchupValue = -1;
-        }
-        return matchupValue;
     }
 }
 
