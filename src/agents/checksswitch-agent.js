@@ -42,6 +42,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // determine player and opponent
         const player = info.side.id;
         console.log('----');
+        // console.log(info.side.pokemon);
 
         // only in first turn
         // if (info.teamPreview) {
@@ -183,7 +184,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // if there is a pokemon that does better against the current opposing pokemon, switch to it
         let bestSwitch = this._getBestSwitch(battle, actions, info,
             activeMatchup, myActiveMon, oppActiveMon, player);
-        console.log(bestSwitch);    
+        console.log(bestSwitch);
         // random action if below fails
         action = _.sample(actions);
         let stayInActions;
@@ -431,6 +432,7 @@ class ChecksSwitchAgent extends BattleAgent {
 
     /**
      * calculates the best switch possible in current turn
+     * when only one switch option possible in actions (length==1). this function returns it
      *
      * @param {battle} battle
      * @param {actions} actions
@@ -439,13 +441,14 @@ class ChecksSwitchAgent extends BattleAgent {
      * @param {string} myActiveMon
      * @param {string} oppActiveMon
      * @param {player} player
-     * @return {action} the best switchAction in this turn
+     * @return {action} if null, it signals to caller that no switch shall be done
      */
     _getBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
         let returnAction = null;
         // check if bigger value exists in matchupMatrix compared to activeMatchup
         // look at opposing mon's column and determine max
         // TODO: integrate static max for every column into MUMatrix, maybe in a MUMatrix object
+        // TODO: but current code makes fainted-skips easier
 
         // maximum Matchup Value in column of oppActiveMon in MUMatrix
         let maxMatchupValue = activeMatchup;
@@ -456,9 +459,11 @@ class ChecksSwitchAgent extends BattleAgent {
         let switchToNameBest;
         for (let i = 0; i < 6; i++) {
             currentMatchupValue = this._xsiMatchupMatrix[i][oppMonIndex];
-            // switchToName = this._myMonsList[i];
             // check if that pokemon is fainted, if fainted, jump to next loop iteration
-            // TODO: skip fainted mons
+            if (this._isFainted(this._myMonsList[i], info)) {
+                console.log(`>> ${player}(GBS): ${this._myMonsList[i]} fainted`);
+                continue;
+            }
 
             if (currentMatchupValue > maxMatchupValue) {
                 maxMatchupValue = currentMatchupValue;
@@ -469,14 +474,60 @@ class ChecksSwitchAgent extends BattleAgent {
         if (maxMatchupValue <= activeMatchup) {
             // don't switch, a best check already active
             console.log(`>> ${player}(GBS): Stay in, best check already active`);
-        }
-
-        if (maxMatchupValue > activeMatchup) {
-            // better check found than active, switch to switchtoName
+        } else {
+            // better check found than active, switch to switchToName
             console.log(`>> ${player}(GBS): switching to ${switchToNameBest}`);
+            let switchIsPossible = this._actionTypePossible(actions, 'switch');
+            if (switchIsPossible) {
+                console.log(`>> ${player}(GBS): Switching is possible`);
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    console.log(`>> ${player}(GBS): Only one option to switch`);
+                    returnAction = actions[0];
+                    return returnAction;
+                }
+                let indexInOwnTeam = this._getIndexInOwnTeam(switchToNameBest, info);
+                // search for correct switch action in actions object
+                for (const act of actions) {
+                    if ((act.type === 'switch') && (act.pokeNum == (indexInOwnTeam))) {
+                        console.log(`>> ${player}(GBS): Switchaction index ${indexInOwnTeam}`);
+                        returnAction = act;
+                        break;
+                    }
+                }
+            } else {
+                console.log(`>> ${player}(GBS): Switching not possible`);
+            }
         }
-        // if null, it signals to caller that no switch shall be done
         return returnAction;
+    }
+
+    /**
+     * gets the index of the pokemon in own pokemon list for switching
+     *
+     * @param {string} switchTo pokemon name, to switch to
+     * @param {info} info
+     * @return {int}
+     */
+    _getIndexInOwnTeam(switchTo, info) {
+        // keeps current pokemon during iterating our teamlist
+        let currentPokemon;
+        let idx = 0;
+        // index of the pokemon we should switch to (in own pokemon list)
+        let indexInTeam = 0;
+        // check if we have xsi to the opponent's active pokemon in own team
+        for (const pokemon of info.side.pokemon) {
+            // we want to switch, skip the own active pokemon
+            if (!pokemon.active) {
+                currentPokemon = this._normName(pokemon.details);
+                if (switchTo === currentPokemon) {
+                    indexInTeam = idx;
+                    break;
+                }
+            }
+            idx++;
+        }
+        return indexInTeam+1;
     }
 
     // TODO
@@ -530,15 +581,26 @@ class ChecksSwitchAgent extends BattleAgent {
         return matchupValue;
     }
 
-    // TODO create list of fainted mons
     /**
      * returns whether the pokemon is fainted or not
+     * in own team
      *
-     * @param {string} pokemon
+     * @param {string} faintedMon
+     * @param {info} info
      * @return {bool}
      */
-    _isFainted(pokemon) {
-        return false;
+    _isFainted(faintedMon, info) {
+        let currentPokemon;
+        let isFainted = false;
+        for (const pokemon of info.side.pokemon) {
+            currentPokemon = this._normName(pokemon.details);
+            // condition[0] === '0'
+            if ((faintedMon === currentPokemon) && (pokemon.condition === '0 fnt')) {
+                isFainted = true;
+                break;
+            }
+        }
+        return isFainted;
     }
 
     /**
