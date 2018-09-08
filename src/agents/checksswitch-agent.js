@@ -4,11 +4,14 @@ const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/compTest.json');
 
+const types = require('../../data/types.js');
+
 // const actions = require('./actions');
 
 // const MoveAction = actions.MoveAction;
 // const SwitchAction = actions.SwitchAction;
 // const TeamAction = actions.TeamAction;
+const BattleTypeChart = types.BattleTypeChart;
 
 /**
  * An agent that chooses actions based on checks.json
@@ -42,6 +45,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // determine player and opponent
         const player = info.side.id;
         console.log('----');
+        console.log(BattleTypeChart);
         // console.log(info.side.pokemon);
 
         // only in first turn
