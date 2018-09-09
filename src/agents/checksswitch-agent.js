@@ -3,8 +3,9 @@
 const BattleAgent = require('./base-agent');
 const _ = require('underscore');
 const checks = require('../../data/compTest.json');
-
 const types = require('../../data/types.js');
+const pokedex = require('../../Pokemon-Showdown/data/pokedex.js');
+// TODO: create custom pokedex. rm unnecessary info to make search faster
 
 // const actions = require('./actions');
 
@@ -12,9 +13,10 @@ const types = require('../../data/types.js');
 // const SwitchAction = actions.SwitchAction;
 // const TeamAction = actions.TeamAction;
 const BattleTypeChart = types.BattleTypeChart;
+const BattlePokedex = pokedex.BattlePokedex;
 
 /**
- * An agent that chooses actions based on checks.json
+ * An agent that chooses actions based on checks.json and types.js
  */
 class ChecksSwitchAgent extends BattleAgent {
     /**
@@ -26,6 +28,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // this._xsiMatchupMatrix = new Array(6).fill(new Array(6)); // didn't work
         this._faintedList = null;
         this._xsiMatchupMatrix = null;
+        this._typesMatchupMatrix = null;
         this._myMonsList = null;
         this._oppMonsList = null;
         this._myMonsKeys = null;
@@ -45,7 +48,9 @@ class ChecksSwitchAgent extends BattleAgent {
         // determine player and opponent
         const player = info.side.id;
         console.log('----');
-        console.log(BattleTypeChart);
+        console.log(BattleTypeChart['Fire'].damageTaken['Bug']);
+        console.log(BattlePokedex['ninetalesalola'].types);
+
         // console.log(info.side.pokemon);
 
         // only in first turn
@@ -111,7 +116,7 @@ class ChecksSwitchAgent extends BattleAgent {
             // console.log(oppMonsKeys);
             // console.log(myMonsKeys);
 
-            // calculate the matchupMatrix
+            // calculate the xsiMatchupMatrix
             // for all pokemon in the opposing team
             // determine whether it is gsi, ssi, nsi, or na
             // insert 3, 2, 1, or 0 in matchupMatrix
@@ -130,8 +135,25 @@ class ChecksSwitchAgent extends BattleAgent {
                     // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
                 }
             }
-            console.log(`>> ${player}: matchupMatrix`);
+            console.log(`>> ${player}: xsiMatchupMatrix`);
             console.log(this._xsiMatchupMatrix);
+
+            // calculate the typesMatchupMatrix
+            this._typesMatchupMatrix = new Array(6);
+            for (let i = 0; i < this._typesMatchupMatrix.length; i++) {
+                this._typesMatchupMatrix[i] = new Array(6);
+            }
+            for (let i = 0; i < 6; i++) {
+                oppMonW = this._oppMonsList[i];
+                for (let j = 0; j < 6; j++) {
+                    // console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
+                    this._typesMatchupMatrix[j][i] =
+                     this._typesMatchupValue(oppMonW, this._myMonsList[j]);
+                    // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
+                }
+            }
+            console.log(`>> ${player}: typesMatchupMatrix`);
+            console.log(this._typesMatchupMatrix);
         }
 
         // get my active mon
@@ -186,7 +208,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // try to find a pokemon on your team that does better against the current opposing pokemon.
         // if the current pokemon is already the best choice, attack.
         // if there is a pokemon that does better against the current opposing pokemon, switch to it
-        let bestSwitch = this._getBestSwitch(battle, actions, info,
+        let bestSwitch = this._xsiGetBestSwitch(battle, actions, info,
             activeMatchup, myActiveMon, oppActiveMon, player);
         if (bestSwitch) {
             console.log(`>> ${player}: Best switch`);
@@ -228,7 +250,7 @@ class ChecksSwitchAgent extends BattleAgent {
      * @param {player} player
      * @return {action} if null, it signals to caller that no switch shall be done
      */
-    _getBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
+    _xsiGetBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
         let returnAction = null;
         // check if bigger value exists in matchupMatrix compared to activeMatchup
         // look at opposing mon's column and determine max
@@ -491,7 +513,7 @@ class ChecksSwitchAgent extends BattleAgent {
     }
 
     /**
-     * Used to generate matchupMatrix entries
+     * Used to generate xsimatchupMatrix entries
      * Returns the matchup value for two specified pokemon
      * Determine whether it is gsi, ssi, nsi, or na
      * We check in pokemonWithList's list what type of check pokemonInList is to it
@@ -535,6 +557,76 @@ class ChecksSwitchAgent extends BattleAgent {
             matchupValue = -1;
         }
         return matchupValue;
+    }
+
+    /**
+     * Used to generate typesmatchupMatrix entries
+     * provides answer to: how well does myMon do against oppMon in terms of type
+     * Returns the matchup value for two specified pokemon
+     *
+     * @param {string} myMon
+     * @param {string} oppMon
+     * @return {int}
+     */
+    _typesMatchupValue(myMon, oppMon) {
+        let matchupValue = 0;
+        // get types of both pokemon from pokedex
+        let myMonTypes = BattlePokedex[myMon].types;
+        let oppMonTypes = BattlePokedex[oppMon].types;
+
+        // dublicate types of mons with only one type
+        if (myMonTypes.length == 1) {
+            myMonTypes = [myMonTypes[0], myMonTypes[0]];
+        }
+
+        if (oppMonTypes.length == 1) {
+            oppMonTypes = [oppMonTypes[0], oppMonTypes[0]];
+        }
+
+        // console.log(`${myMon}: ${myMonTypes}`);
+        // console.log(`${oppMon}: ${oppMonTypes}`);
+        let currentOppMonType;
+        let currentMyMonType;
+        let currentTypeVal;
+        for (let i = 0; i < 2; i++) {
+            currentOppMonType = oppMonTypes[i];
+            for (let j = 0; j < 2; j++) {
+                currentMyMonType = myMonTypes[j];
+                currentTypeVal = BattleTypeChart[currentOppMonType].damageTaken[currentMyMonType];
+                matchupValue += this._getMappedTypeValue(currentTypeVal);
+                // console.log(`${currentMyMonType} -> ${currentOppMonType}:`
+                //    + `${this._getMappedTypeValue(currentTypeVal)}`);
+            }
+        }
+        return matchupValue;
+    }
+
+    /**
+     * return mapped typeValue
+     * // 0 -> 1, 1 -> 2, 2 -> 1/2, and 3 -> 0
+     *
+     * @param {int} typeValue
+     * @return {int}
+     */
+    _getMappedTypeValue(typeValue) {
+        let mappedTypeValue;
+        switch (typeValue) {
+        case 0:
+            mappedTypeValue = 1;
+            break;
+        case 1:
+            mappedTypeValue = 2;
+            break;
+        case 2:
+            mappedTypeValue = 0.5;
+            break;
+        case 3:
+            mappedTypeValue = 0;
+            break;
+        default:
+            console.log('Error in _getMappedTypeValue');
+        }
+        return mappedTypeValue;
     }
 
     /**
