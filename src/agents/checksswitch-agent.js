@@ -135,8 +135,6 @@ class ChecksSwitchAgent extends BattleAgent {
                     // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
                 }
             }
-            console.log(`>> ${player}: xsiMatchupMatrix`);
-            console.log(this._xsiMatchupMatrix);
 
             // calculate the typesMatchupMatrix
             this._typesMatchupMatrix = new Array(6);
@@ -152,8 +150,22 @@ class ChecksSwitchAgent extends BattleAgent {
                     // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
                 }
             }
-            console.log(`>> ${player}: typesMatchupMatrix`);
-            console.log(this._typesMatchupMatrix);
+
+            // for all missing values (-1) in xsi matchup matrix, take values from typeMUMatrix
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 6; j++) {
+                    if (this._xsiMatchupMatrix[i][j] == -1) {
+                        // to convert from typeMatrix to checksmatrix do: (8-value)*(3/8)
+                        this._xsiMatchupMatrix[i][j] = (8-this._typesMatchupMatrix[i][j])*(0.375);
+                    }
+                }
+            }
+            console.log(`>> ${player}: xsiMatchupMatrix`);
+            console.log(this._xsiMatchupMatrix);
+            // console.log(`>> ${player}: typesMatchupMatrix`);
+            // console.log(this._typesMatchupMatrix);
+
+            // TODO: calc most threatening mon based on checks and type + the opponnents.
         }
 
         // get my active mon
