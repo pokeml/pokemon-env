@@ -95,14 +95,18 @@ class ChecksSwitchAgent extends BattleAgent {
         }
 
         // get the current matchup based on checksgraph
-        let activeMatchup = this._lookUpInMatchupMatrix(myActiveMon, oppActiveMon);
+        let xsiactiveMatchup = this._xsilookUpInMatchupMatrix(myActiveMon, oppActiveMon);
         // find the opposing active pokemon on the graph and store its checks and counters
         let oppMonChecks = checks[oppActiveMon];
         // search in lists for the own active pokemon
         let typeOfCheck;
         if (oppMonChecks) {
-            typeOfCheck = this._matchUpValueToXsi(activeMatchup);
+            typeOfCheck = this._matchUpValueToXsi(xsiactiveMatchup);
         }
+
+        // get the current meatchup based on typesgraph
+        let typesactiveMatchup = this._typeslookUpInMatchupMatrix(myActiveMon, oppActiveMon);
+
         // console.log(`>> ${player}: I'm ${player}, my opponent is ${opponent}.`);
         console.log(`>> ${player}: My active ${myActiveMon} is ${typeOfCheck} `
           + `to my opponent's active ${oppActiveMon}`);
@@ -118,12 +122,17 @@ class ChecksSwitchAgent extends BattleAgent {
         // try to find a pokemon on your team that does better against the current opposing pokemon.
         // if the current pokemon is already the best choice, attack.
         // if there is a pokemon that does better against the current opposing pokemon, switch to it
-        let bestSwitch = this._xsiGetBestSwitch(battle, actions, info,
-            activeMatchup, myActiveMon, oppActiveMon, player);
-        if (bestSwitch) {
-            console.log(`>> ${player}: Best switch`);
-            console.log(bestSwitch);
-            action = bestSwitch;
+        let xsibestSwitch = this._xsiGetBestSwitch(battle, actions, info,
+            xsiactiveMatchup, myActiveMon, oppActiveMon, player);
+        console.log('   --');
+        let typebestSwitch = this._typeGetBestSwitch(battle, actions, info,
+            typesactiveMatchup, myActiveMon, oppActiveMon, player);
+        if (xsibestSwitch) {
+            console.log(`>> ${player}: xsi best switch`);
+            console.log(typebestSwitch);
+            console.log(`>> ${player}: type best switch`);
+            console.log(xsibestSwitch);
+            action = xsibestSwitch;
         } else {
             let moveIsPossible = this._actionTypePossible(actions, 'move');
             if (moveIsPossible) {
@@ -259,6 +268,123 @@ class ChecksSwitchAgent extends BattleAgent {
                 }
             } else {
                 console.log(`>> ${player}(GBS): Switching not possible`);
+            }
+        }
+        return returnAction;
+    }
+
+    /**
+     * calculates the best switch possible in current turn
+     * when only one switch option possible in actions (length==1). this function returns it
+     *
+     * @param {battle} battle
+     * @param {actions} actions
+     * @param {info} info
+     * @param {int} activeMatchup current matchup Value of myActiveMon vs. oppActiveMon
+     * @param {string} myActiveMon
+     * @param {string} oppActiveMon
+     * @param {player} player
+     * @return {action} if null, it signals to caller that no switch shall be done
+     */
+    _typeGetBestSwitch(battle, actions, info, activeMatchup, myActiveMon, oppActiveMon, player) {
+        let returnAction = null;
+        // check if bigger value exists in matchupMatrix compared to activeMatchup
+        // look at opposing mon's column and determine max
+        // TODO: integrate static max for every column into MUMatrix, maybe in a MUMatrix object
+        // TODO: but current code makes fainted-skips easier
+
+        // maximum Matchup Value in column of oppActiveMon in MUMatrix, active and fainted excluded
+        let maxMatchupValue = -2;
+        let currentMatchupValue;
+        // index of oppMon in MUMatrix
+        let oppMonIndex = this._oppMonsKeys[oppActiveMon];
+        // let switchToName;
+        let switchToNameBest;
+        let switchToNameBestOld;
+        let oldMax;
+        for (let i = 0; i < 6; i++) {
+            currentMatchupValue = this._typesMatchupMatrix[i][oppMonIndex];
+            if (currentMatchupValue > maxMatchupValue) {
+                oldMax = maxMatchupValue;
+                maxMatchupValue = currentMatchupValue;
+                switchToNameBestOld = switchToNameBest;
+                switchToNameBest = this._myMonsList[i];
+                if (this._isFainted(this._myMonsList[i], info)) {
+                    console.log(`>> ${player}(TBS): ${this._myMonsList[i]} fainted`);
+                    maxMatchupValue = oldMax;
+                    switchToNameBest = switchToNameBestOld;
+                }
+                if (this._isActive(this._myMonsList[i], info)) {
+                    console.log(`>> ${player}(TBS): ${this._myMonsList[i]} is already active`);
+                    maxMatchupValue = oldMax;
+                    switchToNameBest = switchToNameBestOld;
+                    // console.log(`>> ${player}(GBS): Next best switch is ${switchToNameBest}`);
+                }
+            }
+        }
+        console.log(`>> ${player}(TBS): activeMatchup ${activeMatchup}, `
+          + `maxMatchupValue ${maxMatchupValue}`);
+        console.log(`>> ${player}(TBS): Besides staying in, `
+          + `best switch would be ${switchToNameBest}`);
+
+        if (maxMatchupValue <= activeMatchup) {
+            // don't switch, a best check already active
+            console.log(`>> ${player}(TBS): A best check already active`);
+            // if no moveactions possible, recommend switch anyway with a best switch
+            let moveIsPossible = this._actionTypePossible(actions, 'move');
+            if (!moveIsPossible) {
+                console.log(`>> ${player}(TBS): No move is possible, recommend switch anyway.`);
+                let switchIsPossible = this._actionTypePossible(actions, 'switch');
+                if (switchIsPossible) {
+                    console.log(`>> ${player}(TBS): Switching is possible`);
+                    // if only one choice in switching then no need to continue
+                    if (actions.length == 1) {
+                        console.log(`>> ${player}(TBS): Only one option to switch`);
+                        returnAction = _.sample(actions);
+                        return returnAction;
+                    }
+                    // TODO: find out when switchactions can not be found in actions
+                    // returnAction = _.sample(actions);
+                    let indexInOwnTeam = this._getIndexInOwnTeam(switchToNameBest, info);
+                    // search for correct switch action in actions object
+                    for (const act of actions) {
+                        if ((act.type === 'switch') && (act.pokeNum == (indexInOwnTeam))) {
+                            console.log(`>> ${player}(TBS): Switchaction index ${indexInOwnTeam}`);
+                            returnAction = act;
+                            console.log(`>> ${player}(TBS): Switching to ${switchToNameBest}`);
+                            break;
+                        }
+                    }
+                } else {
+                    console.log(`>> ${player}(TBS): Switching not possible, move not possible`);
+                }
+            }
+        } else {
+            // better check found than active, switch to switchToName
+            console.log(`>> ${player}(TBS): switching to ${switchToNameBest}`);
+            let switchIsPossible = this._actionTypePossible(actions, 'switch');
+            if (switchIsPossible) {
+                console.log(`>> ${player}(TBS): Switching is possible`);
+                // if only one choice in switching then no need to continue
+                if (actions.length == 1) {
+                    console.log(`>> ${player}(TBS): Only one option to switch`);
+                    returnAction = _.sample(actions);
+                    return returnAction;
+                }
+                // TODO: find out when switchactions can not be found in actions
+                // returnAction = _.sample(actions);
+                let indexInOwnTeam = this._getIndexInOwnTeam(switchToNameBest, info);
+                // search for correct switch action in actions object
+                for (const act of actions) {
+                    if ((act.type === 'switch') && (act.pokeNum == (indexInOwnTeam))) {
+                        console.log(`>> ${player}(TBS): Switchaction index ${indexInOwnTeam}`);
+                        returnAction = act;
+                        console.log(`>> ${player}(TBS): switching to ${switchToNameBest}`);
+                        break;
+                    }
+                }
+            } else {
+                console.log(`>> ${player}(TBS): Switching not possible`);
             }
         }
         return returnAction;
@@ -435,11 +561,24 @@ class ChecksSwitchAgent extends BattleAgent {
      *
      * @param {string} myMon
      * @param {string} oppMon
-     * @return {int}
+     * @return {float}
      */
-    _lookUpInMatchupMatrix(myMon, oppMon) {
+    _xsilookUpInMatchupMatrix(myMon, oppMon) {
         let matchupValue;
         matchupValue = this._xsiMatchupMatrix[this._myMonsKeys[myMon]][this._oppMonsKeys[oppMon]];
+        return matchupValue;
+    }
+
+    /**
+     * returns the current matchup value based on the typesgraph
+     *
+     * @param {string} myMon
+     * @param {string} oppMon
+     * @return {float}
+     */
+    _typeslookUpInMatchupMatrix(myMon, oppMon) {
+        let matchupValue;
+        matchupValue = this._typesMatchupMatrix[this._myMonsKeys[myMon]][this._oppMonsKeys[oppMon]];
         return matchupValue;
     }
 
