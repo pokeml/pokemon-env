@@ -63,109 +63,7 @@ class ChecksSwitchAgent extends BattleAgent {
         // }
 
         if (info.teamPreview) {
-            // console.log(this._xsiMatrix);
-            // console.log(info.side.pokemon);
-            // get own team
-            // list of all own pokemon
-            this._myMonsList = new Array(6);
-            let arrayIndex = 0;
-            for (const pokemon of info.side.pokemon) {
-                this._myMonsList[arrayIndex] = this._normName(pokemon.details);
-                arrayIndex++;
-            }
-            // get list of opposing pokemon
-            let oppMons;
-            if (player === 'p1') {
-                oppMons = battle.sides[1].pokemon;
-            } else {
-                oppMons = battle.sides[0].pokemon;
-            }
-
-            this._oppMonsList = new Array(6);
-            arrayIndex = 0;
-            for (const pokemon of oppMons) {
-                this._oppMonsList[arrayIndex] = this._normName(pokemon.details);
-                arrayIndex++;
-            }
-            console.log(`>> ${player}: My team: ${this._myMonsList}`);
-            console.log(`>> ${player}: My opponents team: ${this._oppMonsList}`);
-
-            //              mon1 mon2 mon3 ...(opponent)
-            // mon 1      |
-            // mon 2      |
-            // (own mons) |
-
-            // set keys. "slowbro" : 0
-            this._myMonsKeys = {
-                [this._myMonsList[0]]: 0,
-                [this._myMonsList[1]]: 1,
-                [this._myMonsList[2]]: 2,
-                [this._myMonsList[3]]: 3,
-                [this._myMonsList[4]]: 4,
-                [this._myMonsList[5]]: 5,
-            };
-
-            this._oppMonsKeys = {
-                [this._oppMonsList[0]]: 0,
-                [this._oppMonsList[1]]: 1,
-                [this._oppMonsList[2]]: 2,
-                [this._oppMonsList[3]]: 3,
-                [this._oppMonsList[4]]: 4,
-                [this._oppMonsList[5]]: 5,
-            };
-            // console.log(oppMonsKeys);
-            // console.log(myMonsKeys);
-
-            // calculate the xsiMatchupMatrix
-            // for all pokemon in the opposing team
-            // determine whether it is gsi, ssi, nsi, or na
-            // insert 3, 2, 1, or 0 in matchupMatrix
-            // columns i (oppMons), rows j (myMons)
-            this._xsiMatchupMatrix = new Array(6);
-            for (let i = 0; i < this._xsiMatchupMatrix.length; i++) {
-                this._xsiMatchupMatrix[i] = new Array(6);
-            }
-            let oppMonW;
-            for (let i = 0; i < 6; i++) {
-                oppMonW = this._oppMonsList[i];
-                for (let j = 0; j < 6; j++) {
-                    // console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
-                    this._xsiMatchupMatrix[j][i] =
-                     this._xsiMatchupValue(oppMonW, this._myMonsList[j]);
-                    // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
-                }
-            }
-
-            // calculate the typesMatchupMatrix
-            this._typesMatchupMatrix = new Array(6);
-            for (let i = 0; i < this._typesMatchupMatrix.length; i++) {
-                this._typesMatchupMatrix[i] = new Array(6);
-            }
-            for (let i = 0; i < 6; i++) {
-                oppMonW = this._oppMonsList[i];
-                for (let j = 0; j < 6; j++) {
-                    // console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
-                    this._typesMatchupMatrix[j][i] =
-                     this._typesMatchupValue(oppMonW, this._myMonsList[j]);
-                    // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
-                }
-            }
-
-            // for all missing values (-1) in xsi matchup matrix, take values from typeMUMatrix
-            for (let i = 0; i < 6; i++) {
-                for (let j = 0; j < 6; j++) {
-                    if (this._xsiMatchupMatrix[i][j] == -1) {
-                        // to convert from typeMatrix to checksmatrix do: (8-value)*(3/8)
-                        this._xsiMatchupMatrix[i][j] = (8-this._typesMatchupMatrix[i][j])*(0.375);
-                    }
-                }
-            }
-            console.log(`>> ${player}: xsiMatchupMatrix`);
-            console.log(this._xsiMatchupMatrix);
-            // console.log(`>> ${player}: typesMatchupMatrix`);
-            // console.log(this._typesMatchupMatrix);
-
-            // TODO: calc most threatening mon based on checks and type + the opponnents.
+            this._handleTeamPreview(info, battle, player);
         }
 
         // get my active mon
@@ -394,15 +292,115 @@ class ChecksSwitchAgent extends BattleAgent {
         return indexInTeam+1;
     }
 
-    // TODO
     /**
-     * teamPreview computations and choosing lead
+     * teamPreview computations (and choosing lead later)
      *
-     * @param {string} pokemon
-     * @return {bool}
+     * @param {info} info
+     * @param {battle} battle
+     * @param {player} player
      */
-    _handleTeamPreview(pokemon) {
-        return false;
+    _handleTeamPreview(info, battle, player) {
+        this._myMonsList = new Array(6);
+        let arrayIndex = 0;
+        for (const pokemon of info.side.pokemon) {
+            this._myMonsList[arrayIndex] = this._normName(pokemon.details);
+            arrayIndex++;
+        }
+        // get list of opposing pokemon
+        let oppMons;
+        if (player === 'p1') {
+            oppMons = battle.sides[1].pokemon;
+        } else {
+            oppMons = battle.sides[0].pokemon;
+        }
+
+        this._oppMonsList = new Array(6);
+        arrayIndex = 0;
+        for (const pokemon of oppMons) {
+            this._oppMonsList[arrayIndex] = this._normName(pokemon.details);
+            arrayIndex++;
+        }
+        console.log(`>> ${player}: My team: ${this._myMonsList}`);
+        console.log(`>> ${player}: My opponents team: ${this._oppMonsList}`);
+
+        //              mon1 mon2 mon3 ...(opponent)
+        // mon 1      |
+        // mon 2      |
+        // (own mons) |
+
+        // set keys. "slowbro" : 0
+        this._myMonsKeys = {
+            [this._myMonsList[0]]: 0,
+            [this._myMonsList[1]]: 1,
+            [this._myMonsList[2]]: 2,
+            [this._myMonsList[3]]: 3,
+            [this._myMonsList[4]]: 4,
+            [this._myMonsList[5]]: 5,
+        };
+
+        this._oppMonsKeys = {
+            [this._oppMonsList[0]]: 0,
+            [this._oppMonsList[1]]: 1,
+            [this._oppMonsList[2]]: 2,
+            [this._oppMonsList[3]]: 3,
+            [this._oppMonsList[4]]: 4,
+            [this._oppMonsList[5]]: 5,
+        };
+        // console.log(oppMonsKeys);
+        // console.log(myMonsKeys);
+
+        // calculate the xsiMatchupMatrix
+        // for all pokemon in the opposing team
+        // determine whether it is gsi, ssi, nsi, or na
+        // insert 3, 2, 1, or 0 in matchupMatrix
+        // columns i (oppMons), rows j (myMons)
+        this._xsiMatchupMatrix = new Array(6);
+        for (let i = 0; i < this._xsiMatchupMatrix.length; i++) {
+            this._xsiMatchupMatrix[i] = new Array(6);
+        }
+        let oppMonW;
+        for (let i = 0; i < 6; i++) {
+            oppMonW = this._oppMonsList[i];
+            for (let j = 0; j < 6; j++) {
+                // console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
+                this._xsiMatchupMatrix[j][i] =
+                 this._xsiMatchupValue(oppMonW, this._myMonsList[j]);
+                // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
+            }
+        }
+
+        // calculate the typesMatchupMatrix
+        this._typesMatchupMatrix = new Array(6);
+        for (let i = 0; i < this._typesMatchupMatrix.length; i++) {
+            this._typesMatchupMatrix[i] = new Array(6);
+        }
+        for (let i = 0; i < 6; i++) {
+            oppMonW = this._oppMonsList[i];
+            for (let j = 0; j < 6; j++) {
+                // console.log(`>> ${player}: Search in ${oppMonW} for ${myMonsList[j]}`);
+                this._typesMatchupMatrix[j][i] =
+                 this._typesMatchupValue(oppMonW, this._myMonsList[j]);
+                // console.log(`>> ${player}: ${xsiMatchupMatrix[j][i]}`);
+            }
+        }
+
+        // for all missing values (-1) in xsi matchup matrix, take values from typeMUMatrix
+        // normalize values in typesMatchupMatrix to 0-3 as well
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 6; j++) {
+                // to convert from typeMatrix to checksmatrix do: (8-value)*(3/8)
+                this._typesMatchupMatrix[i][j] = (8-this._typesMatchupMatrix[i][j])*(0.375);
+                if (this._xsiMatchupMatrix[i][j] == -1) {
+                    this._xsiMatchupMatrix[i][j] = this._typesMatchupMatrix[i][j];
+                }
+            }
+        }
+        console.log(`>> ${player}: xsiMatchupMatrix`);
+        console.log(this._xsiMatchupMatrix);
+        console.log(`>> ${player}: typesMatchupMatrix`);
+        console.log(this._typesMatchupMatrix);
+
+        // TODO: calc most threatening mon based on checks and type + the opponnents.
     }
 
     /**
