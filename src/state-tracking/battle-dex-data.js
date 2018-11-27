@@ -14,6 +14,7 @@
  * @author Guangcong Luo <guangcongluo@gmail.com>
  * @license MIT
  */
+
 const BattleNatures = {
     Adamant: {
         plus: 'atk',

@@ -3,6 +3,8 @@
  * Simulates a Pokémon battle between two bots.
  */
 
+/* eslint no-unused-vars: "off" */
+
 const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
 const RandomAgent = require('../src/agents/random-agent');
 const TestAgent = require('../src/agents/test-agent');
@@ -22,9 +24,7 @@ const p2spec = {
     team: teams['gen7ou'][2],
 };
 
-// eslint-disable-next-line no-unused-vars
-const p1 = new TestAgent(streams.p1, true);
-// eslint-disable-next-line no-unused-vars
+const p1 = new TestAgent(streams.p1);
 const p2 = new RandomAgent(streams.p2);
 
 // (async () => {

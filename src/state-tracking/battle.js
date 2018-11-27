@@ -1,5 +1,4 @@
-/* eslint require-jsdoc: "off" */
-
+'use strict';
 /**
  * Pokemon Showdown Battle
  *
@@ -12,6 +11,8 @@
  * @author Guangcong Luo <guangcongluo@gmail.com>
  * @license MIT
  */
+
+/* eslint require-jsdoc: "off" */
 
 const BattleItems = require('../../Pokemon-Showdown/data/items').BattleItems;
 const BattlePokedex = require('../../Pokemon-Showdown/data/pokedex').BattlePokedex;
