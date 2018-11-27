@@ -1,6 +1,6 @@
 'use strict';
 
-const BattleAgent = require('./base-agent');
+const BattleAgent = require('../base/agent');
 const _ = require('underscore');
 
 /**
@@ -10,12 +10,12 @@ class RandomAgent extends BattleAgent {
     /**
      * Choose an action.
      *
-     * @param {AnyObject} battle
-     * @param {string[]} actions
-     * @param {AnyObject} info
+     * @param {State} state
+     * @param {Action[]} actions
+     * @param {Request} info
      * @return {string}
      */
-    act(battle, actions, info) {
+    act(state, actions, info) {
         return _.sample(actions);
     }
 }

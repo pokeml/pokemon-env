@@ -133,8 +133,8 @@ class Agent {
                 );
                 actionSpace.push(...zmoves.map((i) => new MoveAction(i, {'zmove': true})));
             }
+            // switches
             if (!active.trapped) {
-                // switches
                 const switches = [1, 2, 3, 4, 5, 6].filter((i) => (
                     // exists
                     pokemon[i - 1] &&
@@ -181,11 +181,11 @@ class Agent {
     /**
      * Choose an action.
      *
-     * @param {Battle} battle
+     * @param {State} state
      * @param {Action[]} actions
      * @param {Request} info
      */
-    act(battle, actions, info) {
+    act(state, actions, info) {
         throw new Error('must be overridden by subclass');
     }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-const BattleAgent = require('./base-agent');
+const BattleAgent = require('../base/agent');
 const _ = require('underscore');
 
 /**
@@ -10,15 +10,17 @@ class TestAgent extends BattleAgent {
     /**
      * Choose an action.
      *
-     * @param {Battle} battle
-     * @param {string[]} actions
+     * @param {Battle} state
+     * @param {Action[]} actions
      * @param {Request} info
      * @return {string}
      */
-    act(battle, actions, info) {
+    act(state, actions, info) {
         if (this.debug) {
-            this.displayBattleState(battle);
+            this.displayBattleState(state);
             console.log(`action space: ${actions.map((a) => a.choice).join(', ')}`);
+            console.log(state);
+            console.log(info);
         }
         const action = _.sample(actions);
         if (this.debug) console.log(`>> ${action.choice}`);
