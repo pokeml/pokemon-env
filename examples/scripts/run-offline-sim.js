@@ -27,7 +27,7 @@ let env = new Environment('gen7ou', p1, p2);
 
 // Main loop
 for (let episode = 1; episode <= numEpisodes; episode++) {
-    console.log(`Episode ${episode}`);
+    console.log(`-- Episode ${episode} --`);
     var {state1, state2} = env.reset();
     for (let t = 1; t <= maxSteps; t++) {
         // Choose actions
