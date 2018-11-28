@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * The base class for all battle agents. Currently only for single player formats.
+ * The base class for all battle agents.
  */
 class Agent {
     /**
