@@ -1,7 +1,7 @@
 node_modules/
 tsconfig.json
 
-src/state-tracking-ts/
+src/battle-ts/
 examples/agents/test-agent.js
 
 .DS_Store

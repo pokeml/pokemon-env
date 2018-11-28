@@ -1,4 +1,4 @@
-# State tracking
+# Battle state tracking
 
 While the simulator sends each player messages that correspond to updates
 about the battle progress, it does not provide a useful representation of the
