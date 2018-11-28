@@ -2,22 +2,21 @@
   "name": "pokemon-env",
   "version": "0.0.1",
   "description": "An environment for developing Pokémon battle agents",
-  "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pokeml/pokemon-battle-ai.git"
+    "url": "git+https://github.com/pokeml/pokemon-env.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pokeml/pokemon-battle-ai/issues"
+    "url": "https://github.com/pokeml/pokemon-env/issues"
   },
-  "homepage": "https://github.com/pokeml/pokemon-battle-ai#readme",
+  "homepage": "https://github.com/pokeml/pokemon-env#readme",
   "devDependencies": {
     "eslint": "^5.2.0",
     "eslint-config-google": "^0.9.1"
