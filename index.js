@@ -1,4 +1,1 @@
-const Agent = require('src/agent');
-const Environment = require('src/env');
-
-module.exports = {Agent, Environment};
+module.exports = require('src/env');
