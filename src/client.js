@@ -4,10 +4,10 @@ require('colors');
 const https = require('https');
 const url = require('url');
 const websocket = require('websocket');
-const utils = require('../../lib/utils');
+const utils = require('./utils');
 
-const ObjectReadWriteStream = require('../../Pokemon-Showdown/lib/streams').ObjectReadWriteStream;
-const TestAgent = require('../agents/test-agent.js');
+const ObjectReadWriteStream = require('../Pokemon-Showdown/lib/streams').ObjectReadWriteStream;
+const RandomAgent = require('../examples/agents/random-agent');
 
 const splitFirst = utils.splitFirst;
 const toId = utils.toId;
@@ -15,10 +15,10 @@ const toId = utils.toId;
 /**
  * @typedef {Object} ClientOptions
  * @property {boolean} [debug]
- * @property {string} [actionUrl]
- * @property {string} [serverUrl]
- * @property {string} [username]
- * @property {string} [password]
+ * @property {string} actionUrl
+ * @property {string} serverUrl
+ * @property {string} username
+ * @property {string} password
  * @property {number} [avatar]
  */
 
@@ -237,7 +237,7 @@ class Client {
             if (rest === 'battle' && !(roomId in this.battles)) {
                 let write = (data) => this.choose(data, roomId);
                 let stream = new ObjectReadWriteStream({write});
-                let agent = new TestAgent(stream, true);
+                let agent = new RandomAgent(stream, true);
                 this.battles[roomId] = {
                     'stream': stream,
                     'agent': agent,

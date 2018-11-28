@@ -1,6 +1,6 @@
 'use strict';
 
-const Agent = require('../base/agent');
+const Agent = require('../../src/agent');
 const _ = require('underscore');
 
 /**

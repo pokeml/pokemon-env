@@ -1,7 +1,7 @@
 'use strict';
 
-const Client = require('../src/online/client');
-const config = require('../config/config');
+const Client = require('../../src/client');
+const config = require('../../config/config');
 
 const client = new Client(config);
 client.connect();

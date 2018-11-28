@@ -5,10 +5,10 @@
 
 /* eslint no-unused-vars: "off" */
 
-const BattleStreams = require('../Pokemon-Showdown/sim/battle-stream');
-const RandomAgent = require('../src/agents/random-agent');
-const TestAgent = require('../src/agents/test-agent');
-const teams = require('../data/teams');
+const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
+const RandomAgent = require('../agents/random-agent');
+const TestAgent = require('../agents/test-agent');
+const teams = require('../../data/teams');
 
 const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
 
@@ -24,15 +24,15 @@ const p2spec = {
     team: teams['gen7ou'][2],
 };
 
-const p1 = new TestAgent(streams.p1, true);
+const p1 = new RandomAgent(streams.p1);
 const p2 = new RandomAgent(streams.p2);
 
-// (async () => {
-// 	let chunk;
-// 	while ((chunk = await streams.omniscient.read())) {
-// 		console.log(chunk);
-// 	}
-// })();
+(async () => {
+    let chunk;
+    while ((chunk = await streams.omniscient.read())) {
+        console.log(chunk);
+    }
+})();
 
 streams.omniscient.write(`>start ${JSON.stringify(spec)}
 >player p1 ${JSON.stringify(p1spec)}
