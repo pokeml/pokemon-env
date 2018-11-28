@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/pokeml/pokemon-battle-ai.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-battle-ai)
+[![Build Status](https://travis-ci.com/pokeml/pokemon-env.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-env)
 
 # Pokémon Environment
 
-This project is an environment built for the development of Pokémon battle agents, based on the [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown) simulator. Check out our [wiki](https://github.com/pokeml/pokemon-battle-ai/wiki) for more info.
+This project is an environment built for the development of Pokémon battle agents, based on the [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown) simulator. Check out our [wiki](https://github.com/pokeml/pokemon-env/wiki) for more info.
 
 ## Getting Started
 
@@ -11,7 +11,7 @@ This project is an environment built for the development of Pokémon battle agen
 To clone this project and Pokémon Showdown as a submodule, simply run
 
 ```bash
-git clone --recurse-submodules https://github.com/pokeml/pokemon-battle-ai.git
+git clone --recurse-submodules https://github.com/pokeml/pokemon-env.git
 ```
 
 This project requires [Node.js](https://nodejs.org/) 8.x or later. From within the project's root directory, run
@@ -40,4 +40,4 @@ from the project's root directory.
 
 ### Contributing
 
-Check out our [projects page](https://github.com/pokeml/pokemon-battle-ai/projects) for getting ideas how you can contribute. Click on the different projects to see the tasks that still need to be done.
+Check out our [projects page](https://github.com/pokeml/pokemon-env/projects) for getting ideas how you can contribute. Click on the different projects to see the tasks that still need to be done.
