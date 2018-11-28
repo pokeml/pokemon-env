@@ -1,14 +1,14 @@
 [![Build Status](https://travis-ci.com/pokeml/pokemon-battle-ai.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-battle-ai)
 
-# Pokémon Battle AI
+# Pokémon Environment
 
-This project is an attempt to build a strong Pokémon AI. Check out our [wiki](https://github.com/pokeml/pokemon-battle-ai/wiki) for more info.
+This project is an environment built for the development of Pokémon battle agents, based on the [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown) simulator. Check out our [wiki](https://github.com/pokeml/pokemon-battle-ai/wiki) for more info.
 
 ## Getting Started
 
 ### Installing
 
-To clone this project and Pokemon Showdown as a submodule, simply run
+To clone this project and Pokémon Showdown as a submodule, simply run
 
 ```bash
 git clone --recurse-submodules https://github.com/pokeml/pokemon-battle-ai.git
@@ -24,7 +24,7 @@ to install the necessary dependencies.
 
 ### Running
 
-To simulate a battle between two agents, run
+For an example of how to simulate a battle between two agents, run
 
 ```bash
 node examples/scripts/run-offline-sim.js
