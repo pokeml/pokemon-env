@@ -31,14 +31,14 @@ const splitFirst = require('./utils').splitFirst;
 class Environment {
     /**
      * @param {string} format
-     * @param {PlayerSpec} p1Spec
-     * @param {PlayerSpec} p2Spec
+     * @param {PlayerSpec} spec1
+     * @param {PlayerSpec} spec2
      * @param {number} [seed]
      */
-    constructor(format, p1Spec, p2Spec, seed = null) {
+    constructor(format, spec1, spec2, seed = null) {
         this.format = format;
-        this.p1Spec = p1Spec;
-        this.p2Spec = p2Spec;
+        this.spec1 = spec1;
+        this.spec2 = spec2;
         this.seed = seed;
 
         this.p1 = null;
@@ -56,8 +56,8 @@ class Environment {
         if (this.p2) this.p2.battle.destroy();
         if (this.battle) this.battle.destroy();
 
-        this.p1 = new Side('p1', this.p1Spec);
-        this.p2 = new Side('p2', this.p2Spec);
+        this.p1 = new Side('p1', this.spec1);
+        this.p2 = new Side('p2', this.spec2);
 
         const battleOptions = {
             formatid: this.format,
@@ -90,41 +90,41 @@ class Environment {
                 }
             },
         };
-        const p1Options = {
+        const options1 = {
             name: this.p1.name,
             team: this.p1.team,
         };
-        const p2Options = {
+        const options2 = {
             name: this.p2.name,
             team: this.p2.team,
         };
 
         this.battle = new Battle(battleOptions);
-        this.battle.setPlayer('p1', p1Options);
-        this.battle.setPlayer('p2', p2Options);
+        this.battle.setPlayer('p1', options1);
+        this.battle.setPlayer('p2', options2);
         this.battle.sendUpdates();
 
         return {
-            'p1State': this.p1.battle,
-            'p2State': this.p2.battle,
+            'state1': this.p1.battle,
+            'state2': this.p2.battle,
         };
     }
 
     /**
      * Advance the battle by executing actions for both players.
      *
-     * @param {Action} p1Action
-     * @param {Action} p2Action
+     * @param {Action} action1
+     * @param {Action} action2
      *
      * @return {Observation}
      */
-    step(p1Action, p2Action) {
-        if (!p1Action && !p2Action) {
+    step(action1, action2) {
+        if (!action1 && !action2) {
             throw new Error('Must specify at least one action.');
         }
 
-        if (p1Action) this.battle.choose('p1', p1Action.choice);
-        if (p2Action) this.battle.choose('p2', p2Action.choice);
+        if (action1) this.battle.choose('p1', action1.choice);
+        if (action2) this.battle.choose('p2', action2.choice);
         this.battle.sendUpdates();
 
         let done = this.battle.ended;
@@ -134,8 +134,8 @@ class Environment {
         } : null;
 
         return {
-            'p1State': this.p1.battle,
-            'p2State': this.p2.battle,
+            'state1': this.p1.battle,
+            'state2': this.p2.battle,
             'done': done,
             'info': info,
         };
