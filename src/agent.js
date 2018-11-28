@@ -4,7 +4,7 @@
  */
 
 require('colors');
-const Battle = require('./battle/battle');
+const Battle = require('./state/battle');
 const actions = require('./actions');
 const splitFirst = require('./utils').splitFirst;
 

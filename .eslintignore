@@ -1,4 +1,4 @@
 node_modules/
 Pokemon-Showdown/
-src/battle-ts
-src/battle/battle.js
+src/state-ts
+src/state/battle.js
