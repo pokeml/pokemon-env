@@ -1,1 +1,1 @@
-module.exports = require('src/env');
+module.exports = require('./src/env');
