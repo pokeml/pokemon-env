@@ -27,13 +27,13 @@ to install the necessary dependencies.
 To simulate a battle between two agents, run
 
 ```bash
-node scripts/run-offline-sim.js
+node examples/scripts/run-offline-sim.js
 ```
 
 and to test an agent on the Pokémon Showdown server online against human players, run
 
 ```bash
-node scripts/launch-client.js
+node examples/scripts/launch-client.js
 ```
 
 from the project's root directory.
