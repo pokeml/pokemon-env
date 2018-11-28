@@ -27,7 +27,7 @@ to install the necessary dependencies.
 For an example of how to simulate a battle between two agents, run
 
 ```bash
-node examples/scripts/run-offline-sim.js
+node examples/scripts/sim.js
 ```
 
 from the project's root directory. The file
