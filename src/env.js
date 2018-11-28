@@ -217,11 +217,9 @@ class Environment {
                 actionSpace.push(new TeamAction(team.join('')));
             }
             return actionSpace;
-        } else if (request.wait) {
-            return [];
         } else {
-            // default
-            return ['default'];
+            // wait request
+            return [];
         }
     }
 
