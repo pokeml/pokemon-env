@@ -1,7 +1,7 @@
 {
-  "name": "pokemon-battle-ai",
+  "name": "pokemon-env",
   "version": "0.0.1",
-  "description": "An artificial intelligence that plays Pokémon",
+  "description": "An environment for developing Pokémon battle agents",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
