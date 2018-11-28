@@ -12,10 +12,9 @@ class RandomAgent extends Agent {
      *
      * @param {State} state
      * @param {Action[]} actions
-     * @param {Request} info
      * @return {string}
      */
-    act(state, actions, info) {
+    act(state, actions) {
         return _.sample(actions);
     }
 }

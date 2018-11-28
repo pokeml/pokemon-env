@@ -1110,7 +1110,7 @@ class Battle {
                 this.fastForwardTo(turn);
             }
             if (!paused) {
-                this.play();
+                this.update();
             } else {
                 this.pause();
             }
@@ -4582,7 +4582,7 @@ class Battle {
         this.paused = true;
         this.playbackState = Playback.Paused;
     }
-    play() {
+    update() {
         this.paused = false;
         this.playbackState = Playback.Playing;
         this.nextActivity();

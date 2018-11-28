@@ -1,39 +1,46 @@
 'use strict';
-/**
- * Simulates a Pokémon battle between two bots.
- */
 
-/* eslint no-unused-vars: "off" */
-
-const BattleStreams = require('../../Pokemon-Showdown/sim/battle-stream');
+const Environment = require('../../src/env');
 const RandomAgent = require('../agents/random-agent');
-const TestAgent = require('../agents/test-agent');
 const teams = require('../../data/teams');
 
-const streams = BattleStreams.getPlayerStreams(new BattleStreams.BattleStream());
+// Parameters
+const numEpisodes = 10;
+const maxSteps = 1000;
 
-const spec = {
-    formatid: 'gen7ou',
+// Player 1 specs
+const p1 = {
+    name: 'Player 1',
+    team: teams['gen7ou'][0],
 };
-const p1spec = {
-    name: 'Bot 1',
+let p1Agent = new RandomAgent();
+
+// Player 2 specs
+const p2 = {
+    name: 'Player 2',
     team: teams['gen7ou'][1],
 };
-const p2spec = {
-    name: 'Bot 2',
-    team: teams['gen7ou'][2],
-};
+let p2Agent = new RandomAgent();
 
-const p1 = new RandomAgent(streams.p1);
-const p2 = new RandomAgent(streams.p2);
+// Init environment
+let env = new Environment('gen7ou', p1, p2);
 
-(async () => {
-    let chunk;
-    while ((chunk = await streams.omniscient.read())) {
-        console.log(chunk);
+// Main loop
+for (let episode = 0; episode < numEpisodes; episode++) {
+    console.log(`Episode ${episode}`);
+    var {p1State, p2State} = env.reset();
+    for (let t = 0; t < maxSteps; t++) {
+        let p1Action = p1Agent.act(p1State, env.getActionSpace('p1'));
+        let p2Action = p2Agent.act(p2State, env.getActionSpace('p2'));
+
+        var {p1State, p2State, done, info} = env.step(p1Action, p2Action);
+
+        if (done) {
+            console.log(`Winner: ${info.winner}`);
+            console.log(`Turns: ${info.turns}`);
+            break;
+        }
     }
-})();
+}
 
-streams.omniscient.write(`>start ${JSON.stringify(spec)}
->player p1 ${JSON.stringify(p1spec)}
->player p2 ${JSON.stringify(p2spec)}`);
+env.close();

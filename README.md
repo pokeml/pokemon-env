@@ -30,13 +30,9 @@ For an example of how to simulate a battle between two agents, run
 node examples/scripts/run-offline-sim.js
 ```
 
-and to test an agent on the Pokémon Showdown server online against human players, run
-
-```bash
-node examples/scripts/launch-client.js
-```
-
-from the project's root directory.
+from the project's root directory. The file
+[random-agent.js](examples/agents/random-agent.js) shows how to implement a
+simple random agent.
 
 ### Contributing
 
