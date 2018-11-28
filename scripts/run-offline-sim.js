@@ -17,14 +17,14 @@ const spec = {
 };
 const p1spec = {
     name: 'Bot 1',
-    team: teams['gen7ou'][2],
+    team: teams['gen7ou'][1],
 };
 const p2spec = {
     name: 'Bot 2',
     team: teams['gen7ou'][2],
 };
 
-const p1 = new TestAgent(streams.p1);
+const p1 = new TestAgent(streams.p1, true);
 const p2 = new RandomAgent(streams.p2);
 
 // (async () => {

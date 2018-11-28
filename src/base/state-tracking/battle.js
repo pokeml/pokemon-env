@@ -14,13 +14,13 @@
 
 /* eslint require-jsdoc: "off" */
 
-const BattleItems = require('../../Pokemon-Showdown/data/items').BattleItems;
-const BattlePokedex = require('../../Pokemon-Showdown/data/pokedex').BattlePokedex;
+const BattleItems = require('../../../Pokemon-Showdown/data/items').BattleItems;
+const BattlePokedex = require('../../../Pokemon-Showdown/data/pokedex').BattlePokedex;
 const Tools = require('./battle-dex');
 const BattleDexData = require('./battle-dex-data');
 const BattleStats = BattleDexData.BattleStats;
 
-const toId = require('../../lib/utils').toId;
+const toId = require('../../../lib/utils').toId;
 
 class Pokemon {
     constructor(data, side) {

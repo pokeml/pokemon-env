@@ -17,12 +17,12 @@
  * @license MIT
  */
 
-const BattleAbilities = require('../../Pokemon-Showdown/data/abilities').BattleAbilities;
-const BattleAliases = require('../../Pokemon-Showdown/data/aliases').BattleAliases;
-const BattleItems = require('../../Pokemon-Showdown/data/items').BattleItems;
-const BattleMovedex = require('../../Pokemon-Showdown/data/moves').BattleMovedex;
-const BattlePokedex = require('../../Pokemon-Showdown/data/pokedex').BattlePokedex;
-const BattleTypeChart = require('../../Pokemon-Showdown/data/typechart').BattleTypeChart;
+const BattleAbilities = require('../../../Pokemon-Showdown/data/abilities').BattleAbilities;
+const BattleAliases = require('../../../Pokemon-Showdown/data/aliases').BattleAliases;
+const BattleItems = require('../../../Pokemon-Showdown/data/items').BattleItems;
+const BattleMovedex = require('../../../Pokemon-Showdown/data/moves').BattleMovedex;
+const BattlePokedex = require('../../../Pokemon-Showdown/data/pokedex').BattlePokedex;
+const BattleTypeChart = require('../../../Pokemon-Showdown/data/typechart').BattleTypeChart;
 const BattleDexData = require('./battle-dex-data');
 const baseSpeciesChart = BattleDexData.baseSpeciesChart;
 

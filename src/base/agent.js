@@ -4,7 +4,7 @@
  */
 
 require('colors');
-const Battle = require('../state-tracking/battle');
+const Battle = require('./state-tracking/battle');
 const actions = require('./actions');
 const splitFirst = require('../../lib/utils').splitFirst;
 
