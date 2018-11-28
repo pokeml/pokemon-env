@@ -6,7 +6,7 @@
 require('colors');
 const Battle = require('../state-tracking/battle');
 const actions = require('./actions');
-const splitFirst = require('../../utils/utils').splitFirst;
+const splitFirst = require('../../lib/utils').splitFirst;
 
 const MoveAction = actions.MoveAction;
 const SwitchAction = actions.SwitchAction;

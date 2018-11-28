@@ -4,7 +4,7 @@ require('colors');
 const https = require('https');
 const url = require('url');
 const websocket = require('websocket');
-const utils = require('../../utils/utils');
+const utils = require('../../lib/utils');
 
 const ObjectReadWriteStream = require('../../Pokemon-Showdown/lib/streams').ObjectReadWriteStream;
 const TestAgent = require('../agents/test-agent.js');
