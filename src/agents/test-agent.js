@@ -1,12 +1,12 @@
 'use strict';
 
-const BattleAgent = require('../base/agent');
+const Agent = require('../base/agent');
 const _ = require('underscore');
 
 /**
  * An agent for testing purposes.
  */
-class TestAgent extends BattleAgent {
+class TestAgent extends Agent {
     /**
      * Choose an action.
      *

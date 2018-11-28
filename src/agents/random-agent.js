@@ -1,12 +1,12 @@
 'use strict';
 
-const BattleAgent = require('../base/agent');
+const Agent = require('../base/agent');
 const _ = require('underscore');
 
 /**
  * An agent that chooses actions uniformly at random.
  */
-class RandomAgent extends BattleAgent {
+class RandomAgent extends Agent {
     /**
      * Choose an action.
      *
