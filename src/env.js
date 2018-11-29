@@ -61,7 +61,7 @@ class Environment {
 
         const battleOptions = {
             formatid: this.format,
-            seed: this.seed,
+            seed: [this.seed, this.seed, this.seed, this.seed],
             send: (type, data) => {
                 if (Array.isArray(data)) data = data.join('\n');
                 switch (type) {
