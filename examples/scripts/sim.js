@@ -24,7 +24,7 @@ const p2 = {
 const agent2 = new RandomAgent();
 
 // Init environment
-const env = new Environment('gen7randombattle', p1, p2);
+const env = new Environment('gen7ou', p1, p2);
 
 // Main loop
 for (let episode = 1; episode <= numEpisodes; episode++) {
