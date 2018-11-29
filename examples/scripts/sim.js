@@ -1,6 +1,6 @@
 'use strict';
 
-const Environment = require('pokemon-env');
+const Environment = require('../../src/env');
 const RandomAgent = require('../agents/random-agent');
 
 const teams = require('../../data/teams');
