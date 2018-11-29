@@ -125,6 +125,7 @@ class Environment {
 
         if (action1) this.battle.choose('p1', action1.choice);
         if (action2) this.battle.choose('p2', action2.choice);
+
         this.battle.sendUpdates();
 
         let done = this.battle.ended;
