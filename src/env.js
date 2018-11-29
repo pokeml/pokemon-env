@@ -5,7 +5,7 @@
 
 const Battle = require('../Pokemon-Showdown/sim/battle');
 const Side = require('./side');
-const {MoveAction, SwitchAction, TeamAction} = require('./actions');
+const {Action, MoveAction, SwitchAction, TeamAction} = require('./actions');
 const splitFirst = require('./utils').splitFirst;
 
 /**
@@ -28,14 +28,14 @@ const splitFirst = require('./utils').splitFirst;
 class Environment {
     /**
      * @param {string} format
-     * @param {PlayerSpec} spec1
-     * @param {PlayerSpec} spec2
+     * @param {PlayerSpec} p1Spec
+     * @param {PlayerSpec} p2Spec
      * @param {number} [seed]
      */
-    constructor(format, spec1, spec2, seed = null) {
+    constructor(format, p1Spec, p2Spec, seed = null) {
         this.format = format;
-        this.spec1 = spec1;
-        this.spec2 = spec2;
+        this.p1Spec = p1Spec;
+        this.p2Spec = p2Spec;
         this.seed = seed;
 
         this.p1 = null;
@@ -53,8 +53,8 @@ class Environment {
         if (this.p2) this.p2.battle.destroy();
         if (this.battle) this.battle.destroy();
 
-        this.p1 = new Side('p1', this.spec1);
-        this.p2 = new Side('p2', this.spec2);
+        this.p1 = new Side('p1', this.p1Spec);
+        this.p2 = new Side('p2', this.p2Spec);
 
         const battleOptions = {
             formatid: this.format,
@@ -89,56 +89,69 @@ class Environment {
                 }
             },
         };
-        const options1 = {
+        const p1Options = {
             name: this.p1.name,
             team: this.p1.team,
         };
-        const options2 = {
+        const p2Options = {
             name: this.p2.name,
             team: this.p2.team,
         };
 
         this.battle = new Battle(battleOptions);
-        this.battle.setPlayer('p1', options1);
-        this.battle.setPlayer('p2', options2);
+        this.battle.setPlayer('p1', p1Options);
+        this.battle.setPlayer('p2', p2Options);
         this.battle.sendUpdates();
 
-        return {
-            'state1': this.p1.state,
-            'state2': this.p2.state,
-        };
+        return [this.p1.state, this.p2.state];
     }
 
     /**
      * Advance the battle by executing actions for both players.
      *
-     * @param {Action} action1
-     * @param {Action} action2
-     *
+     * @param {Action[]} actions
      * @return {Observation}
      */
-    step(action1, action2) {
-        if (action1 == null && action2 == null) {
-            throw new Error('Must specify at least one action.');
+    step(actions) {
+        // error handling
+        if (!Array.isArray(actions) || actions.length !== 2) {
+            throw new Error('Must provide an array of two actions.');
+        }
+        if (!(actions[0] instanceof Action) && !(actions[1] instanceof Action)) {
+            throw new Error('Must specify at least one valid action.');
         }
 
-        if (action1) this.battle.choose('p1', action1.choice);
-        if (action2) this.battle.choose('p2', action2.choice);
+        // advance simulator
+        if (actions[0]) this.battle.choose('p1', actions[0].choice);
+        if (actions[1]) this.battle.choose('p2', actions[1].choice);
 
+        // update state trackers
         this.battle.sendUpdates();
 
-        let done = this.battle.ended;
-        let info = done ? {
-            'turns': this.battle.turn,
-            'winner': this.battle.winner,
-        } : null;
+        // compute rewards
+        let rewards = [0, 0];
+        if (this.battle.ended && this.battle.winner) {
+            rewards = this.battle.winner === this.battle.p1.name ? [1, -1] : [-1, 1];
+        }
 
         return {
-            'state1': this.p1.state,
-            'state2': this.p2.state,
-            'done': done,
-            'info': info,
+            'states': [this.p1.state, this.p2.state],
+            'rewards': rewards,
+            'done': this.battle.ended,
+            'info': null,
         };
+    }
+
+    /**
+     * Get the action space for the current battle state, which includes both player's spaces.
+     *
+     * @return {Object}
+     */
+    get actionSpace() {
+        return [
+            this._getActionSpace('p1'),
+            this._getActionSpace('p2'),
+        ];
     }
 
     /**
@@ -147,10 +160,10 @@ class Environment {
      *
      * TODO: adapt for double and triple battles.
      *
-     * @param {string} side
+     * @param {'p1' | 'p2'} side
      * @return {string[]}
      */
-    getActionSpace(side) {
+    _getActionSpace(side) {
         if (side !== 'p1' && side !== 'p2') {
             throw new Error(`Cannot get action space for side: ${side}`);
         }
@@ -221,6 +234,13 @@ class Environment {
             // wait request
             return [];
         }
+    }
+
+    /**
+     * Display the current battle state.
+     */
+    render() {
+        throw new Error('Not implemented.');
     }
 
     /**

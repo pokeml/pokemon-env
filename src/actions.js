@@ -71,6 +71,7 @@ class TeamAction extends Action {
 }
 
 module.exports = {
+    Action,
     MoveAction,
     SwitchAction,
     TeamAction,

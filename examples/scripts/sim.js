@@ -5,42 +5,40 @@ const RandomAgent = require('../agents/random-agent');
 
 const teams = require('../../data/teams');
 
-// Parameters
+// parameters
 const numEpisodes = 10;
 const maxSteps = 1000;
 
-// Player 1 specs
-const p1 = {
-    name: 'Player 1',
-    team: teams['gen7ou'][0],
-};
-const agent1 = new RandomAgent();
+// agents
+const p1Agent = new RandomAgent();
+const p2Agent = new RandomAgent();
 
-// Player 2 specs
-const p2 = {
-    name: 'Player 2',
-    team: teams['gen7ou'][1],
-};
-const agent2 = new RandomAgent();
+// player specs
+const p1Spec = {name: 'Player 1', team: teams['gen7ou'][0]};
+const p2Spec = {name: 'Player 2', team: teams['gen7ou'][1]};
 
-// Init environment
-const env = new Environment('gen7ou', p1, p2);
+// init environment
+const env = new Environment('gen7ou', p1Spec, p2Spec);
 
-// Main loop
+// main loop
 for (let episode = 1; episode <= numEpisodes; episode++) {
-    console.log(`-- Episode ${episode} --`);
-    var {state1, state2} = env.reset();
+    console.log(`Episode ${episode}`);
+    var states = env.reset();
     for (let t = 1; t <= maxSteps; t++) {
-        // Choose actions
-        const action1 = agent1.act(state1, env.getActionSpace('p1'));
-        const action2 = agent2.act(state2, env.getActionSpace('p2'));
+        // choose actions
+        const actions = [
+            p1Agent.act(states[0], env.actionSpace[0]),
+            p2Agent.act(states[1], env.actionSpace[1]),
+        ];
 
-        // Advance environment
-        var {state1, state2, done, info} = env.step(action1, action2);
+        // advance environment
+        var {states, rewards, done} = env.step(actions);
+
+        console.log(states[0]);
 
         if (done) {
-            console.log(`Winner: ${info.winner}`);
-            console.log(`Turns: ${info.turns}`);
+            console.log(`p1 reward: ${rewards[0]}`);
+            console.log(`p2 reward: ${rewards[1]}`);
             break;
         }
     }
