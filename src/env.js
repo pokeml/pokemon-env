@@ -135,8 +135,8 @@ class Environment {
         } : null;
 
         return {
-            'state1': this.p1.battle,
-            'state2': this.p2.battle,
+            'state1': this.p1.state,
+            'state2': this.p2.state,
             'done': done,
             'info': info,
         };

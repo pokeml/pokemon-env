@@ -1,6 +1,7 @@
 'use strict';
 
 require('colors');
+const _ = require('underscore');
 const Battle = require('./state/battle');
 const splitFirst = require('./utils').splitFirst;
 
@@ -58,6 +59,39 @@ class Side {
             this.battle.activityQueue.push(line);
         }
         this.battle.update();
+    }
+
+    /**
+     * Returns the subset of properties of the partially observed battle state
+     * that might be useful information for the player.
+     *
+     * @return {Object}
+     */
+    get state() {
+        const battleKeys = [
+            'turn', 'weather', 'pseudoWeather', 'weatherTimeLeft', 'weatherMinTimeLeft', 'lastMove',
+            'gen', 'teamPreviewCount', 'speciesClause', 'tier', 'gameType', 'endLastTurnPending',
+        ];
+        const sideKeys = [
+            'name', 'id', 'totalPokemon', 'missedPokemon', 'wisher', 'sideConditions', 'n',
+        ];
+        const omittedPokemonKeys = ['side', 'spriteid'];
+
+        const pickBattleKeys = (battle) => _.pick(battle, battleKeys);
+        const pickSideKeys = (side) => _.pick(side, sideKeys);
+        const omitPokemonKeys = (pokemon) => _.omit(pokemon, omittedPokemonKeys);
+
+        const state = pickBattleKeys(this.battle);
+        state.mySide = pickSideKeys(this.battle.mySide);
+        state.mySide.lastPokemon = omitPokemonKeys(this.battle.mySide.lastPokemon);
+        state.mySide.active = this.battle.mySide.active.map(omitPokemonKeys);
+        state.mySide.pokemon = this.battle.mySide.pokemon.map(omitPokemonKeys);
+        state.yourSide = pickSideKeys(this.battle.yourSide);
+        state.yourSide.lastPokemon = omitPokemonKeys(this.battle.yourSide.lastPokemon);
+        state.yourSide.active = this.battle.yourSide.active.map(omitPokemonKeys);
+        state.yourSide.pokemon = this.battle.yourSide.pokemon.map(omitPokemonKeys);
+
+        return state;
     }
 }
 
