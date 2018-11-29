@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/pokeml/pokemon-env.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-env)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<a href="https://discord.gg/VYwe6hp"><img src="https://img.shields.io/discord/308323056592486420.svg?logo=discord" alt="chat on Discord"></a>
 
 # Pokémon Environment
 
