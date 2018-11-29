@@ -25,8 +25,22 @@ class Side {
         this.name = spec.name | 'Player';
         this.team = spec.team;
 
-        this.battle = new Battle();
         this.request = null;
+        this.battle = new Battle();
+        this.battle.customCallback = (battle, type, args, kwargs) => {
+            switch (type) {
+            case 'trapped':
+                this.request.active[0].trapped = true;
+                break;
+            case 'cant':
+                for (var i = 0; i < this.request.active[0].moves.length; i++) {
+                    if (this.request.active[0].moves[i].id === args[3]) {
+                        this.request.active[0].moves[i].disabled = true;
+                    }
+                }
+                break;
+            }
+        };
     }
 
     /**
@@ -38,7 +52,7 @@ class Side {
             if (this.debug) console.log(`${line}`.gray);
             if (line.charAt(0) !== '|') return;
             const [cmd, rest] = splitFirst(line.slice(1), '|');
-            if (cmd === 'error') {
+            if (cmd === 'error' && rest.substring(0, 16) !== '[Invalid choice]') {
                 throw new Error(rest);
             }
             this.battle.activityQueue.push(line);
