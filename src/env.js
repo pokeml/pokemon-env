@@ -3,9 +3,6 @@
  * Simulates a Pokémon battle between two bots.
  */
 
-/* eslint no-unused-vars: "off" */
-/* eslint max-len: "off" */
-
 const Battle = require('../Pokemon-Showdown/sim/battle');
 const Side = require('./side');
 const {MoveAction, SwitchAction, TeamAction} = require('./actions');
@@ -66,12 +63,14 @@ class Environment {
                 if (Array.isArray(data)) data = data.join('\n');
                 switch (type) {
                 case 'update':
+                    /* eslint-disable max-len */
                     const p1Update = data.replace(/\n\|split\n[^\n]*\n([^\n]*)\n[^\n]*\n[^\n]*/g, '\n$1');
                     this.p1.receive(p1Update);
                     const p2Update = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n([^\n]*)\n[^\n]*/g, '\n$1');
                     this.p2.receive(p2Update);
                     // const specUpdate = data.replace(/\n\|split\n([^\n]*)\n[^\n]*\n[^\n]*\n[^\n]*/g, '\n$1');
                     // const omniUpdate = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n[^\n]*/g, '');
+                    /* eslint-enable max-len */
                     break;
                 case 'sideupdate':
                     const [side, sideData] = splitFirst(data, `\n`);
