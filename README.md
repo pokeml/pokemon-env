@@ -33,6 +33,6 @@ node examples/scripts/sim.js
 
 from the project's root directory. The file [random-agent.js](examples/agents/random-agent.js) shows how to implement a simple random agent.
 
-### Contributing
+## Contributing
 
 Check out our [projects page](https://github.com/pokeml/pokemon-env/projects) for getting ideas how you can contribute. Click on the different projects to see the tasks that still need to be done.
