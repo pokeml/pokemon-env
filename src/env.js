@@ -61,7 +61,7 @@ class Environment {
 
         const battleOptions = {
             formatid: this.format,
-            seed: [this.seed, this.seed, this.seed, this.seed],
+            seed: Array(4).fill(this.seed),
             send: (type, data) => {
                 if (Array.isArray(data)) data = data.join('\n');
                 switch (type) {
@@ -119,7 +119,7 @@ class Environment {
      * @return {Observation}
      */
     step(action1, action2) {
-        if (!action1 && !action2) {
+        if (action1 == null && action2 == null) {
             throw new Error('Must specify at least one action.');
         }
 
