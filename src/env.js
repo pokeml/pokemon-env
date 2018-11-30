@@ -68,18 +68,10 @@ class PokemonEnv {
             seed: this.seed ? Array(4).fill(this.seed) : null,
             send: (type, data) => this._receiveBattleUpdate(type, data),
         };
-        const p1Options = {
-            name: this.p1.name,
-            team: this.p1.team,
-        };
-        const p2Options = {
-            name: this.p2.name,
-            team: this.p2.team,
-        };
 
         this.battle = new Battle(battleOptions);
-        this.battle.setPlayer('p1', p1Options);
-        this.battle.setPlayer('p2', p2Options);
+        this.battle.setPlayer('p1', this.p1Spec);
+        this.battle.setPlayer('p2', this.p2Spec);
         this.battle.sendUpdates();
 
         return this._getObservations();
