@@ -1,9 +1,5 @@
 node_modules/
-tsconfig.json
-
-src/state-ts/
+src/agent.js
+src/side.js
 src/client.js
-examples/agents/test-agent.js
-examples/scripts/launch-client.js
-
 .DS_Store

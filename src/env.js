@@ -1,10 +1,6 @@
 'use strict';
-/**
- * Simulates a Pokémon battle between two bots.
- */
 
 const Battle = require('../Pokemon-Showdown/sim/battle');
-const Side = require('./side');
 const {Action, MoveAction, SwitchAction, TeamAction} = require('./actions');
 const splitFirst = require('./utils').splitFirst;
 
@@ -15,17 +11,15 @@ const splitFirst = require('./utils').splitFirst;
  */
 
 /**
- * @typedef {Object} Observation
- * @property {Battle} p1State
- * @property {Battle} p2State
- * @property {boolean} done
- * @property {Object} info
+ * @typedef {Object} Player
+ * @property {Object} observation
+ * @property {Object} request
  */
 
 /**
  * A gym-like environment that simulates a Pokémon battle between two agents.
  */
-class Environment {
+class PokemonEnv {
     /**
      * @param {string} format
      * @param {PlayerSpec} p1Spec
@@ -38,9 +32,21 @@ class Environment {
         this.p2Spec = p2Spec;
         this.seed = seed;
 
-        this.p1 = null;
-        this.p2 = null;
-        this.battle = null;
+        this.battle = /** @type {Battle} */ null;
+        this.p1 = /** @type {Player} */ {};
+        this.p2 = /** @type {Player} */ {};
+    }
+
+    /**
+     * Get the action space for the current battle state, which includes both player's spaces.
+     *
+     * @return {Array}
+     */
+    get actionSpace() {
+        return [
+            this._getActionSpace('p1'),
+            this._getActionSpace('p2'),
+        ];
     }
 
     /**
@@ -49,45 +55,18 @@ class Environment {
      * @return {Observation}
      */
     reset() {
-        if (this.p1) this.p1.battle.destroy();
-        if (this.p2) this.p2.battle.destroy();
+        // destroy battle
         if (this.battle) this.battle.destroy();
 
-        this.p1 = new Side('p1', this.p1Spec);
-        this.p2 = new Side('p2', this.p2Spec);
+        // reset players
+        this.p1 = {'observation': [], 'request': null};
+        this.p2 = {'observation': [], 'request': null};
 
+        // create new battle
         const battleOptions = {
             formatid: this.format,
             seed: Array(4).fill(this.seed),
-            send: (type, data) => {
-                if (Array.isArray(data)) data = data.join('\n');
-                switch (type) {
-                case 'update':
-                    /* eslint-disable max-len */
-                    const p1Update = data.replace(/\n\|split\n[^\n]*\n([^\n]*)\n[^\n]*\n[^\n]*/g, '\n$1');
-                    this.p1.receive(p1Update);
-                    const p2Update = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n([^\n]*)\n[^\n]*/g, '\n$1');
-                    this.p2.receive(p2Update);
-                    // const specUpdate = data.replace(/\n\|split\n([^\n]*)\n[^\n]*\n[^\n]*\n[^\n]*/g, '\n$1');
-                    // const omniUpdate = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n[^\n]*/g, '');
-                    /* eslint-enable max-len */
-                    break;
-                case 'sideupdate':
-                    const [side, sideData] = splitFirst(data, `\n`);
-                    const [cmd, rest] = splitFirst(sideData.slice(1), '|');
-                    if (cmd === 'request' && rest.length !== 0) {
-                        // store action request
-                        (side === 'p1' ? this.p1 : this.p2).request = JSON.parse(rest);
-                    } else {
-                        // send battle updates to player
-                        (side === 'p1' ? this.p1 : this.p2).receive(sideData);
-                    }
-                    break;
-                case 'end':
-                    // ignore
-                    break;
-                }
-            },
+            send: (type, data) => this._receiveBattleUpdate(type, data),
         };
         const p1Options = {
             name: this.p1.name,
@@ -103,14 +82,14 @@ class Environment {
         this.battle.setPlayer('p2', p2Options);
         this.battle.sendUpdates();
 
-        return [this.p1.state, this.p2.state];
+        return this._getObservations();
     }
 
     /**
      * Advance the battle by executing actions for both players.
      *
      * @param {Action[]} actions
-     * @return {Observation}
+     * @return {Object}
      */
     step(actions) {
         // error handling
@@ -125,33 +104,58 @@ class Environment {
         if (actions[0]) this.battle.choose('p1', actions[0].choice);
         if (actions[1]) this.battle.choose('p2', actions[1].choice);
 
-        // update state trackers
         this.battle.sendUpdates();
 
-        // compute rewards
-        let rewards = [0, 0];
-        if (this.battle.ended && this.battle.winner) {
-            rewards = this.battle.winner === this.battle.p1.name ? [1, -1] : [-1, 1];
-        }
-
         return {
-            'states': [this.p1.state, this.p2.state],
-            'rewards': rewards,
-            'done': this.battle.ended,
-            'info': null,
+            'observations': this._getObservations(),
+            'rewards': this._getRewards(),
+            'done': this._isDone(),
+            'info': this._getInfo(),
         };
     }
 
     /**
-     * Get the action space for the current battle state, which includes both player's spaces.
+     * Get the observations for both players.
      *
-     * @return {Object}
+     * @return {Array}
      */
-    get actionSpace() {
-        return [
-            this._getActionSpace('p1'),
-            this._getActionSpace('p2'),
+    _getObservations() {
+        const observations = [
+            this.p1.observation.join('\n'),
+            this.p2.observation.join('\n'),
         ];
+        this.p1.observation = [];
+        this.p2.observation = [];
+        return observations;
+    }
+
+    /**
+     * Get the rewards for both players.
+     *
+     * @return {Array}
+     */
+    _getRewards() {
+        let rewards = [0, 0];
+        if (this.battle.ended && this.battle.winner) {
+            rewards = this.battle.winner === this.battle.p1.name ? [1, -1] : [-1, 1];
+        }
+        return rewards;
+    }
+
+    /**
+     * Check if the battle is done.
+     *
+     * @return {boolean}
+     */
+    _isDone() {
+        return this.battle.ended;
+    }
+
+    /**
+     * @return {?Object}
+     */
+    _getInfo() {
+        return null;
     }
 
     /**
@@ -237,6 +241,42 @@ class Environment {
     }
 
     /**
+     * Handle update messages from the battle simulator.
+     *
+     * @param {string} type
+     * @param {Array | string} data
+     */
+    _receiveBattleUpdate(type, data) {
+        if (Array.isArray(data)) data = data.join('\n');
+        switch (type) {
+        case 'update':
+            /* eslint-disable max-len */
+            const p1Update = data.replace(/\n\|split\n[^\n]*\n([^\n]*)\n[^\n]*\n[^\n]*/g, '\n$1');
+            const p2Update = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n([^\n]*)\n[^\n]*/g, '\n$1');
+            // const specUpdate = data.replace(/\n\|split\n([^\n]*)\n[^\n]*\n[^\n]*\n[^\n]*/g, '\n$1');
+            // const omniUpdate = data.replace(/\n\|split\n[^\n]*\n[^\n]*\n[^\n]*/g, '');
+            this.p1.observation.push(p1Update);
+            this.p2.observation.push(p2Update);
+            /* eslint-enable max-len */
+            break;
+        case 'sideupdate':
+            const [side, sideData] = splitFirst(data, `\n`);
+            const [cmd, rest] = splitFirst(sideData.slice(1), '|');
+            if (cmd === 'request' && rest.length !== 0) {
+                // store action request
+                (side === 'p1' ? this.p1 : this.p2).request = JSON.parse(rest);
+            } else if (cmd === 'callback') {
+                console.log(cmd, rest);
+            }
+            this[side].observation.push(sideData);
+            break;
+        case 'end':
+            // ignore
+            break;
+        }
+    }
+
+    /**
      * Display the current battle state.
      */
     render() {
@@ -247,10 +287,8 @@ class Environment {
      * Clean up the environment.
      */
     close() {
-        if (this.p1) this.p1.battle.destroy();
-        if (this.p2) this.p2.battle.destroy();
         if (this.battle) this.battle.destroy();
     }
 }
 
-module.exports = Environment;
+module.exports = PokemonEnv;
