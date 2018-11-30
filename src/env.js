@@ -274,7 +274,7 @@ class PokemonEnv {
                 case 'cant':
                     const moves = this[side].request.active[0].moves;
                     for (let i = 0; i < moves.length; i++) {
-                        if (moves[i].id === args[3]) {
+                        if (moves[i].id === args[2]) {
                             moves[i].disabled = true;
                         }
                     }
