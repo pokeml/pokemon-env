@@ -3,10 +3,25 @@
 /* eslint-disable no-unused-vars */
 
 require('colors');
+const _ = require('underscore');
 
 const PokemonEnv = require('../src/env');
-const RandomAgent = require('./random-agent');
 const teams = require('../data/teams');
+
+/**
+ * An agent that chooses actions uniformly at random.
+ */
+class RandomAgent {
+    /**
+     * Choose an action at random.
+     *
+     * @param {Array} actionSpace
+     * @return {Action}
+     */
+    act(actionSpace) {
+        return _.sample(actionSpace);
+    }
+}
 
 // parameters
 const numEpisodes = 10;
@@ -21,7 +36,7 @@ const p1Spec = {name: 'Player 1', team: teams[0]};
 const p2Spec = {name: 'Player 2', team: teams[1]};
 
 // init environment
-const env = new PokemonEnv('gen7randombattle', p1Spec, p2Spec);
+const env = new PokemonEnv('gen7ou', p1Spec, p2Spec);
 
 // main loop
 for (let episode = 1; episode <= numEpisodes; episode++) {
@@ -32,6 +47,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
     let rewards = [0, 0];
     let done = false;
 
+    // show observation
     console.log('Time step: 0');
     console.log(`${observations[0]}`.gray);
 
@@ -45,6 +61,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
         // advance environment
         ({observations, rewards, done} = env.step(actions));
 
+        // show observation
         console.log(`Time step: ${t}`);
         console.log(`${observations[0]}`.gray);
 
