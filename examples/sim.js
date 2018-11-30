@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable no-unused-vars */
+
 require('colors');
 
 const PokemonEnv = require('../src/env');
@@ -47,8 +49,6 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
         console.log(`${observations[0]}`.gray);
 
         if (done) {
-            console.log(`p1 reward: ${rewards[0]}`);
-            console.log(`p2 reward: ${rewards[1]}`);
             break;
         }
     }
