@@ -40,14 +40,14 @@ const env = new PokemonEnv('gen7ou', p1Spec, p2Spec);
 
 // main loop
 for (let episode = 1; episode <= numEpisodes; episode++) {
-    console.log(`Episode ${episode}`);
-
     // reset environment
     let observations = env.reset();
     let rewards = [0, 0];
     let done = false;
 
-    // show observation
+    // logging
+    console.clear();
+    console.log(`Episode ${episode}`);
     console.log('Time step: 0');
     console.log(`${observations[0]}`.gray);
 
@@ -61,7 +61,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
         // advance environment
         ({observations, rewards, done} = env.step(actions));
 
-        // show observation
+        // logging
         console.log(`Time step: ${t}`);
         console.log(`${observations[0]}`.gray);
 
