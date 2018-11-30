@@ -266,7 +266,20 @@ class PokemonEnv {
                 // store action request
                 (side === 'p1' ? this.p1 : this.p2).request = JSON.parse(rest);
             } else if (cmd === 'callback') {
-                console.log(cmd, rest);
+                const [type, ...args] = rest.split('|');
+                switch (type) {
+                case 'trapped':
+                    this[side].request.active[0].trapped = true;
+                    break;
+                case 'cant':
+                    const moves = this[side].request.active[0].moves;
+                    for (let i = 0; i < moves.length; i++) {
+                        if (moves[i].id === args[3]) {
+                            moves[i].disabled = true;
+                        }
+                    }
+                    break;
+                }
             }
             this[side].observation.push(sideData);
             break;
