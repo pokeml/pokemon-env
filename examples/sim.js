@@ -7,7 +7,7 @@ const RandomAgent = require('./random-agent');
 const teams = require('../data/teams');
 
 // parameters
-const numEpisodes = 100;
+const numEpisodes = 10;
 const maxSteps = 1000;
 
 // agents
