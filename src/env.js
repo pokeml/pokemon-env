@@ -65,7 +65,7 @@ class PokemonEnv {
         // create new battle
         const battleOptions = {
             formatid: this.format,
-            seed: Array(4).fill(this.seed),
+            seed: this.seed ? Array(4).fill(this.seed) : null,
             send: (type, data) => this._receiveBattleUpdate(type, data),
         };
         const p1Options = {
