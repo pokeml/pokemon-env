@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/pokeml/pokemon-env.svg?branch=master)](https://travis-ci.com/pokeml/pokemon-env)
+[![npm version](https://badge.fury.io/js/pokemon-env.svg)](https://badge.fury.io/js/pokemon-env)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<a href="https://discord.gg/VYwe6hp"><img src="https://img.shields.io/discord/464883985030578177.svg?logo=discord" alt="chat on Discord"></a>
+[![chat on Discord](https://img.shields.io/discord/464883985030578177.svg?logo=discord)](https://discord.gg/VYwe6hp)
 
 # Pokémon Environment
 
