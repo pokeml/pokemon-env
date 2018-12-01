@@ -48,7 +48,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
     // logging
     console.clear();
     console.log(`Episode ${episode}`);
-    console.log('Time step: 0');
+    console.log('Time: 0');
     console.log(`${observations[0]}`.gray);
 
     for (let t = 1; t <= maxSteps; t++) {
@@ -62,7 +62,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
         ({observations, rewards, done} = env.step(actions));
 
         // logging
-        console.log(`Time step: ${t}`);
+        console.log(`Time: ${t}`);
         console.log(`${observations[0]}`.gray);
 
         if (done) {
