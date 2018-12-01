@@ -30,10 +30,10 @@ to install the necessary dependencies.
 For an example of how to simulate a battle between two agents, run
 
 ```bash
-node examples/scripts/sim.js
+node examples/sim.js
 ```
 
-from the project's root directory. The file [random-agent.js](examples/agents/random-agent.js) shows how to implement a simple random agent.
+from the project's root directory.
 
 ## Contributing
 
