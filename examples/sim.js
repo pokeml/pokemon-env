@@ -4,7 +4,6 @@
 
 require('colors');
 const _ = require('underscore');
-
 const PokemonEnv = require('../src/env');
 const teams = require('../data/teams');
 
@@ -51,6 +50,7 @@ for (let episode = 1; episode <= numEpisodes; episode++) {
     console.log('Time: 0');
     console.log(`${observations[0]}`.gray);
 
+    // battle loop
     for (let t = 1; t <= maxSteps; t++) {
         // choose actions
         const actions = [
