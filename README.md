@@ -5,7 +5,7 @@
 
 # Pokémon Environment
 
-This project is an environment built for the development of Pokémon battle agents, based on the [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown) simulator. Check out our [pokemon-agents](https://github.com/pokeml/pokemon-agents) for usage examples.
+This project is an environment built for the development of Pokémon battle agents, based on the [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown) simulator. Check out [pokemon-agents](https://github.com/pokeml/pokemon-agents) for usage examples.
 
 ## Getting Started
 
