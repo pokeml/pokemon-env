@@ -1,5 +1,6 @@
 'use strict';
 
+require('colors');
 const Battle = require('../Pokemon-Showdown/sim/battle');
 const {Action, MoveAction, SwitchAction, TeamAction} = require('./actions');
 const splitFirst = require('./utils').splitFirst;
@@ -300,7 +301,17 @@ class PokemonEnv {
      * Display the current battle state.
      */
     render() {
-        throw new Error('Not implemented.');
+        console.log(`Turn: ${this.battle.turn}`.gray);
+        console.log(`---`.gray);
+        console.log(`Player 1's team:`.gray);
+        for (const pokemon of this.battle.p1.pokemon) {
+            console.log(`${pokemon.species} ${pokemon.hp}/${pokemon.maxhp}`.gray);
+        }
+        console.log(`---`.gray);
+        console.log(`Player 2's team:`.gray);
+        for (const pokemon of this.battle.p2.pokemon) {
+            console.log(`${pokemon.species} ${pokemon.hp}/${pokemon.maxhp}`.gray);
+        }
     }
 
     /**

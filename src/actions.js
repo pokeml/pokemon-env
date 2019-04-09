@@ -44,6 +44,13 @@ class MoveAction extends Action {
         this.mega = options.mega | false;
         this.zmove = options.zmove | false;
     }
+
+    /**
+     * @override
+     */
+    toString() {
+        return `move ${this.moveName}` + (this.mega ? ' mega' : '') + (this.zmove ? ' z' : '');
+    }
 }
 
 /**
@@ -59,6 +66,13 @@ class SwitchAction extends Action {
         this.pokeNum = pokeNum;
         this.pokeName = pokeName;
     }
+
+    /**
+     * @override
+     */
+    toString() {
+        return `switch ${this.pokeName}`;
+    }
 }
 
 /**
@@ -71,6 +85,13 @@ class TeamAction extends Action {
     constructor(team) {
         super('team', `team ${team}`);
         this.team = team;
+    }
+
+    /**
+     * @override
+     */
+    toString() {
+        return `team ${this.team}`;
     }
 }
 
