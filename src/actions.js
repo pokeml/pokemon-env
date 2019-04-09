@@ -26,9 +26,10 @@ class Action {
 class MoveAction extends Action {
     /**
      * @param {int} moveNum
+     * @param {string} moveName
      * @param {MoveActionOptions} options
      */
-    constructor(moveNum, options = {}) {
+    constructor(moveNum, moveName, options = {}) {
         let choice = `move ${moveNum}`;
         if (options.mega) {
             choice += ' mega';
@@ -39,6 +40,7 @@ class MoveAction extends Action {
         super('move', choice);
 
         this.moveNum = moveNum;
+        this.moveName = moveName;
         this.mega = options.mega | false;
         this.zmove = options.zmove | false;
     }
@@ -50,10 +52,12 @@ class MoveAction extends Action {
 class SwitchAction extends Action {
     /**
      * @param {int} pokeNum
+     * @param {string} pokeName
      */
-    constructor(pokeNum) {
+    constructor(pokeNum, pokeName) {
         super('switch', `switch ${pokeNum}`);
         this.pokeNum = pokeNum;
+        this.pokeName = pokeName;
     }
 }
 

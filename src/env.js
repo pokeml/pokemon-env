@@ -84,7 +84,6 @@ class PokemonEnv {
      * @return {Object}
      */
     step(actions) {
-        // error handling
         if (!Array.isArray(actions) || actions.length !== 2) {
             throw new Error('Must provide an array of two actions.');
         }
@@ -92,7 +91,6 @@ class PokemonEnv {
             throw new Error('Must specify at least one valid action.');
         }
 
-        // advance simulator
         if (actions[0]) this.battle.choose('p1', actions[0].choice);
         if (actions[1]) this.battle.choose('p2', actions[1].choice);
 
@@ -174,7 +172,10 @@ class PokemonEnv {
                 // not fainted
                 !pokemon[i - 1].condition.endsWith(' fnt')
             ));
-            return switches.map((i) => new SwitchAction(i));
+            return switches.map((i) => new SwitchAction(
+                i,
+                pokemon[i - 1].ident.slice(4),
+            ));
         } else if (request.active) {
             const active = request.active[0];
             const pokemon = request.side.pokemon;
@@ -184,17 +185,28 @@ class PokemonEnv {
                 // not disabled
                 !active.moves[i - 1].disabled
             ));
-            actionSpace.push(...moves.map((i) => new MoveAction(i)));
+            actionSpace.push(...moves.map((i) => new MoveAction(
+                i,
+                active.moves[i - 1].move,
+            )));
             // moves + mega evo
             if (active.canMegaEvo) {
-                actionSpace.push(...moves.map((i) => new MoveAction(i, {'mega': true})));
+                actionSpace.push(...moves.map((i) => new MoveAction(
+                    i,
+                    active.moves[i - 1].move,
+                    {'mega': true},
+                )));
             }
             // zmoves
             if (active.canZMove) {
                 const zmoves = [1, 2, 3, 4].slice(0, active.canZMove.length).filter((i) =>
                     active.canZMove[i - 1]
                 );
-                actionSpace.push(...zmoves.map((i) => new MoveAction(i, {'zmove': true})));
+                actionSpace.push(...zmoves.map((i) => new MoveAction(
+                    i,
+                    active.moves[i - 1].move,
+                    {'zmove': true}
+                )));
             }
             // switches
             if (!active.trapped) {
@@ -206,7 +218,10 @@ class PokemonEnv {
                     // not fainted
                     !pokemon[i - 1].condition.endsWith(' fnt')
                 ));
-                actionSpace.push(...switches.map((i) => new SwitchAction(i)));
+                actionSpace.push(...switches.map((i) => new SwitchAction(
+                    i,
+                    pokemon[i - 1].ident.slice(4),
+                )));
             }
             return actionSpace;
         } else if (request.teamPreview) {
